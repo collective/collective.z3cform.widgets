@@ -27,6 +27,7 @@ Requirements
 
 * jQuery >= 1.4
 * Chosen (http://harvesthq.github.com/chosen/)
+* TextExt (http://textextjs.com/)
 
 Browsers supported
 ------------------
