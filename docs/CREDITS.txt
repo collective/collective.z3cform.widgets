@@ -1,0 +1,8 @@
+Contributors
+------------
+
+* Silvestre Huens (s.huens@gmail.com)
+
+* Héctor Velarde (hector.velarde@gmail.com)
+
+Development sponsored by Open Multimedia.
