@@ -13,6 +13,8 @@ collective.z3cform.widgets will provide the following widgets:
 
 * a widget to add a list of options; this widget will degrade to <textarea> if
   JavaScript is not enabled.
+* a widget for tag input and autocomplete; this widget will degrade to
+  <textarea> if JavaScript is not enabled.
 * a widget to select an option from a list; this widget will degrade to
   <select> if JavaScript is not enabled.
 * a widget to select multiple options from a list; this widget will degrade to
