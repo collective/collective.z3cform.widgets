@@ -11,25 +11,34 @@ A widget package for Plone 4 projects.
 
 collective.z3cform.widgets will provide the following widgets:
 
-* a widget to add a list of options; this widget will degrade to <textarea> if
-  JavaScript is not enabled.
-* a widget for tag input and autocomplete; this widget will degrade to
-  <textarea> if JavaScript is not enabled.
+* `a widget to add a list of options
+  <https://github.com/collective/collective.z3cform.widgets/issues/1>`_ ; this
+  widget will degrade to <textarea> if JavaScript is not enabled.
+
+* `a widget for tag input and autocomplete
+  <https://github.com/collective/collective.z3cform.widgets/issues/2>`_ ; this
+  widget will degrade to <textarea> if JavaScript is not enabled.
+
 * a widget to select an option from a list; this widget will degrade to
   <select> if JavaScript is not enabled.
+
 * a widget to select multiple options from a list; this widget will degrade to
   <select> if JavaScript is not enabled.
-* a widget to select multiple options from a dynamic list of results; for
-  instance, a catalog search; this widget will replace the one in
-  collective.formwidget.relationfield that is pretty buggy and will be removed
-  from the face of the earth; we need a little more brainstorming here.
+
+* `a widget to add a dynamic list of objects
+  <https://github.com/collective/collective.z3cform.widgets/issues/3>`_ ; this
+  widget will replace the one in collective.formwidget.relationfield that is
+  pretty buggy and will be removed from the face of the earth; we need a
+  little more brainstorming here.
 
 Requirements
 ------------
 
 * jQuery >= 1.4
-* Chosen (http://harvesthq.github.com/chosen/)
-* TextExt (http://textextjs.com/)
+
+* `Chosen <http://harvesthq.github.com/chosen/>`_
+
+* `TextExt <http://textextjs.com/>`_
 
 Browsers supported
 ------------------
