@@ -1,0 +1,24 @@
+<span id="" class=""
+      tal:attributes="id view/id;
+                      class view/klass;
+                      style view/style;
+                      title view/title;
+                      lang view/lang;
+                      onclick view/onclick;
+                      ondblclick view/ondblclick;
+                      onmousedown view/onmousedown;
+                      onmouseup view/onmouseup;
+                      onmouseover view/onmouseover;
+                      onmousemove view/onmousemove;
+                      onmouseout view/onmouseout;
+                      onkeypress view/onkeypress;
+                      onkeydown view/onkeydown;
+                      onkeyup view/onkeyup"
+        >
+    <div tal:repeat="term view/terms">
+        <a tal:content="term/title"
+           tal:attributes="href term/token"
+           tal:condition="python:not(term.token.startswith('#error-'))"
+           />
+    </div>
+</span>

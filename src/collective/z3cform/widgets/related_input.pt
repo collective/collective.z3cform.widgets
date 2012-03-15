@@ -1,0 +1,26 @@
+<i18n:domain i18n:domain="plone.formwidget.contenttree">
+    <script type="text/javascript" tal:content="structure view/js"></script>
+    <div tal:attributes="id string:${view/id}-autocomplete">
+        <div tal:attributes="id string:${view/id}-input-fields" class="autocompleteInputWidget"
+                tal:content="structure view/renderQueryWidget" />
+        <tal:block replace="structure view/subform/render" />
+    </div>
+    <div class="contenttreeWindow"
+        tal:attributes="id string:${view/id}-contenttree-window">
+    <div class="contenttreeWindowHeader">
+    <h2 i18n:translate="heading_contenttree_browse">Browse for items</h2>
+    <em tal:condition="view/multi_select"
+        i18n:translate="heading_contenttree_help">Press Ctrl to select multiple items.
+    </em>
+    </div>
+    <div class="contenttreeWidget"
+        tal:attributes="id string:${view/id}-contenttree">
+        <ul class="navTree navTreeLevel0">
+            <li tal:replace="structure view/render_tree" />
+        </ul>
+    </div>
+    <div class="contenttreeWindowActions">
+    <input class="context contentTreeAdd" type="button" i18n:attributes="value label_contenttree_add" value="Add"/> <input class="standalone contentTreeCancel" i18n:attributes="value label_contenttree_cancel" type="button" value="Cancel"/>
+    </div>
+    </div>
+</i18n:domain>
