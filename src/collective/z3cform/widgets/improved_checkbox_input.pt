@@ -52,8 +52,12 @@
        tal:attributes="name string:${view/name}-empty-marker" />
 
 <input type="submit" name="batch.prev" value="Prev"
-       tal:condition="view/show_prev"/>
+       tal:condition="view/show_prev"
+       i18n:domain="collective.z3cform.widgets"
+       i18n:attributes="value"/>
 <input type="submit" name="batch.next" value="Next"
-       tal:condition="view/show_next"/>
+       tal:condition="view/show_next"
+       i18n:domain="collective.z3cform.widgets"
+       i18n:attributes="value"/>
 
 </html>
