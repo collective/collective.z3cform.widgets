@@ -79,7 +79,6 @@ class RelatedContentWidget(MultiContentTreeWidget):
                                obj=portal,
                                query=source.navigation_tree_query,
                                strategy=strategy)
-
         return self.recurse_template(
                                     children=data.get('children', [])[:limit],
                                     level=1)
@@ -108,7 +107,7 @@ class RelatedContentWidget(MultiContentTreeWidget):
                         }).insertAfter($(this));
                 });
                 $('#%(id)s-contenttree-window').find('.contentTreeAdd').unbind('click').click(function () {
-                    $(this).contentTreeAdd();
+                    $(this).contentTreeAddRelated();
                 });
                 $('#%(id)s-contenttree-window').find('.contentTreeCancel').unbind('click').click(function () {
                     $(this).contentTreeCancel();

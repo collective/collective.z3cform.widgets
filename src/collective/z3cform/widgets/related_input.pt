@@ -13,12 +13,20 @@
         i18n:translate="heading_contenttree_help">Press Ctrl to select multiple items.
     </em>
     </div>
-    <div class="contenttreeWidget"
+    <div class="relatedWidgetContainer">
+    <div class="relatedWidget"
         tal:attributes="id string:${view/id}-contenttree">
-        <ul class="navTree navTreeLevel0">
+        <ul class="navTree navTreeLevel0 from">
             <li tal:replace="structure view/render_tree" />
         </ul>
+        <ul class="navTree navTreeLevel0 recieve">
+        </ul>
     </div>
+    <div class="relatedWidgetRecieve">
+      <ul class="navTree navTreeLevel0">
+      </ul>
+    </div>
+  </div>
     <div class="contenttreeWindowActions">
     <input class="context contentTreeAdd" type="button" i18n:attributes="value label_contenttree_add" value="Add"/> <input class="standalone contentTreeCancel" i18n:attributes="value label_contenttree_cancel" type="button" value="Cancel"/>
     </div>

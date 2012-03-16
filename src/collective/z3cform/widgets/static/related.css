@@ -1,0 +1,74 @@
+.relatedWidget {
+    border: 1px solid #8CACBB;
+    bottom: 3.5em;
+    height: auto;
+    left: 0;
+    margin: 0 1em;
+    overflow-y: auto;
+    position: absolute;
+    right: 0;
+    top: 6em;
+    width: 97%;
+}
+
+.relatedWidget ul.from {
+    border: 1px solid #8CACBB;
+    height: 100%;
+    overflow-y: auto;
+    width: 50%;
+    float: left;
+}
+
+.relatedWidget ul.recieve {
+    border: 1px solid #8CACBB;
+    height: 100%;
+    overflow-y: auto;
+    width: 49%;
+    float: right;
+}
+
+.relatedWidget li {
+    display: block;
+    padding-left: 1em;
+}
+
+.relatedWidget .navTreeCurrentItem {
+    font-weight: bold;
+}
+
+.relatedWidget .navTreeCurrentItem li {
+    font-weight: normal;
+}
+
+.relatedWidget li a {
+    border-bottom: solid 1px transparent;
+}
+
+.relatedWidget .navTreeItem a {
+    border: none;
+    display: block;
+    text-decoration: none;
+    padding-top: 0.2em;
+    padding-bottom: 0.25em;
+}
+
+.relatedWidget .navTreeItem a:hover {
+    border: 1px dotted #205C90;
+}
+
+.relatedWidget li.navTreeCurrentItem {
+    border: none !important;
+    background-color: transparent;
+}
+.relatedWidget li.navTreeCurrentItem > a,
+.relatedWidget li.navTreeCurrentItem > a:hover {
+    border: none;
+    background-color: #205C90;
+    color: #fff !important;
+}
+
+/* Another workaround for broken Internet Explorer */
+* html .relatedWidget li.navTreeCurrentItem a,
+* html .relatedWidget li.navTreeCurrentItem a:hover {
+    height: 1.6em;
+}
