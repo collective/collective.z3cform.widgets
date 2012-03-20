@@ -27,6 +27,10 @@
     float: right;
 }
 
+.relatedWidget ul.recieve li{
+    position: relative;
+}
+
 .relatedWidget li {
     display: block;
     padding-left: 1em;
@@ -71,4 +75,11 @@
 * html .relatedWidget li.navTreeCurrentItem a,
 * html .relatedWidget li.navTreeCurrentItem a:hover {
     height: 1.6em;
+}
+
+.related-item-close {
+    position: absolute;
+    right: 5px;
+    top: 6px;
+    cursor: pointer;
 }

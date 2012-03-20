@@ -20,6 +20,7 @@
             <li tal:replace="structure view/render_tree" />
         </ul>
         <ul class="navTree navTreeLevel0 recieve">
+          <li tal:replace="structure view/render_selected" />
         </ul>
     </div>
     <div class="relatedWidgetRecieve">

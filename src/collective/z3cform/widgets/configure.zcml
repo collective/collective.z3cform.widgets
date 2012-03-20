@@ -30,5 +30,12 @@
         description="Remove collective.z3cform.widgets from Plone."
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
+    
+    <browser:page
+        name="contenttree-related-fetch"
+        for="plone.formwidget.contenttree.interfaces.IContentTreeWidget"
+        permission="zope.Public"
+        class=".related_widget.FetchRelated"
+        />
 
 </configure>

@@ -7,19 +7,23 @@ from zope.i18n import translate
 
 from plone.app.layout.navigation.interfaces import INavtreeStrategy
 from plone.app.layout.navigation.navtree import buildFolderTree
-from plone.formwidget.contenttree.widget import MultiContentTreeWidget
+from plone.formwidget.contenttree.widget import MultiContentTreeWidget, Fetch
 import z3c.form.interfaces
 import z3c.form.widget
 from z3c.form import field
 
 from collective.z3cform.widgets import _
 
+class FetchRelated(Fetch):
+    fragment_template = ViewPageTemplateFile('fragment.pt')
+    recurse_template = ViewPageTemplateFile('input_recurse.pt')
 
 class RelatedContentWidget(MultiContentTreeWidget):
     display_template = ViewPageTemplateFile('related_display.pt')
     input_template = ViewPageTemplateFile('related_input.pt')
     recurse_template = ViewPageTemplateFile('related_recurse.pt')
     checkbox_template = ViewPageTemplateFile('improved_checkbox_input.pt')
+    selected_template = ViewPageTemplateFile('related_selected.pt')
 
     def update(self):
         super(RelatedContentWidget, self).update()
@@ -61,7 +65,8 @@ class RelatedContentWidget(MultiContentTreeWidget):
         self.unchecked = self.unchecked[lower:upper]
 
         self.items = self.checked + self.unchecked
-
+        #import pdb; pdb.set_trace()
+        
     def render_tree(self, relPath=None, query=None, limit=10):
         content = self.context
         portal_state = getMultiAdapter((self.context, self.request),
@@ -83,12 +88,15 @@ class RelatedContentWidget(MultiContentTreeWidget):
                                     children=data.get('children', [])[:limit],
                                     level=1)
 
+    def render_selected(self):
+        return self.selected_template(children=self.items)
+        
     def renderQueryWidget(self):
         return self.checkbox_template()
 
     def js_extra(self):
         form_url = self.request.getURL()
-        url = "%s/++widget++%s/@@contenttree-fetch" % (form_url, self.name)
+        url = "%s/++widget++%s/@@contenttree-related-fetch" % (form_url, self.name)
 
         return """\
 

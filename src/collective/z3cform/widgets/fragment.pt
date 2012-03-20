@@ -1,0 +1,6 @@
+<ul style="display:none"
+    tal:define="level options/level|python:0; children options/children|nothing"
+    tal:attributes="class python:'navTree navTreeLevel'+str(level)"
+    tal:condition="python: len(children) > 0">
+    <span tal:replace="structure python:view.recurse_template(children=children, level=level+1)" />
+</ul>

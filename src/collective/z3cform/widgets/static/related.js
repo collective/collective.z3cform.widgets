@@ -65,24 +65,39 @@ if(jQuery) (function($){
                 }});
 })(jQuery);
 
-
+(function ($) {
+   $.fn.liveDraggable = function (opts) {
+      this.live("mouseover", function() {
+         if (!$(this).data("init")) {
+            $(this).data("init", true).draggable(opts);
+         }
+      });
+      return $();
+   };
+}(jQuery));
 
 $(function() {
-		$( ".relatedWidget .navTreeItem").draggable({ containment: ".relatedWidget",  scroll: false, helper: "clone"});
-		
-		$(".relatedWidget ul.recieve").droppable({            
-	        accept: ".relatedWidget .navTreeItem",               
-	        drop: function(ev, ui) {                                   
-	        // Añado el objeto origen a la lista destino                                   
-	            $(this).append($(ui.draggable));                   
-	        }
-	  });
-	  
-	  $(".relatedWidget ul.from").droppable({            
-	               accept: ".relatedWidget ul.recieve .navTreeItem",               
-	               drop: function(ev, ui) {                                   
-	               // Añado el objeto origen a la lista destino                                   
-	                   $(this).append($(ui.draggable));                   
-	               }
-	         });
+		$( ".relatedWidget ul.from .navTreeItem").liveDraggable({ containment: ".relatedWidget",  scroll: false, helper: "clone"}); 
+	  $(".relatedWidget ul.recieve").droppable({
+        			activeClass: "ui-state-default",
+        			hoverClass: "ui-state-hover",
+        			drop: function(event, ui) {        			  
+        			  var children = $(this).children();
+        			  var i = 0;
+        			  var exists = false;
+        			  for(i=0; i<children.length; i++) {
+        			    if(ui.draggable.attr('uid') == $(children[i]).attr('uid')){
+        			      exists = true;
+        			    }
+        			  }
+        			  if(!exists) {
+        			    var clon = ui.draggable.clone()
+        			    clon.append("<div class='related-item-close'>X</div>")
+        			    clon.appendTo( this );
+        			  }	
+        			}
+        		}).sortable();
+	});
+	$(".related-item-close").live("click", function() {
+	  $(this).parent().remove();
 	});
