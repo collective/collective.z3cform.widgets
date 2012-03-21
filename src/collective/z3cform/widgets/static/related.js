@@ -76,6 +76,18 @@ if(jQuery) (function($){
    };
 }(jQuery));
 
+
+function relatedWidgetSearchFilter(url) {
+  var queryVal = $("#relatedWidget-search-input").val();
+  $.ajax({
+    url: url,
+    data: {'q':queryVal},
+    success: function(info){
+      $(".relatedWidget ul.from").html(info)
+    }
+  });
+}
+
 $(function() {
 		$( ".relatedWidget ul.from .navTreeItem").liveDraggable({ containment: ".relatedWidget",  scroll: false, helper: "clone"}); 
 	  $(".relatedWidget ul.recieve").droppable({
@@ -97,7 +109,5 @@ $(function() {
         			  }	
         			}
         		}).sortable();
-	});
-	$(".related-item-close").live("click", function() {
-	  $(this).parent().remove();
-	});
+
+});

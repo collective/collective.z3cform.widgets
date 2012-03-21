@@ -7,12 +7,67 @@ from zope.i18n import translate
 
 from plone.app.layout.navigation.interfaces import INavtreeStrategy
 from plone.app.layout.navigation.navtree import buildFolderTree
+from plone.app.vocabularies.catalog import parse_query
 from plone.formwidget.contenttree.widget import MultiContentTreeWidget, Fetch
+from plone.formwidget.autocomplete.widget import AutocompleteSearch
+
+from Products.CMFCore.utils import getToolByName
 import z3c.form.interfaces
 import z3c.form.widget
 from z3c.form import field
 
 from collective.z3cform.widgets import _
+
+
+class RelatedSearch(AutocompleteSearch):
+    
+    display_template = ViewPageTemplateFile('related_search.pt')
+ 
+    def __call__(self):
+
+        # We want to check that the user was indeed allowed to access the
+        # form for this widget. We can only this now, since security isn't
+        # applied yet during traversal.
+        self.validate_access()
+
+        query = self.request.get('q', None)
+        if not query:
+            return ''
+
+        # Update the widget before accessing the source.
+        # The source was only bound without security applied
+        # during traversal before.
+        self.context.update()
+        source = self.context.bound_source
+        # TODO: use limit?
+        result = self.search(query)
+        portal_state = getMultiAdapter((self.context, self.request),
+                                          name=u'plone_portal_state')
+        portal = portal_state.portal()
+
+        strategy = getMultiAdapter((portal, self.context), INavtreeStrategy)
+        #import pdb; pdb.set_trace()
+        result = [strategy.decoratorFactory({'item':node}) for node in result]
+
+        return self.display_template(children=result, level=1)
+
+    def getTermByBrain(self,brain):
+        # Ask the widget
+        return self.context.getTermByBrain(brain)
+   
+    def search(self, query='', limit=None):
+        portal_tool = getToolByName(self.context, "portal_url")
+        self.portal_path = portal_tool.getPortalPath()
+        source = self.context.bound_source
+        catalog_query = source.selectable_filter.criteria.copy()
+        catalog_query.update(parse_query(query, self.portal_path))
+
+        if limit and 'sort_limit' not in catalog_query:
+            catalog_query['sort_limit'] = limit
+
+        results =  source.catalog(**catalog_query)
+        return results
+          
 
 class FetchRelated(Fetch):
     fragment_template = ViewPageTemplateFile('fragment.pt')
@@ -73,6 +128,7 @@ class RelatedContentWidget(MultiContentTreeWidget):
                                           name=u'plone_portal_state')
         portal = portal_state.portal()
         source = self.bound_source
+        #import pdb; pdb.set_trace()
         if query is not None:
             source.navigation_tree_query = query
         strategy = getMultiAdapter((portal, self), INavtreeStrategy)
@@ -93,6 +149,14 @@ class RelatedContentWidget(MultiContentTreeWidget):
         
     def renderQueryWidget(self):
         return self.checkbox_template()
+    
+    def related_url(self):
+        """Generate the URL that returns autocomplete results for this form
+        """
+        form_url = self.request.getURL()
+
+        return "%s/++widget++%s/@@related-search" % (
+            form_url, self.name )
 
     def js_extra(self):
         form_url = self.request.getURL()
@@ -135,7 +199,15 @@ class RelatedContentWidget(MultiContentTreeWidget):
                         // alert(event + ', ' + selected + ', ' + data + ', ' + title);
                     }
                 );
+                
+                $("#relatedWidget-search-button").unbind("click")
+            	$("#relatedWidget-search-button").live("click", function() {
+            	    var urlSearch = '%(urlSearch)s'
+            	    relatedWidgetSearchFilter(urlSearch);
+            	});
+
         """ % dict(url=url,
+                   urlSearch=self.related_url(),
                    id=self.name.replace('.', '-'),
                    folderEvent=self.folderEvent,
                    selectEvent=self.selectEvent,

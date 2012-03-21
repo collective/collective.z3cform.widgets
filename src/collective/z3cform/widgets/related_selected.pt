@@ -9,6 +9,7 @@
                 </a>
               </tal:block>
             </tal:level>
+            <div class='related-item-close'>X</div>
         </li>
     </tal:navitem>
 </tal:master>

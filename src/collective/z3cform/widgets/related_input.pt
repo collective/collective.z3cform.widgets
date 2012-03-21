@@ -9,13 +9,14 @@
         tal:attributes="id string:${view/id}-contenttree-window">
     <div class="contenttreeWindowHeader">
     <h2 i18n:translate="heading_contenttree_browse">Browse for items</h2>
-    <em tal:condition="view/multi_select"
-        i18n:translate="heading_contenttree_help">Press Ctrl to select multiple items.
-    </em>
     </div>
     <div class="relatedWidgetContainer">
+      
     <div class="relatedWidget"
         tal:attributes="id string:${view/id}-contenttree">
+        <div id="relatedWidget-search">
+        <input id="relatedWidget-search-input" type="text" /> <input type="button" value="ok" id="relatedWidget-search-button">
+      </div>
         <ul class="navTree navTreeLevel0 from">
             <li tal:replace="structure view/render_tree" />
         </ul>

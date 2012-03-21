@@ -38,4 +38,10 @@
         class=".related_widget.FetchRelated"
         />
 
+    <browser:page
+        name="related-search"
+        for="plone.formwidget.autocomplete.interfaces.IAutocompleteWidget"
+        permission="zope.Public"
+        class=".related_widget.RelatedSearch"
+        />
 </configure>
