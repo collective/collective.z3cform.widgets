@@ -15,10 +15,9 @@
     </div>
     <div class="relatedWidgetContainer">
       
-    <div class="relatedWidget"
-        tal:attributes="id string:${view/id}-contenttree">
+    <div class="relatedWidget">
         
-        <ul class="navTree navTreeLevel0 from">
+        <ul class="navTree navTreeLevel0 from" tal:attributes="id string:${view/id}-contenttree">
             <li tal:replace="structure view/render_tree" />
         </ul>
         <ul class="navTree navTreeLevel0 recieve">

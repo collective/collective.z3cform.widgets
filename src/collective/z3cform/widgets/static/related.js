@@ -47,7 +47,6 @@ function formwidget_autocomplete_new_value(input_box,value,label) {
 }
 
 if(jQuery) (function($){
-
     $.extend($.fn, {
         contentTreeAddRelated: function() {
                     var contenttree_window = (this).parents(".contenttreeWindow");
@@ -106,14 +105,18 @@ $(function() {
         			  }
         			  if(!exists) {
         			    var clon = ui.draggable.clone()
+        			    var children = $("ul",clon);
+        			    if(children.length) {
+        			      children.remove();
+        			    }
         			    clon.append("<div class='related-item-close'>X</div>");
         			    clon.appendTo( this );
         			  }	
         			}
         		}).sortable();
-        		$(".relatedWidget ul.recieve li").append("<div class='related-item-close'>X</div>");
-        		$(".related-item-close").live("click", function() {
-        		  $(this).parent().remove();
-        		})
+    $(".relatedWidget ul.recieve li").append("<div class='related-item-close'>X</div>");
+    $(".related-item-close").live("click", function() {
+        $(this).parent().remove();
+    })
 
 });
