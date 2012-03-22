@@ -46,7 +46,7 @@ class RelatedSearch(AutocompleteSearch):
         portal = portal_state.portal()
 
         strategy = getMultiAdapter((portal, self.context), INavtreeStrategy)
-        #import pdb; pdb.set_trace()
+
         result = [strategy.decoratorFactory({'item':node}) for node in result]
 
         return self.display_template(children=result, level=1)
@@ -78,7 +78,7 @@ class RelatedContentWidget(MultiContentTreeWidget):
     input_template = ViewPageTemplateFile('related_input.pt')
     recurse_template = ViewPageTemplateFile('related_recurse.pt')
     checkbox_template = ViewPageTemplateFile('improved_checkbox_input.pt')
-    selected_template = ViewPageTemplateFile('related_selected.pt')
+    selected_template = ViewPageTemplateFile('related_search.pt')
 
     def update(self):
         super(RelatedContentWidget, self).update()
@@ -120,7 +120,6 @@ class RelatedContentWidget(MultiContentTreeWidget):
         self.unchecked = self.unchecked[lower:upper]
 
         self.items = self.checked + self.unchecked
-        #import pdb; pdb.set_trace()
         
     def render_tree(self, relPath=None, query=None, limit=10):
         content = self.context
@@ -128,7 +127,7 @@ class RelatedContentWidget(MultiContentTreeWidget):
                                           name=u'plone_portal_state')
         portal = portal_state.portal()
         source = self.bound_source
-        #import pdb; pdb.set_trace()
+
         if query is not None:
             source.navigation_tree_query = query
         strategy = getMultiAdapter((portal, self), INavtreeStrategy)
@@ -145,7 +144,21 @@ class RelatedContentWidget(MultiContentTreeWidget):
                                     level=1)
 
     def render_selected(self):
-        return self.selected_template(children=self.items)
+        portal_state = getMultiAdapter((self.context, self.request),
+                                         name=u'plone_portal_state')
+        portal = portal_state.portal()
+        strategy = getMultiAdapter((portal, self), INavtreeStrategy)
+
+        catalog = getToolByName(self.context, 'portal_catalog')
+        items = []
+        for related in self.items:
+            folder_path = related['value']
+            result = catalog(path={'query': folder_path, 'depth': 0})
+            if result:
+                brain = result[0]
+                items.append(strategy.decoratorFactory({'item':brain}))
+        
+        return self.selected_template(children=items, level=1)
         
     def renderQueryWidget(self):
         return self.checkbox_template()
@@ -201,9 +214,11 @@ class RelatedContentWidget(MultiContentTreeWidget):
                 );
                 
                 $("#relatedWidget-search-button").unbind("click")
-            	$("#relatedWidget-search-button").live("click", function() {
+            	$("#relatedWidget-search-button").live("click", function(event) {
+            	    event.preventDefault();
             	    var urlSearch = '%(urlSearch)s'
             	    relatedWidgetSearchFilter(urlSearch);
+            	    return false;
             	});
 
         """ % dict(url=url,

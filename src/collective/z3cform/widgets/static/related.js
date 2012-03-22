@@ -83,9 +83,11 @@ function relatedWidgetSearchFilter(url) {
     url: url,
     data: {'q':queryVal},
     success: function(info){
-      $(".relatedWidget ul.from").html(info)
+      $(".relatedWidget ul.from").html(info);
+      return false;
     }
   });
+  return false;
 }
 
 $(function() {
@@ -104,10 +106,14 @@ $(function() {
         			  }
         			  if(!exists) {
         			    var clon = ui.draggable.clone()
-        			    clon.append("<div class='related-item-close'>X</div>")
+        			    clon.append("<div class='related-item-close'>X</div>");
         			    clon.appendTo( this );
         			  }	
         			}
         		}).sortable();
+        		$(".relatedWidget ul.recieve li").append("<div class='related-item-close'>X</div>");
+        		$(".related-item-close").live("click", function() {
+        		  $(this).parent().remove();
+        		})
 
 });
