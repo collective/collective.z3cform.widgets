@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-03-15 21:04+0000\n"
+"POT-Creation-Date: 2012-03-26 18:12+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,5 +23,20 @@ msgstr ""
 
 #: collective/z3cform/widgets/improved_checkbox_input.pt:54
 msgid "Prev"
+msgstr ""
+
+#. Default: "Browse for items"
+#: collective/z3cform/widgets/related_input.pt:11
+msgid "heading_contenttree_browse"
+msgstr ""
+
+#. Default: "Acept"
+#: collective/z3cform/widgets/related_input.pt:33
+msgid "label_contenttree_add"
+msgstr ""
+
+#. Default: "Cancel"
+#: collective/z3cform/widgets/related_input.pt:33
+msgid "label_contenttree_cancel"
 msgstr ""
 
