@@ -115,6 +115,10 @@ $(function() {
         			}
         		}).sortable();
     $(".relatedWidget ul.recieve li").append("<div class='related-item-close'>X</div>");
+    $(".relatedWidget ul.recieve li a").live("click", function(e) {
+      e.preventDefault();
+      return false;
+    })
     $(".related-item-close").live("click", function() {
         $(this).parent().remove();
     })

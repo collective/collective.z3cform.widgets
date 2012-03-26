@@ -40,7 +40,7 @@ setup(name='collective.z3cform.widgets',
         'plone.z3cform >= 0.7.4',
         ],
       extras_require={
-        'test': ['plone.app.testing'],
+        'test': ['plone.app.testing', 'plone.formwidget.contenttree'],
         },
       entry_points="""
       [z3c.autoinclude.plugin]

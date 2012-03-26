@@ -15,6 +15,10 @@ class Fixture(PloneSandboxLayer):
         import collective.z3cform.widgets
         self.loadZCML(package=collective.z3cform.widgets)
 
+    def setUpPloneSite(self, portal):
+        # Install into Plone site using portal_setup
+        self.applyProfile(portal, 'collective.z3cform.widgets:default')
+
 
 FIXTURE = Fixture()
 INTEGRATION_TESTING = IntegrationTesting(
