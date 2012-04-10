@@ -46,7 +46,7 @@ class KeywordsWidget(textarea.TextAreaWidget):
             if index < len(values) - 1:
                 tags += ", "
         old_index = 0
-        #import pdb; pdb.set_trace()
+
         for index, value in enumerate(old_values):
             old_tags += "{id: '%s', name: '%s'}" % (value, value)
             if index < len(old_values) - 1:
@@ -72,7 +72,6 @@ def KeywordsFieldWidget(field, request):
 
 @zope.interface.implementer(interfaces.IFieldWidget)
 def KeywordsWidgetFactory(field, value_type, request):
-    import pdb;pdb.set_trace()
     """IFieldWidget factory for TextLinesWidget."""
     return KeywordsFieldWidget(field, request)
 
@@ -99,7 +98,7 @@ class KeywordsConverter(BaseDataConverter):
         if not len(value):
             return self.field.missing_value
         valueType = self.field.value_type._type
-        #import pdb; pdb.set_trace()
+
         if isinstance(valueType, tuple):
             valueType = valueType[0]
         return collectionType(valueType(v) for v in value.splitlines())

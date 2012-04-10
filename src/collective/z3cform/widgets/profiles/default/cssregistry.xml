@@ -5,5 +5,9 @@
      title="" cacheable="True" compression="safe" cookable="True"
      enabled="1" expression="" media="screen"
      rel="stylesheet" rendering="import" />
+     <stylesheet id="++resource++collective.z3cform.widgets/token-input-facebook.css"
+          title="" cacheable="True" compression="safe" cookable="True"
+          enabled="1" expression="" media="screen"
+          rel="stylesheet" rendering="import" />
 
 </object>

@@ -135,7 +135,9 @@ class RelatedContentWidget(MultiContentTreeWidget):
             root_path = portal_state.navigation_root_path()
             rel_path = root_path + '/' + relPath
             strategy.rootPath = rel_path
-        data = buildFolderTree(portal,
+        #import pdb; pdb.set_trace()
+        if not source.selectable_filter.criteria:
+            data = buildFolderTree(portal,
                                obj=portal,
                                query=source.navigation_tree_query,
                                strategy=strategy)

@@ -44,4 +44,23 @@
         permission="zope.Public"
         class=".related_widget.RelatedSearch"
         />
+    
+    
+    
+    
+    
+    
+    
+    
+        <class class=".keywords_widget.KeywordsWidget">
+            <require
+                permission="zope.Public"
+                interface=".interfaces.IKeywordsWidget"
+                />
+          </class>
+
+          <adapter
+                factory=".keywords_widget.KeywordsConverter"
+                />
+    
 </configure>
