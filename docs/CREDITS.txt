@@ -5,4 +5,6 @@ Contributors
 
 * Héctor Velarde (hector.velarde@gmail.com)
 
+* Cleber J Santos (cleber@cleberjsantos.com.br)
+
 Development sponsored by Open Multimedia.
