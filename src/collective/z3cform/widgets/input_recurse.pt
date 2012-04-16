@@ -1,5 +1,3 @@
-
-
 <tal:master define="level options/level|python:0; children options/children | nothing;">
     <tal:navitem repeat="node children">
         <li tal:define="show_children       node/show_children;

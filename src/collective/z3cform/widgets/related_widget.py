@@ -12,6 +12,7 @@ from plone.formwidget.contenttree.widget import MultiContentTreeWidget, Fetch
 from plone.formwidget.autocomplete.widget import AutocompleteSearch
 
 from Products.CMFCore.utils import getToolByName
+
 import z3c.form.interfaces
 import z3c.form.widget
 from z3c.form import field
@@ -51,7 +52,7 @@ class RelatedSearch(AutocompleteSearch):
 
         return self.display_template(children=result, level=1)
 
-    def getTermByBrain(self,brain):
+    def getTermByBrain(self, brain):
         # Ask the widget
         return self.context.getTermByBrain(brain)
    
@@ -135,15 +136,44 @@ class RelatedContentWidget(MultiContentTreeWidget):
             root_path = portal_state.navigation_root_path()
             rel_path = root_path + '/' + relPath
             strategy.rootPath = rel_path
-        #import pdb; pdb.set_trace()
+        
         if not source.selectable_filter.criteria:
             data = buildFolderTree(portal,
                                obj=portal,
                                query=source.navigation_tree_query,
                                strategy=strategy)
+        else:
+           result = self.getRelated()
+           data = self.brainsToTerms(result)
         return self.recurse_template(
-                                    children=data.get('children', [])[:limit],
+                                    children=data.get('children', []),
                                     level=1)
+
+    def getRelated(self, query='', limit=None):
+        portal_tool = getToolByName(self.context, "portal_url")
+        portal_path = portal_tool.getPortalPath()
+        source = self.bound_source
+        catalog_query = source.selectable_filter.criteria.copy()
+        catalog_query.update(parse_query(query, portal_path))
+
+        if limit and 'sort_limit' not in catalog_query:
+            catalog_query['sort_limit'] = limit
+
+        results =  source.catalog(**catalog_query)
+        return results
+    
+    def brainsToTerms(self, brains):
+        portal_state = getMultiAdapter((self.context, self.request),
+                                          name=u'plone_portal_state')
+        portal = portal_state.portal()
+
+        strategy = getMultiAdapter((portal, self), INavtreeStrategy)
+        result = []
+        for node in brains:
+            term = strategy.decoratorFactory({'item':node})
+            term['children'] = [] 
+            result.append(term)
+        return {'children': result}
 
     def render_selected(self):
         portal_state = getMultiAdapter((self.context, self.request),
