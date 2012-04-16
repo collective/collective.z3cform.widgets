@@ -9,10 +9,13 @@ from collective.z3cform.widgets.testing import INTEGRATION_TESTING
 
 JAVASCRIPTS = [
     "++resource++collective.z3cform.widgets/related.js",
+    "++resource++collective.z3cform.widgets/jquery.tokeninput.min.js",
+    "++resource++collective.z3cform.widgets/keywords.js"
     ]
 
 CSS = [
     "++resource++collective.z3cform.widgets/related.css",
+    "++resource++collective.z3cform.widgets/token-input-facebook.css"
     ]
 
 class InstallTest(unittest.TestCase):
