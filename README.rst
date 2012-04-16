@@ -16,7 +16,7 @@ collective.z3cform.widgets will provide the following widgets:
   widget will degrade to <textarea> if JavaScript is not enabled.
 
 * `a widget for tag input and autocomplete
-  <https://github.com/collective/collective.z3cform.widgets/issues/2>`_ ; , when the product is installed, the subject field's widget will be changed for one that uses query-tokenunput. This
+  <https://github.com/collective/collective.z3cform.widgets/issues/2>`_ ; when the product is installed, the subject field's widget will be changed for one that uses query-tokenunput. This
   widget will degrade to <textarea> if JavaScript is not enabled.
 
 * a widget to select an option from a list; this widget will degrade to
@@ -30,6 +30,7 @@ collective.z3cform.widgets will provide the following widgets:
   widget will replace the one in collective.formwidget.relationfield that is
   pretty buggy and will be removed from the face of the earth; we need a
   little more brainstorming here.
+  if we pass to the source's field: source=ObjPathSourceBinder().. the widget will show a folder tree, otherwise, if we filter this way: source=ObjPathSourceBinder(portal_type='Document') it will show the list of the search result.
 
 Requirements
 ------------
