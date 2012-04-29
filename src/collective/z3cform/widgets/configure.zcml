@@ -52,5 +52,11 @@
             interface=".interfaces.IKeywordsWidget"
         />
     </class>
+    <class class=".tasks_widget.TasksWidget">
+        <require
+            permission="zope.Public"
+            interface=".interfaces.ITasksWidget"
+        />
+    </class>
     
 </configure>

@@ -90,3 +90,42 @@
 #relatedWidget-search input {
 
 }
+
+
+
+
+.tasksplease {
+    width:20em;
+    margin:0px;
+    padding:0px;
+}
+.tasksplease li {
+    background-color:#EEE;
+    padding:5px 40px 5px 10px;
+    margin:5px 0;
+    list-style:none outside none;
+    position:relative;
+}
+.tasksplease li:hover {
+    background-color:#E2E2E2;
+}
+
+.remove {
+    background:transparent url(++resource++collective.z3cform.widgets//actions-sprite.png) scroll no-repeat -16px 0;
+    width:16px;
+    height:16px;
+    position:absolute;
+    right:5px;
+}
+/* Hide only visually, but have it available for screenreaders*/
+.remove span {
+    border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px;
+}
+
+#content .tasksplease-container textarea.task-description {
+    width: 30%;
+}
+#content ul.token-input-list-facebook,
+#content ul.tasksplease {
+    margin-left: 0;
+}

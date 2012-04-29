@@ -9,4 +9,7 @@
   <javascript id="++resource++collective.z3cform.widgets/keywords.js"
           cacheable="True" compression="none" cookable="True" enabled="True"
           expression="" inline="False" />
+<javascript id="++resource++collective.z3cform.widgets/jquery.tasksplease.js"
+               cacheable="True" compression="none" cookable="True" enabled="True"
+               expression="" inline="False" />
 </object>
