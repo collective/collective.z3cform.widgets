@@ -38,7 +38,7 @@ How to use the Widgets
 
 1) Normal use in a form if we have a new field
 
-.. code:: Python
+::
 
     subjects = schema.Tuple(
         title = _(u'label_categories', default=u'Categories'),
@@ -54,7 +54,7 @@ How to use the Widgets
 
 in an __init__.py of any intalled product 
 
-.. code:: Python
+::
 
     from plone.autoform.interfaces import WIDGETS_KEY
     from plone.directives.form.schema import TEMP_KEY
