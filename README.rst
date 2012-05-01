@@ -11,13 +11,42 @@ A widget package for Plone 4 projects.
 
 collective.z3cform.widgets provides the following widgets:
 
-* `a widget to add a list of options
-  <https://github.com/collective/collective.z3cform.widgets/issues/1>`_ ; this
-  widget will degrade to <textarea> if JavaScript is not enabled.
+1) TasksWidget: a widget to add a list of options; this widget will degrade to <textarea> if JavaScript is not enabled. to use this Widget we must use a List field or a Tuple field with the value_type as a schema.TextLine() like this:
+::
+ 
+  form.widget(options=TasksFieldWidget)
+  options = schema.List(
+     title=_(u"Available options"),
+     value_type= schema.TextLine(),
+     default=[],
+     required=True)
+  
 
-* `a widget for tag input and autocomplete
-  <https://github.com/collective/collective.z3cform.widgets/issues/2>`_ ; when the product is installed, the subject field's widget will be changed for one that uses query-tokenunput. This
-  widget will degrade to <textarea> if JavaScript is not enabled.
+2) KeywordsWidget: a widget for tag input and autocomplete; a widget that uses jquery-tokenunput. This widget will degrade to <textarea> if JavaScript is not enabled.  to use this Widget we must use a List field or a Tuple field with the value_type as a schema.TextLine() like this:
+::
+ 
+  form.widget(options=KeywordsFieldWidget)
+  options = schema.List(
+     title=_(u"Available options"),
+     value_type= schema.TextLine(),
+     default=[],
+     required=True)
+
+3) RelatedContentWidget: a widget to add a dynamic list of objects.. this works as a widget for related items field so it must be used like this:
+::
+
+    relatedItems = RelationList(
+        title=_(u'label_related_items', default=u'Related Items'),
+        default=[],
+        value_type=RelationChoice(title=u"Related",
+                      source=ObjPathSourceBinder(portal_type='Document')),
+        required=False,
+        )
+    form.widget(relatedItems=RelatedContentFieldWidget)
+
+the parameters passed to the ObjPathSourceBinder class are used to filter the search of elements to relate to.. if none parameter are passed, a tree structure is shown in the widget.
+
+4) Future Widgets:
 
 * a widget to select an option from a list; this widget will degrade to
   <select> if JavaScript is not enabled.
@@ -25,16 +54,10 @@ collective.z3cform.widgets provides the following widgets:
 * a widget to select multiple options from a list; this widget will degrade to
   <select> if JavaScript is not enabled.
 
-* `a widget to add a dynamic list of objects
-  <https://github.com/collective/collective.z3cform.widgets/issues/3>`_ ; this
-  widget will replace the one in collective.formwidget.relationfield that is
-  pretty buggy and will be removed from the face of the earth; we need a
-  little more brainstorming here.
-  if we pass to the source's field: source=ObjPathSourceBinder().. the widget will show a folder tree, otherwise, if we filter this way: source=ObjPathSourceBinder(portal_type='Document') it will show the list of the search result.
 
 
-How to use the Widgets
-----------------------
+Normal use of Widgets
+---------------------
 
 1) Normal use in a form if we have a new field
 
