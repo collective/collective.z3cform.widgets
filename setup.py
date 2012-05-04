@@ -7,7 +7,7 @@ version = '1.0'
 setup(name='collective.z3cform.widgets',
       version=version,
       description="A widget package for Plone 4 projects.",
-      long_description=open("README.rst").read() + "\n" +
+      long_description=open("README.txt").read() + "\n" +
                        open(os.path.join("docs", "INSTALL.txt")).read() + "\n" +
                        open(os.path.join("docs", "CREDITS.txt")).read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
