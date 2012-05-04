@@ -1,12 +1,11 @@
 Contributors
 ------------
 
-* Silvestre Huens (s.huens@gmail.com)
-
-* Gonzalo Almeida (flecox@gmail.com)
-
-* Héctor Velarde (hector.velarde@gmail.com)
-
-* Cleber J Santos (cleber@cleberjsantos.com.br)
+* Franco Pellegrini
+* Silvestre Huens
+* Gonzalo Almeida
+* Héctor Velarde
+* Cleber J Santos
 
 Development sponsored by Open Multimedia.
+

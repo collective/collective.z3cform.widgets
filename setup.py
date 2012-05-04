@@ -4,14 +4,15 @@ import os
 from setuptools import setup, find_packages
 
 version = '1.0'
+long_description = open("README.txt").read() + "\n" + \
+                   open(os.path.join("docs", "INSTALL.txt")).read() + "\n" + \
+                   open(os.path.join("docs", "CREDITS.txt")).read() + "\n" + \
+                   open(os.path.join("docs", "HISTORY.txt")).read()
 
 setup(name='collective.z3cform.widgets',
       version=version,
-      description="A widget package for Plone 4 projects.",
-      long_description=open("README.txt").read() + "\n" +
-                       open(os.path.join("docs", "INSTALL.txt")).read() + "\n" +
-                       open(os.path.join("docs", "CREDITS.txt")).read() + "\n" +
-                       open(os.path.join("docs", "HISTORY.txt")).read(),
+      description="A widget package for Dexterity projects.",
+      long_description=long_description,
       classifiers=[
         "Development Status :: 3 - Alpha",
         "Environment :: Web Environment",
@@ -28,7 +29,7 @@ setup(name='collective.z3cform.widgets',
         "Topic :: Software Development :: Libraries :: Python Modules",
         "Topic :: Software Development :: User Interfaces",
         ],
-      keywords='plone z3c widgets',
+      keywords='plone z3c widgets dexterity',
       author='Gonzalo Almeida',
       author_email='flecox@ravvit.net',
       url='https://github.com/collective/collective.z3cform.widgets',
