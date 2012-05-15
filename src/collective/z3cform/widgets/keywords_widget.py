@@ -38,20 +38,20 @@ class KeywordsWidget(textarea.TextAreaWidget):
         old_tags = ""
         index = 0
         for index, value in enumerate(values):
-            tags += "{id: '%s', name: '%s'}" % (value, value)
+            tags += "{id: '%s', name: '%s'}" % (value.replace("'", "\\'"), value.replace("'", "\\'"))
             if index < len(values) - 1:
                 tags += ", "
         old_index = 0
         #prepopulate
         for index, value in enumerate(old_values):
-            old_tags += "{id: '%s', name: '%s'}" % (value, value)
+            old_tags += u"{id: '%s', name: '%s'}" % (value.replace("'", "\\'"), value.replace("'", "\\'"))
             if index < len(old_values) - 1:
                 old_tags += ", "
-
-        return self.js_template % dict(id=self.id,
+        result = self.js_template % dict(id=self.id,
             klass=self.klass,
-            newtags=tags,
+            newtags=unicode(tags, errors='ignore'),
             oldtags=old_tags)
+        return result
 
     def render(self):
         if self.mode == interfaces.DISPLAY_MODE:
