@@ -9,15 +9,15 @@ from z3c.form.converter import BaseDataConverter
 
 from zope.app.pagetemplate.viewpagetemplatefile import ViewPageTemplateFile
 
-from collective.z3cform.widgets.interfaces import IKeywordsWidget
+from collective.z3cform.widgets.interfaces import ITokenInputWidget
 
-class KeywordsWidget(textarea.TextAreaWidget):
+class TokenInputWidget(textarea.TextAreaWidget):
     """Widget for adding new keywords and autocomplete with the ones in the
     system."""
-    zope.interface.implementsOnly(IKeywordsWidget)
-    klass = u"keyword-widget"
-    display_template = ViewPageTemplateFile('keywords_display.pt')
-    input_template = ViewPageTemplateFile('keywords_input.pt')
+    zope.interface.implementsOnly(ITokenInputWidget)
+    klass = u"token-input-widget"
+    display_template = ViewPageTemplateFile('token_input_display.pt')
+    input_template = ViewPageTemplateFile('token_input_input.pt')
     
     # JavaScript template
     js_template = """\
@@ -60,6 +60,6 @@ class KeywordsWidget(textarea.TextAreaWidget):
             return self.input_template(self)
 
 @zope.interface.implementer(interfaces.IFieldWidget)
-def KeywordsFieldWidget(field, request):
-    """IFieldWidget factory for KeywordsWidget."""
-    return widget.FieldWidget(field, KeywordsWidget(request))
+def TokenInputFieldWidget(field, request):
+    """IFieldWidget factory for TokenInputWidget."""
+    return widget.FieldWidget(field, TokenInputWidget(request))

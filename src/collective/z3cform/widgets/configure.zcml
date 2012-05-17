@@ -46,10 +46,10 @@
         />
   
         
-    <class class=".keywords_widget.KeywordsWidget">
+    <class class=".token_input_widget.TokenInputWidget">
         <require
             permission="zope.Public"
-            interface=".interfaces.IKeywordsWidget"
+            interface=".interfaces.ITokenInputWidget"
         />
     </class>
     <class class=".tasks_widget.TasksWidget">

@@ -1,7 +1,7 @@
 
 from z3c.form import interfaces
 
-class IKeywordsWidget(interfaces.ITextLinesWidget):
+class ITokenInputWidget(interfaces.ITextLinesWidget):
     """Text lines widget."""
 
 from z3c.form import interfaces
