@@ -2,8 +2,8 @@ Contributors
 ------------
 
 * Franco Pellegrini
-* Silvestre Huens
 * Gonzalo Almeida
+* Silvestre Huens
 * Héctor Velarde
 * Cleber J Santos
 

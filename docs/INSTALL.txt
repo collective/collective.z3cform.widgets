@@ -3,8 +3,8 @@ Installation
 
 To enable this product in a buildout-based installation:
 
-1. Edit your buildout.cfg and add ``collective.z3cform.widgets`` to the list of
-   eggs to install ::
+1. Edit your buildout.cfg and add ``collective.z3cform.widgets`` to the list
+   of eggs to install ::
 
     [buildout]
     ...
