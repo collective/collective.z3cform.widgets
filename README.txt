@@ -31,7 +31,7 @@ collective.z3cform.widgets provides the following widgets:
     JavaScript is not enabled. To use this Widget we must use a List field or
     a Tuple field with the value_type as a schema.TextLine() like this::
 
-        form.widget(options=TokenInputFieldWidget)
+        form.widget(options=TokenInputWidget)
         options = schema.List(
             title=_(u"Available options"),
             value_type= schema.TextLine(),
@@ -90,7 +90,7 @@ your package::
 
     _directives_values = ICategorization.queryTaggedValue(TEMP_KEY)
     _directives_values.setdefault(WIDGETS_KEY, {})
-    widget = 'collective.z3cform.widgets.token_input_widget.TokenInputFieldWidget'
+    widget = 'collective.z3cform.widgets.token_input_widget.TokenInputWidget'
     _directives_values[WIDGETS_KEY]['subjects'] = widget
     _schema.getFields(ICategorization)['subjects'].index_name = 'Subject'
 
