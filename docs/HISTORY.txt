@@ -4,7 +4,8 @@ Changelog
 1.0a2 (unreleased)
 ^^^^^^^^^^^^^^^^^^
 
-- Nothing changed yet.
+- Changing the name of KeywordWidget to a better name TokenInputWidget. [flecox]
+- posibility to add a tag or token o keyword in TokeinInputWidget pressing ENTER. [flecox] 
 
 
 1.0a1 (2012-05-04)

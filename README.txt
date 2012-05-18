@@ -26,12 +26,12 @@ collective.z3cform.widgets provides the following widgets:
 
     This widget uses the `jQuery TaskPlease`_ plugin.
 
-**KeywordsWidget**
+**TokenInputWidget**
     Tokenizing autocomplete text entry; will degrade to <textarea> if
     JavaScript is not enabled. To use this Widget we must use a List field or
     a Tuple field with the value_type as a schema.TextLine() like this::
 
-        form.widget(options=KeywordsFieldWidget)
+        form.widget(options=TokenInputFieldWidget)
         options = schema.List(
             title=_(u"Available options"),
             value_type= schema.TextLine(),
@@ -90,7 +90,7 @@ your package::
 
     _directives_values = ICategorization.queryTaggedValue(TEMP_KEY)
     _directives_values.setdefault(WIDGETS_KEY, {})
-    widget = 'collective.z3cform.widgets.keywords_widget.KeywordsFieldWidget'
+    widget = 'collective.z3cform.widgets.token_input_widget.TokenInputFieldWidget'
     _directives_values[WIDGETS_KEY]['subjects'] = widget
     _schema.getFields(ICategorization)['subjects'].index_name = 'Subject'
 
