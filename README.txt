@@ -17,14 +17,14 @@ collective.z3cform.widgets provides the following widgets:
 
     This widget uses the `jQuery TaskPlease`_ plugin.
 
-**TokenInputWidget**
-    TokenInputWidget allows your users to select multiple items from a
+**TokenInputFieldWidget**
+    TokenInputFieldWidget allows your users to select multiple items from a
     predefined list, using autocompletion as they type to find each item. You
     may have seen a similar type of text entry when filling in the recipients
     field sending messages on `Facebook`_. This widget will degrade to
     <textarea> if JavaScript is not enabled.
 
-    .. image:: https://github.com/collective/collective.z3cform.widgets/raw/master/tokeninputwidget.png
+    .. image:: https://github.com/collective/collective.z3cform.widgets/raw/master/TokenInputFieldWidget.png
         :align: center
         :height: 110px
         :width: 600px

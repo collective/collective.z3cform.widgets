@@ -12,7 +12,7 @@ Changelog
 
 - Updated package documentation. [hvelarde]
 
-- Changing the name of KeywordWidget to a better name TokenInputWidget.
+- Changing the name of KeywordWidget to a better name TokenInputFieldWidget.
   [flecox]
 
 - Now you can add a token just by pressing Enter. [flecox]

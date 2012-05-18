@@ -39,11 +39,11 @@ New fields
             missing_value=(,),
             )
 
-**TokenInputWidget**
+**TokenInputFieldWidget**
     To use this Widget we must use a List field or a Tuple field with the
     value_type as a schema.TextLine() like this::
 
-        form.widget(options=TokenInputWidget)
+        form.widget(options=TokenInputFieldWidget)
         subjects = schema.List(
             title=_(u"Categories"),
             value_type=schema.TextLine(),
@@ -70,7 +70,7 @@ Override existing fields
 **TasksWidget**
     TBA
 
-**TokenInputWidget**
+**TokenInputFieldWidget**
     To override an existing field put the following code in the __init__.py of
     your package::
 
@@ -81,7 +81,7 @@ Override existing fields
 
         _directives_values = ICategorization.queryTaggedValue(TEMP_KEY)
         _directives_values.setdefault(WIDGETS_KEY, {})
-        widget = 'collective.z3cform.widgets.token_input_widget.TokenInputWidget'
+        widget = 'collective.z3cform.widgets.token_input_widget.TokenInputFieldWidget'
         _directives_values[WIDGETS_KEY]['subjects'] = widget
         _schema.getFields(ICategorization)['subjects'].index_name = 'Categories'
 
