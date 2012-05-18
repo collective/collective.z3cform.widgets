@@ -67,13 +67,12 @@ New fields
 Override existing fields
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-To override an existing field put the following code in the __init__.py of
-your package.
-
 **TasksWidget**
     TBA
 
 **TokenInputWidget**
+    To override an existing field put the following code in the __init__.py of
+    your package::
 
         from plone.autoform.interfaces import WIDGETS_KEY
         from plone.directives.form.schema import TEMP_KEY
