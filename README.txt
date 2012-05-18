@@ -24,6 +24,11 @@ collective.z3cform.widgets provides the following widgets:
     field sending messages on `Facebook`_. This widget will degrade to
     <textarea> if JavaScript is not enabled.
 
+    .. image:: https://github.com/collective/collective.z3cform.widgets/raw/master/tokeninputwidget.png
+        :align: center
+        :height: 110px
+        :width: 600px
+
     This widget uses the `jQuery Tokeninput`_ plugin.
 
 **RelatedContentWidget**
