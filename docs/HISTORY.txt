@@ -4,7 +4,8 @@ Changelog
 1.0a3 (unreleased)
 ^^^^^^^^^^^^^^^^^^
 
-- Nothing changed yet.
+- Changing the name of RelatedContentWidget to a "better" name MultiContentSearchFieldWidget.
+  [flecox]
 
 
 1.0a2 (2012-05-18)

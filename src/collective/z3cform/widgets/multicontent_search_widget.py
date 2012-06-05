@@ -74,7 +74,7 @@ class FetchRelated(Fetch):
     fragment_template = ViewPageTemplateFile('fragment.pt')
     recurse_template = ViewPageTemplateFile('input_recurse.pt')
 
-class RelatedContentWidget(MultiContentTreeWidget):
+class MultiContentSearchWidget(MultiContentTreeWidget):
     display_template = ViewPageTemplateFile('related_display.pt')
     input_template = ViewPageTemplateFile('related_input.pt')
     recurse_template = ViewPageTemplateFile('related_recurse.pt')
@@ -82,7 +82,7 @@ class RelatedContentWidget(MultiContentTreeWidget):
     selected_template = ViewPageTemplateFile('related_search.pt')
 
     def update(self):
-        super(RelatedContentWidget, self).update()
+        super(MultiContentSearchWidget, self).update()
 
         batch = 10
         prev = self.request.get("batch.prev", None)
@@ -274,6 +274,6 @@ class RelatedContentWidget(MultiContentTreeWidget):
 
 
 @implementer(z3c.form.interfaces.IFieldWidget)
-def RelatedContentFieldWidget(field, request):
+def MultiContentSearchFieldWidget(field, request):
     return z3c.form.widget.FieldWidget(field,
-                                      RelatedContentWidget(request))
+                                      MultiContentSearchWidget(request))
