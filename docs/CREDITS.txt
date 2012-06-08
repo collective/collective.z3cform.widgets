@@ -1,11 +1,14 @@
-Contributors
-------------
+Share and Enjoy
+---------------
 
-* Franco Pellegrini
-* Gonzalo Almeida
-* Silvestre Huens
-* Héctor Velarde
-* Cleber J Santos
+collective.z3cform.widgets would not have been possible without the
+contribution of the following people:
+
+- Franco Pellegrini
+- Gonzalo Almeida
+- Silvestre Huens
+- Héctor Velarde
+- Cleber J Santos
 
 Development sponsored by Open Multimedia.
 

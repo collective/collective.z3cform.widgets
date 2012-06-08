@@ -1,10 +1,17 @@
 Changelog
 ---------
 
+Because you have to know where your towel is.
+
 1.0a3 (unreleased)
 ^^^^^^^^^^^^^^^^^^
 
-- Changing the name of RelatedContentWidget to a "better" name MultiContentSearchFieldWidget.
+- Updated package documentation. [hvelarde]
+
+- TasksWidget was renamed to EnhancedTextLinesFieldWidget (fixes `#7`_).
+  [hvelarde]
+
+- Changing the name of RelatedContentWidget to MultiContentSearchFieldWidget.
   [flecox]
 
 
@@ -24,3 +31,4 @@ Changelog
 
 - Initial release.
 
+.. _`#7`: https://github.com/collective/collective.z3cform.widgets/issues/7

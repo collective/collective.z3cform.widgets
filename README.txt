@@ -4,16 +4,22 @@ collective.z3cform.widgets
 
 .. contents:: Table of Contents
 
-Overview
---------
+Life, the Universe, and Everything
+----------------------------------
 
 A widget package for Dexterity projects.
 
 collective.z3cform.widgets provides the following widgets:
 
-**TasksWidget**
-    Adds a list of options; degrades to <textarea> if JavaScript is not
-    enabled.
+**EnhancedTextLinesFieldWidget**
+    This widget is an ajaxified version of the TextLinesFieldWidget that
+    allows creation, sort, update and deletion of text lines; degrades to
+    <textarea> if JavaScript is not enabled.
+
+    .. image:: https://github.com/collective/collective.z3cform.widgets/raw/master/enhancedtextlines.png
+        :align: center
+        :height: 143px
+        :width: 600px
 
     This widget uses the `jQuery TaskPlease`_ plugin.
 
@@ -24,7 +30,7 @@ collective.z3cform.widgets provides the following widgets:
     field sending messages on `Facebook`_. This widget will degrade to
     <textarea> if JavaScript is not enabled.
 
-    .. image:: https://github.com/collective/collective.z3cform.widgets/raw/master/tokeninputfieldwidget.png
+    .. image:: https://github.com/collective/collective.z3cform.widgets/raw/master/tokeninput.png
         :align: center
         :height: 110px
         :width: 600px
@@ -36,26 +42,32 @@ collective.z3cform.widgets provides the following widgets:
     related items field so it must be used like this.
 
 Future widgets
---------------
+^^^^^^^^^^^^^^
 
 The following widgets will be available in this package in the near future:
 
-* widget to select an option from a list; this widget will degrade to <select>
+- widget to select an option from a list; this widget will degrade to <select>
   if JavaScript is not enabled.
 
-* widget to select multiple options from a list; this widget will degrade to
+- widget to select multiple options from a list; this widget will degrade to
   <select> if JavaScript is not enabled.
 
 This widgets will probably use the `Chosen`_ plugin.
 
 Browsers supported
-------------------
+^^^^^^^^^^^^^^^^^^
 
 All modern browsers should be supported (Mozilla Firefox 3.0+, Google Chrome
 7.0+, Apple Safari 4.0+, Opera 10.0+ and Microsoft Internet Explorer 9.0+).
+
+Mostly Harmless
+---------------
+
+Have an idea? Found a bug? Let us know by `opening a support ticket`_.
 
 .. _`jQuery TaskPlease`: https://github.com/Quimera/tasksplease
 .. _`jQuery Tokeninput`: http://loopj.com/jquery-tokeninput/
 .. _`Chosen`: http://harvesthq.github.com/chosen/
 .. _`Facebook`: http://www.facebook.com/
+.. _`opening a support ticket`: https://github.com/collective/collective.z3cform.widgets/issues
 

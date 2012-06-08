@@ -22,13 +22,13 @@ To enable this product in a buildout-based installation:
 After updating the configuration you need to run ''bin/buildout'', which will
 take care of updating your system.
 
-Don't panic
+Don't Panic
 -----------
 
 New fields
 ^^^^^^^^^^
 
-**TasksWidget**
+**EnhancedTextLinesFieldWidget**
     To use this widget we must use a List field or a Tuple field with the
     value_type as an schema.TextLine() like this::
 
@@ -67,7 +67,7 @@ New fields
 Override existing fields
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-**TasksWidget**
+**EnhancedTextLinesFieldWidget**
     TBA
 
 **TokenInputFieldWidget**
