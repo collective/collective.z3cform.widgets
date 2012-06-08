@@ -12,8 +12,8 @@ A widget package for Dexterity projects.
 collective.z3cform.widgets provides the following widgets:
 
 **EnhancedTextLinesFieldWidget**
-    This widget is an ajaxified version of the TextLinesFieldWidget that
-    allows creation, sort, update and deletion of text lines; degrades to
+    This widget is an ajaxified version of the TextLinesFieldWidget that will
+    allow creation, sort, update and deletion of text lines; degrades to
     <textarea> if JavaScript is not enabled.
 
     .. image:: https://github.com/collective/collective.z3cform.widgets/raw/master/enhancedtextlines.png
