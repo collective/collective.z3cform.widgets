@@ -30,33 +30,33 @@
         description="Remove collective.z3cform.widgets from Plone."
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
-    
+
     <browser:page
         name="contenttree-related-fetch"
         for="plone.formwidget.contenttree.interfaces.IContentTreeWidget"
         permission="zope.Public"
-        class=".related_widget.FetchRelated"
+        class=".multicontent_search_widget.FetchRelated"
         />
 
     <browser:page
         name="related-search"
         for="plone.formwidget.autocomplete.interfaces.IAutocompleteWidget"
         permission="zope.Public"
-        class=".related_widget.RelatedSearch"
+        class=".multicontent_search_widget.RelatedSearch"
         />
-  
-        
+
     <class class=".token_input_widget.TokenInputWidget">
         <require
             permission="zope.Public"
             interface=".interfaces.ITokenInputWidget"
         />
     </class>
-    <class class=".tasks_widget.TasksWidget">
+
+    <class class=".enhancedtextlines.EnhancedTextLinesFieldWidget">
         <require
             permission="zope.Public"
-            interface=".interfaces.ITasksWidget"
+            interface=".interfaces.IEnhancedTextLinesFieldWidget"
         />
     </class>
-    
+
 </configure>
