@@ -52,10 +52,10 @@
         />
     </class>
 
-    <class class=".enhancedtextlines.EnhancedTextLinesFieldWidget">
+    <class class=".enhancedtextlines.EnhancedTextLinesWidget">
         <require
             permission="zope.Public"
-            interface=".interfaces.IEnhancedTextLinesFieldWidget"
+            interface=".interfaces.IEnhancedTextLinesWidget"
         />
     </class>
 

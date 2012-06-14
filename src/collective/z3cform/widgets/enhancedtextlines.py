@@ -10,14 +10,14 @@ from z3c.form.browser import textarea
 
 from zope.app.pagetemplate.viewpagetemplatefile import ViewPageTemplateFile
 
-from collective.z3cform.widgets.interfaces import IEnhancedTextLinesFieldWidget
+from collective.z3cform.widgets.interfaces import IEnhancedTextLinesWidget
 
 
-class EnhancedTextLinesFieldWidget(textarea.TextAreaWidget):
+class EnhancedTextLinesWidget(textarea.TextAreaWidget):
     """ Widget for adding new keywords and autocomplete with the ones in the
     system.
     """
-    zope.interface.implementsOnly(IEnhancedTextLinesFieldWidget)
+    zope.interface.implementsOnly(IEnhancedTextLinesWidget)
     klass = u"keyword-widget"
     display_template = ViewPageTemplateFile('enhancedtextlines_display.pt')
     input_template = ViewPageTemplateFile('enhancedtextlines_input.pt')
@@ -48,7 +48,7 @@ class EnhancedTextLinesFieldWidget(textarea.TextAreaWidget):
 
 
 @zope.interface.implementer(interfaces.IFieldWidget)
-def TasksFieldWidget(field, request):
+def EnhancedTextLinesFieldWidget(field, request):
     """ IFieldWidget factory for EnhancedTextLinesFieldWidget.
     """
-    return widget.FieldWidget(field, EnhancedTextLinesFieldWidget(request))
+    return widget.FieldWidget(field, EnhancedTextLinesWidget(request))

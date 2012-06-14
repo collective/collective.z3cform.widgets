@@ -123,9 +123,16 @@
 }
 
 #content .tasksplease-container textarea.task-description {
-    width: 30%;
+    width: 20em;
+    height: 26px;
 }
 #content ul.token-input-list-facebook,
 #content ul.tasksplease {
     margin-left: 0;
+}
+
+input.add_task {
+    height: 28px;
+    position: relative;
+    top: -7px;
 }

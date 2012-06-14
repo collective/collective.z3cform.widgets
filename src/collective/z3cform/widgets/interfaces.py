@@ -6,5 +6,5 @@ class ITokenInputWidget(interfaces.ITextLinesWidget):
 
 from z3c.form import interfaces
 
-class IEnhancedTextLinesFieldWidget(interfaces.ITextLinesWidget):
+class IEnhancedTextLinesWidget(interfaces.ITextLinesWidget):
     """Text lines widget."""
