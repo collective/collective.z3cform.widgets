@@ -37,9 +37,22 @@ collective.z3cform.widgets provides the following widgets:
 
     This widget uses the `jQuery Tokeninput`_ plugin.
 
-**RelatedContentWidget**
+**MultiContentSearchFieldWidget**
     A widget to add a dynamic list of objects. This works as a widget for
     related items field so it must be used like this.
+    ::
+
+        relatedItems = RelationList(
+            title=_(u'label_related_items', default=u'Related Items'),
+            default=[],
+            value_type=RelationChoice(title=u"Related",
+                          source=ObjPathSourceBinder(portal_type='Document')),
+            required=False,
+            )
+        form.widget(relatedItems=MultiContentSearchFieldWidget)
+
+    the parameters passed to the ObjPathSourceBinder class are used to filter the search of elements to relate to.. if none parameter are passed, a tree structure is shown in the widget.
+    
 
 Future widgets
 ^^^^^^^^^^^^^^

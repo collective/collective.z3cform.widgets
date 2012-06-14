@@ -8,6 +8,9 @@ Because you have to know where your towel is.
 
 - Updated package documentation. [hvelarde]
 
+- Fixing style in EnhancedTextLinesFieldWidget and TokenInputFieldWidget.
+  [flecox]
+
 - TasksWidget was renamed to EnhancedTextLinesFieldWidget (fixes `#7`_).
   [hvelarde]
 
