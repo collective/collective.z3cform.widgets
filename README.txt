@@ -52,10 +52,75 @@ collective.z3cform.widgets provides the following widgets:
         form.widget(relatedItems=MultiContentSearchFieldWidget)
 
     the parameters passed to the ObjPathSourceBinder class are used to filter the search of elements to relate to.. if none parameter are passed, a tree structure is shown in the widget.
-    
+
+Don't Panic
+-----------
+
+New fields
+^^^^^^^^^^
+
+**EnhancedTextLinesFieldWidget**
+    To use this widget we must use a List field or a Tuple field with the
+    value_type as an schema.TextLine() like this::
+
+        form.widget(subjects = KeywordsFieldWidget)
+        options = schema.Tuple(
+            title=_(u"Options"),
+            value_type=schema.TextLine(),
+            missing_value=(,),
+            )
+
+**TokenInputFieldWidget**
+    To use this Widget we must use a List field or a Tuple field with the
+    value_type as a schema.TextLine() like this::
+
+        form.widget(options=TokenInputFieldWidget)
+        subjects = schema.List(
+            title=_(u"Categories"),
+            value_type=schema.TextLine(),
+            default=[],
+            )
+
+**MultiContentSearchFieldWidget**
+
+    The parameters passed to the ObjPathSourceBinder class are used to filter
+    the search of elements to relate to.. if none parameter are passed, a tree
+    structure is shown in the widget::
+
+        form.widget(relatedItems=MultiContentSearchFieldWidget)
+        relatedItems = RelationList(
+            title=_(u"Related Items"),
+            default=[],
+            value_type=RelationChoice(title=u"Related",
+                source=ObjPathSourceBinder(portal_type='Document')),
+            )
+
+Override existing fields
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+**EnhancedTextLinesFieldWidget**
+    TBA
+
+**TokenInputFieldWidget**
+    To override an existing field put the following code in the __init__.py of
+    your package::
+
+        from plone.autoform.interfaces import WIDGETS_KEY
+        from plone.directives.form.schema import TEMP_KEY
+        from plone.app.dexterity.behaviors.metadata import ICategorization
+        from zope import schema as _schema
+
+        _directives_values = ICategorization.queryTaggedValue(TEMP_KEY)
+        _directives_values.setdefault(WIDGETS_KEY, {})
+        widget = 'collective.z3cform.widgets.token_input_widget.TokenInputFieldWidget'
+        _directives_values[WIDGETS_KEY]['subjects'] = widget
+        _schema.getFields(ICategorization)['subjects'].index_name = 'Categories'
+
+**MultiContentSearchFieldWidget**
+    TBA
 
 Future widgets
-^^^^^^^^^^^^^^
+--------------
 
 The following widgets will be available in this package in the near future:
 
@@ -68,7 +133,7 @@ The following widgets will be available in this package in the near future:
 This widgets will probably use the `Chosen`_ plugin.
 
 Browsers supported
-^^^^^^^^^^^^^^^^^^
+------------------
 
 All modern browsers should be supported (Mozilla Firefox 3.0+, Google Chrome
 7.0+, Apple Safari 4.0+, Opera 10.0+ and Microsoft Internet Explorer 9.0+).
