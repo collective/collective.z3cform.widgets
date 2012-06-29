@@ -63,18 +63,22 @@ New fields
     To use this widget we must use a List field or a Tuple field with the
     value_type as an schema.TextLine() like this::
 
-        form.widget(subjects = KeywordsFieldWidget)
+        from collective.z3cform.widgets.enhancedtextlines import EnhancedTextLinesFieldWidget
+
+        form.widget(options = EnhancedTextLinesFieldWidget)
         options = schema.Tuple(
             title=_(u"Options"),
             value_type=schema.TextLine(),
-            missing_value=(,),
+            missing_value=(),
             )
 
 **TokenInputFieldWidget**
     To use this Widget we must use a List field or a Tuple field with the
     value_type as a schema.TextLine() like this::
 
-        form.widget(options=TokenInputFieldWidget)
+        from collective.z3cform.widgets.token_input_widget import TokenInputFieldWidget
+
+        form.widget(subjects=TokenInputFieldWidget)
         subjects = schema.List(
             title=_(u"Categories"),
             value_type=schema.TextLine(),
@@ -86,6 +90,8 @@ New fields
     The parameters passed to the ObjPathSourceBinder class are used to filter
     the search of elements to relate to.. if none parameter are passed, a tree
     structure is shown in the widget::
+
+        from collective.z3cform.widgets.multicontent_search_widget import MultiContentSearchFieldWidget
 
         form.widget(relatedItems=MultiContentSearchFieldWidget)
         relatedItems = RelationList(
