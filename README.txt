@@ -86,7 +86,6 @@ New fields
             )
 
 **MultiContentSearchFieldWidget**
-
     The parameters passed to the ObjPathSourceBinder class are used to filter
     the search of elements to relate to.. if none parameter are passed, a tree
     structure is shown in the widget::
