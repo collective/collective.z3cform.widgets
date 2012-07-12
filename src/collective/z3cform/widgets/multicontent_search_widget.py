@@ -33,15 +33,14 @@ class RelatedSearch(AutocompleteSearch):
 
         query = self.request.get('q', None)
         if not query:
-            return ''
-
+            query=''
         # Update the widget before accessing the source.
         # The source was only bound without security applied
         # during traversal before.
         self.context.update()
         source = self.context.bound_source
         # TODO: use limit?
-        result = self.search(query)
+        result = self.search(query, limit=20)
         portal_state = getMultiAdapter((self.context, self.request),
                                           name=u'plone_portal_state')
         portal = portal_state.portal()
@@ -62,10 +61,9 @@ class RelatedSearch(AutocompleteSearch):
         source = self.context.bound_source
         catalog_query = source.selectable_filter.criteria.copy()
         catalog_query.update(parse_query(query, self.portal_path))
-
+        
         if limit and 'sort_limit' not in catalog_query:
             catalog_query['sort_limit'] = limit
-
         results =  source.catalog(**catalog_query)
         return results
           
@@ -143,7 +141,7 @@ class MultiContentSearchWidget(MultiContentTreeWidget):
                                query=source.navigation_tree_query,
                                strategy=strategy)
         else:
-           result = self.getRelated()
+           result = self.getRelated(limit=20)
            data = self.brainsToTerms(result)
         return self.recurse_template(
                                     children=data.get('children', []),
@@ -158,7 +156,6 @@ class MultiContentSearchWidget(MultiContentTreeWidget):
 
         if limit and 'sort_limit' not in catalog_query:
             catalog_query['sort_limit'] = limit
-
         results =  source.catalog(**catalog_query)
         return results
     

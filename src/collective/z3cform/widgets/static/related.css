@@ -16,6 +16,8 @@
     overflow-y: auto;
     width: 50%;
     float: left;
+    padding: 0px;
+    margin: 0px;
 }
 
 .relatedWidget ul.recieve {
@@ -24,6 +26,8 @@
     overflow-y: auto;
     width: 49%;
     float: right;
+    padding: 0px;
+    margin: 0px;
 }
 
 .relatedWidget ul.recieve li{
