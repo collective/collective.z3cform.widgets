@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-03-26 18:12+0000\n"
+"POT-Creation-Date: 2012-07-13 17:01+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,6 +23,10 @@ msgstr ""
 
 #: collective/z3cform/widgets/improved_checkbox_input.pt:54
 msgid "Prev"
+msgstr ""
+
+#: collective/z3cform/widgets/related_input.pt:13
+msgid "Search"
 msgstr ""
 
 #. Default: "Browse for items"
