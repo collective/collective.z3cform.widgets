@@ -61,6 +61,8 @@ class RelatedSearch(AutocompleteSearch):
         source = self.context.bound_source
         catalog_query = source.selectable_filter.criteria.copy()
         catalog_query.update(parse_query(query, self.portal_path))
+        catalog_query['sort_on'] = 'created'
+        catalog_query['sort_order'] = 'descending'
         
         if limit and 'sort_limit' not in catalog_query:
             catalog_query['sort_limit'] = limit
@@ -134,7 +136,6 @@ class MultiContentSearchWidget(MultiContentTreeWidget):
             root_path = portal_state.navigation_root_path()
             rel_path = root_path + '/' + relPath
             strategy.rootPath = rel_path
-        
         if not source.selectable_filter.criteria:
             data = buildFolderTree(portal,
                                obj=portal,
@@ -153,7 +154,8 @@ class MultiContentSearchWidget(MultiContentTreeWidget):
         source = self.bound_source
         catalog_query = source.selectable_filter.criteria.copy()
         catalog_query.update(parse_query(query, portal_path))
-
+        catalog_query['sort_on'] = 'created'
+        catalog_query['sort_order'] = 'descending'
         if limit and 'sort_limit' not in catalog_query:
             catalog_query['sort_limit'] = limit
         results =  source.catalog(**catalog_query)
