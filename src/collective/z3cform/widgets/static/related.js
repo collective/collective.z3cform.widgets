@@ -99,9 +99,11 @@ $(function() {
         			  var i = 0;
         			  var exists = false;
         			  for(i=0; i<children.length; i++) {
-        			    if(ui.draggable.attr('uid') == $(children[i]).attr('uid')){
-        			      exists = true;
-        			    }
+                        if (ui.draggable.attr('uid') !== undefined){
+            			    if(ui.draggable.attr('uid') == $(children[i]).attr('uid')){
+            			      exists = true;
+            			    }
+                        }
         			  }
         			  if(!exists) {
         			    var clon = ui.draggable.clone()
