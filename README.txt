@@ -146,6 +146,8 @@ All modern browsers should be supported (Mozilla Firefox 3.0+, Google Chrome
 Mostly Harmless
 ---------------
 
+.. image:: https://secure.travis-ci.org/collective/collective.z3cform.widgets.png
+
 Have an idea? Found a bug? Let us know by `opening a support ticket`_.
 
 .. _`jQuery TaskPlease`: https://github.com/Quimera/tasksplease
