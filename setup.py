@@ -42,11 +42,12 @@ setup(name='collective.z3cform.widgets',
       zip_safe=False,
       install_requires=[
         'setuptools',
-        'collective.js.jqueryui',
+        'Products.CMFPlone>=4.1',
         'plone.app.dexterity>=1.2.1',
         'plone.formwidget.autocomplete>=1.2.0',
         'plone.z3cform>=0.7.4',
         'z3c.formwidget.query',
+        'collective.js.jqueryui',
         ],
       extras_require={
         'test': ['plone.app.testing', 'plone.formwidget.contenttree'],
