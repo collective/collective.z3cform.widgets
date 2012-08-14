@@ -1,3 +1,4 @@
+<i18n:domain i18n:domain="collective.z3cform.widgets">
 <tal:master define="level options/level|python:0; children options/children | nothing; offset options/offset | nothing;">
     <tal:navitem repeat="node children">
         <li tal:define="show_children       node/show_children;
@@ -19,7 +20,7 @@
                                    title node/Description;
                                    class string:$item_class">
                     <img tal:replace="structure item_icon/html_tag|item_icon" />
-                    <span tal:content="node/Title">Selected Item Title</span>
+                    <span tal:content="node/Title" i18n:translate="">Selected Item Title</span>
                 </a>
               </tal:block>
               <ul tal:attributes="class python:'navTree navTreeLevel'+str(level)"
@@ -29,9 +30,10 @@
             </tal:level>
         </li>
     </tal:navitem>
-    <div class="show_more" id="show-more-items-results" tal:attributes="data-offset offset">
+    <div class="show_more" id="show-more-items-results" tal:attributes="data-offset offset" tal:condition="python:offset">
         <a i18n:translate="">
            Show More
         </a>
     </div>
 </tal:master>
+</i18n:domain>

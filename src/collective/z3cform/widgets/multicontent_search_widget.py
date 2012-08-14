@@ -250,10 +250,8 @@ class MultiContentSearchWidget(MultiContentTreeWidget):
                     var $footer = $("#form-widgets-relatedItems-contenttree #show-more-items-results");
                     $footer.waypoint(function(event, direction) {
                         $footer.waypoint('remove');
-                        console.log(direction);
                         if(direction == 'down') {
                             $("#show-more-items-results a").trigger("click");
-                            console.log('heeey');
                         }
                     }, opts);
                 }
@@ -268,7 +266,6 @@ class MultiContentSearchWidget(MultiContentTreeWidget):
                                 data: {'query':query,
                                         'offset':offset},
                                 success: function(results) {
-                                        console.log("nosee");
                                         $("ul#form-widgets-relatedItems-contenttree").append(results);
                                         //infiniteScrollItems();
                                         }
@@ -279,8 +276,6 @@ class MultiContentSearchWidget(MultiContentTreeWidget):
             	$("#show-more-items-results a").live("click", function(event) {
             	    event.preventDefault();
             	    var offset = $("#show-more-items-results").attr("data-offset");
-            	    console.log("nnaa");
-            	    console.log(offset);
             	    appendMoreItems(offset);
             	    return false;
             	});

@@ -36,9 +36,9 @@
   <label for=""
          tal:attributes="for item/id">
     <span class="label">
-        <span class="title" tal:content="item/label">Label</span>
+        <span class="title" tal:content="item/label" i18n:translate="">Label</span>
         <span class="path">
-            ( <span tal:content="item/value">Path</span> )
+            ( <span tal:content="item/value" i18n:translate="">Path</span> )
         </span>
     </span>
 

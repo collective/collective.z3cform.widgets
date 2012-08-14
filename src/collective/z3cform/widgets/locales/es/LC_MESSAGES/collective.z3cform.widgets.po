@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2012-07-13 17:01+0000\n"
+"POT-Creation-Date: 2012-08-14 22:06+0000\n"
 "PO-Revision-Date: 2012-03-15 18:05-0300\n"
 "Last-Translator: Franco Pellegrini\n"
 "Language-Team: Spanish <>\n"
@@ -17,6 +17,10 @@ msgstr ""
 "Language: es\n"
 "X-Generator: Lokalize 1.2\n"
 
+#: collective/z3cform/widgets/related_input.pt:26
+msgid "Content To Relate"
+msgstr "Contenido Relacionado"
+
 #: collective/z3cform/widgets/improved_checkbox_input.pt:58
 msgid "Next"
 msgstr "Sig"
@@ -25,9 +29,18 @@ msgstr "Sig"
 msgid "Prev"
 msgstr "Prev"
 
-#: collective/z3cform/widgets/related_input.pt:13
+#: collective/z3cform/widgets/related_input.pt:21
+msgid "Recent Items"
+msgstr "Elementos recientes"
+
+#: collective/z3cform/widgets/related_input.pt:14
 msgid "Search"
 msgstr "Buscar"
+
+#: collective/z3cform/widgets/related_recurse.pt:34
+#: collective/z3cform/widgets/related_search.pt:34
+msgid "Show More"
+msgstr "Ver Más"
 
 #. Default: "Browse for items"
 #: collective/z3cform/widgets/related_input.pt:11
@@ -35,12 +48,12 @@ msgid "heading_contenttree_browse"
 msgstr "Examinar elementos"
 
 #. Default: "Acept"
-#: collective/z3cform/widgets/related_input.pt:33
+#: collective/z3cform/widgets/related_input.pt:43
 msgid "label_contenttree_add"
 msgstr "Aceptar"
 
 #. Default: "Cancel"
-#: collective/z3cform/widgets/related_input.pt:33
+#: collective/z3cform/widgets/related_input.pt:43
 msgid "label_contenttree_cancel"
 msgstr "Cancelar"
 

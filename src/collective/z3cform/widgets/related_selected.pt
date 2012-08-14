@@ -5,11 +5,11 @@
               <tal:block>
                 <a tal:attributes="href item_url;">
                     
-                    <span tal:content="python: node['label']">Selected Item Title</span>
+                    <span tal:content="python: node['label']" i18n:translate="">Selected Item Title</span>
                 </a>
               </tal:block>
             </tal:level>
-            <div class='related-item-close'>X</div>
+            <div class='related-item-close' i18n:translate="">X</div>
         </li>
     </tal:navitem>
 </tal:master>
