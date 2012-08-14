@@ -1,4 +1,4 @@
-<tal:master define="level options/level|python:0; children options/children | nothing;">
+<tal:master define="level options/level|python:0; children options/children | nothing; offset options/offset | nothing;">
     <tal:navitem repeat="node children">
         <li tal:define="show_children       node/show_children;
                         uid                 node/UID;
@@ -29,4 +29,9 @@
             </tal:level>
         </li>
     </tal:navitem>
+    <div class="show_more" id="show-more-items-results" tal:attributes="data-offset offset">
+        <a i18n:translate="">
+           Show More
+        </a>
+    </div>
 </tal:master>

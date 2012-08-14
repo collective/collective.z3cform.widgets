@@ -92,8 +92,8 @@ function relatedWidgetSearchFilter(url) {
 }
 
 $(function() {
-        $("#form-widgets-relatedItems-contenttree-window").draggable();
-		$( ".relatedWidget ul.from .navTreeItem").liveDraggable({ containment: ".relatedWidget",  scroll: false, helper: "clone"}); 
+      $("#form-widgets-relatedItems-contenttree-window").draggable();
+	  $( ".relatedWidget ul.from .navTreeItem").liveDraggable({ containment: ".relatedWidget",  scroll: false, helper: "clone"}); 
 	  $(".relatedWidget ul.recieve").droppable({
         			activeClass: "ui-state-default",
         			hoverClass: "ui-state-hover",
@@ -123,9 +123,9 @@ $(function() {
     $(".relatedWidget ul.recieve li a").live("click", function(e) {
       e.preventDefault();
       return false;
-    })
+    });
     $(".related-item-close").live("click", function() {
         $(this).parent().remove();
-    })
+    });
 
 });

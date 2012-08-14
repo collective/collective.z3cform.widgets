@@ -29,22 +29,18 @@ class RelatedSearch(AutocompleteSearch):
         # form for this widget. We can only this now, since security isn't
         # applied yet during traversal.
         self.validate_access()
-
+        limit = 10
         query = self.request.get('q', None)
-        page = self.request.get('page', None)
+        offset = int(self.request.get('offset', 0))
         if not query:
             query=''
-        if not page:
-            page = 0
-        else:
-            page = int(page) + 1
         # Update the widget before accessing the source.
         # The source was only bound without security applied
         # during traversal before.
         self.context.update()
         source = self.context.bound_source
         # TODO: use limit?
-        result = self.search(query, limit=3, page=page)
+        result = self.search(query, limit=limit, offset=offset)
         portal_state = getMultiAdapter((self.context, self.request),
                                           name=u'plone_portal_state')
         portal = portal_state.portal()
@@ -53,13 +49,13 @@ class RelatedSearch(AutocompleteSearch):
 
         result = [strategy.decoratorFactory({'item':node}) for node in result]
         
-        return self.display_template(children=result, level=1)
+        return self.display_template(children=result, level=1, offset=offset+limit)
 
     def getTermByBrain(self, brain):
         # Ask the widget
         return self.context.getTermByBrain(brain)
    
-    def search(self, query='', limit=None, page=0):
+    def search(self, query='', limit=None, offset=0):
         portal_tool = getToolByName(self.context, "portal_url")
         self.portal_path = portal_tool.getPortalPath()
         source = self.context.bound_source
@@ -67,11 +63,11 @@ class RelatedSearch(AutocompleteSearch):
         catalog_query.update(parse_query(query, self.portal_path))
         catalog_query['sort_on'] = 'created'
         catalog_query['sort_order'] = 'descending'
-        if limit and 'sort_limit' not in catalog_query and page == 0:
+        if limit and 'sort_limit' not in catalog_query and offset == 0:
             catalog_query['sort_limit'] = limit
         results =  source.catalog(**catalog_query)
-        if page != 0:
-            results = results[page*limit:(page+1)*limit]
+        if offset != 0:
+            results = results[offset:(offset+limit)]
         return results
           
 
@@ -127,7 +123,7 @@ class MultiContentSearchWidget(MultiContentTreeWidget):
 
         self.items = self.checked + self.unchecked
         
-    def render_tree(self, relPath=None, query=None, limit=10):
+    def render_tree(self, relPath=None, query=None, limit=10, offset=0):
         content = self.context
         portal_state = getMultiAdapter((self.context, self.request),
                                           name=u'plone_portal_state')
@@ -151,7 +147,8 @@ class MultiContentSearchWidget(MultiContentTreeWidget):
            data = self.brainsToTerms(result)
         return self.recurse_template(
                                     children=data.get('children', []),
-                                    level=1)
+                                    level=1,
+                                    offset=offset+limit)
 
     def getRelated(self, query='', limit=None):
         portal_tool = getToolByName(self.context, "portal_url")
@@ -247,7 +244,46 @@ class MultiContentSearchWidget(MultiContentTreeWidget):
                         // alert(event + ', ' + selected + ', ' + data + ', ' + title);
                     }
                 );
+
+                function infiniteScrollItems() {
+                    var opts = {context:'#form-widgets-relatedItems-contenttree', offset: '%(perc)s'};
+                    var $footer = $("#form-widgets-relatedItems-contenttree #show-more-items-results");
+                    $footer.waypoint(function(event, direction) {
+                        $footer.waypoint('remove');
+                        console.log(direction);
+                        if(direction == 'down') {
+                            $("#show-more-items-results a").trigger("click");
+                            console.log('heeey');
+                        }
+                    }, opts);
+                }
                 
+                function appendMoreItems(offset) {
+                    $("#show-more-items-results").remove();
+                    var query = document.getElementById('relatedWidget-search-input').value;
+
+                    jQuery.ajax({type: 'POST',
+                                url: '%(urlSearch)s',
+                                async : true,
+                                data: {'query':query,
+                                        'offset':offset},
+                                success: function(results) {
+                                        console.log("nosee");
+                                        $("ul#form-widgets-relatedItems-contenttree").append(results);
+                                        //infiniteScrollItems();
+                                        }
+                                    });
+                }
+   
+                $("#show-more-items-results a").unbind("click");
+            	$("#show-more-items-results a").live("click", function(event) {
+            	    event.preventDefault();
+            	    var offset = $("#show-more-items-results").attr("data-offset");
+            	    console.log("nnaa");
+            	    console.log(offset);
+            	    appendMoreItems(offset);
+            	    return false;
+            	});
                 $("#relatedWidget-search-button").unbind("click")
             	$("#relatedWidget-search-button").live("click", function(event) {
             	    event.preventDefault();
@@ -255,6 +291,7 @@ class MultiContentSearchWidget(MultiContentTreeWidget):
             	    relatedWidgetSearchFilter(urlSearch);
             	    return false;
             	});
+            	
 
         """ % dict(url=url,
                    urlSearch=self.related_url(),
@@ -268,6 +305,7 @@ class MultiContentSearchWidget(MultiContentTreeWidget):
                    name=self.name,
                    klass=self.klass,
                    title=self.title,
+                   perc="100%",
                    button_val=translate(
                        u'heading_contenttree_browse',
                        default=u'Browse for items',
