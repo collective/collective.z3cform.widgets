@@ -12,7 +12,7 @@
 
 .relatedWidget ul.from {
     border: 1px solid #8CACBB;
-    height: 100%;
+    height: 90%;
     overflow-y: auto;
     width: 50%;
     float: left;
@@ -22,7 +22,7 @@
 
 .relatedWidget ul.recieve {
     border: 1px solid #8CACBB;
-    height: 100%;
+    height: 90%;
     overflow-y: auto;
     width: 49%;
     float: right;
@@ -96,7 +96,15 @@
 }
 
 
+.from-head {
+    float:left;
+    width: 50%;
+}
 
+.recieve-head {
+    float:right;
+    width: 49%; 
+}
 
 .tasksplease {
     width:20em;

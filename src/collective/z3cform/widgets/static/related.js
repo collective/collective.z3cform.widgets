@@ -77,6 +77,8 @@ if(jQuery) (function($){
 
 
 function relatedWidgetSearchFilter(url) {
+    
+  $("#form-widgets-relatedItems-contenttree").attr("data-page", "0");
   var queryVal = $("#relatedWidget-search-input").val();
   $.ajax({
     url: url,
@@ -90,6 +92,7 @@ function relatedWidgetSearchFilter(url) {
 }
 
 $(function() {
+        $("#form-widgets-relatedItems-contenttree-window").draggable();
 		$( ".relatedWidget ul.from .navTreeItem").liveDraggable({ containment: ".relatedWidget",  scroll: false, helper: "clone"}); 
 	  $(".relatedWidget ul.recieve").droppable({
         			activeClass: "ui-state-default",

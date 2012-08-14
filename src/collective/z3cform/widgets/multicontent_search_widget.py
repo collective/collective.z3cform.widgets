@@ -25,22 +25,26 @@ class RelatedSearch(AutocompleteSearch):
     display_template = ViewPageTemplateFile('related_search.pt')
  
     def __call__(self):
-
         # We want to check that the user was indeed allowed to access the
         # form for this widget. We can only this now, since security isn't
         # applied yet during traversal.
         self.validate_access()
 
         query = self.request.get('q', None)
+        page = self.request.get('page', None)
         if not query:
             query=''
+        if not page:
+            page = 0
+        else:
+            page = int(page) + 1
         # Update the widget before accessing the source.
         # The source was only bound without security applied
         # during traversal before.
         self.context.update()
         source = self.context.bound_source
         # TODO: use limit?
-        result = self.search(query, limit=20)
+        result = self.search(query, limit=3, page=page)
         portal_state = getMultiAdapter((self.context, self.request),
                                           name=u'plone_portal_state')
         portal = portal_state.portal()
@@ -48,14 +52,14 @@ class RelatedSearch(AutocompleteSearch):
         strategy = getMultiAdapter((portal, self.context), INavtreeStrategy)
 
         result = [strategy.decoratorFactory({'item':node}) for node in result]
-
+        
         return self.display_template(children=result, level=1)
 
     def getTermByBrain(self, brain):
         # Ask the widget
         return self.context.getTermByBrain(brain)
    
-    def search(self, query='', limit=None):
+    def search(self, query='', limit=None, page=0):
         portal_tool = getToolByName(self.context, "portal_url")
         self.portal_path = portal_tool.getPortalPath()
         source = self.context.bound_source
@@ -63,10 +67,11 @@ class RelatedSearch(AutocompleteSearch):
         catalog_query.update(parse_query(query, self.portal_path))
         catalog_query['sort_on'] = 'created'
         catalog_query['sort_order'] = 'descending'
-        
-        if limit and 'sort_limit' not in catalog_query:
+        if limit and 'sort_limit' not in catalog_query and page == 0:
             catalog_query['sort_limit'] = limit
         results =  source.catalog(**catalog_query)
+        if page != 0:
+            results = results[page*limit:(page+1)*limit]
         return results
           
 
@@ -207,7 +212,6 @@ class MultiContentSearchWidget(MultiContentTreeWidget):
         url = "%s/++widget++%s/@@contenttree-related-fetch" % (form_url, self.name)
 
         return """\
-
                 $('#%(id)s-widgets-query').each(function() {
                     if($(this).siblings('input.searchButton').length > 0) { return; }
                     $(document.createElement('input'))

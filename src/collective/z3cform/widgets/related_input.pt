@@ -10,13 +10,23 @@
     <div class="contenttreeWindowHeader">
     <h2 i18n:translate="heading_contenttree_browse">Browse for items</h2>
     <div id="relatedWidget-search">
-    <input id="relatedWidget-search-input" class="text-widget textline-field kssattr-formname-++add++collective.z3cform.widgets kssattr-fieldname-form.widgets.IRelatedItems.relatedItems.widgets.query kssattr-fieldset-0" type="text" /> <input type="button" i18n:attributes="value" value="Search" id="relatedWidget-search-button">
+        <div class="search-container">
+            <input id="relatedWidget-search-input" class="text-widget textline-field kssattr-formname-++add++collective.z3cform.widgets kssattr-fieldname-form.widgets.IRelatedItems.relatedItems.widgets.query kssattr-fieldset-0" type="text" /> <input type="button" i18n:attributes="value" value="Search" id="relatedWidget-search-button">
+        </div>    
   </div>
     </div>
     <div class="relatedWidgetContainer">
-      
     <div class="relatedWidget">
-        
+        <div class="from-head">
+            <div class="padding-head">
+            Recent Items
+            </div>
+        </div>
+        <div class="recieve-head">
+            <div class="padding-head">
+            Content To Relate
+            </div>
+        </div>
         <ul class="navTree navTreeLevel0 from" tal:attributes="id string:${view/id}-contenttree">
             <li tal:replace="structure view/render_tree" />
         </ul>
