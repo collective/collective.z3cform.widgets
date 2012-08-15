@@ -47,13 +47,17 @@ class RelatedSearch(AutocompleteSearch):
 
         strategy = getMultiAdapter((portal, self.context), INavtreeStrategy)
 
-        result = [strategy.decoratorFactory({'item':node}) for node in result]
-        
+        data = [strategy.decoratorFactory({'item':node}) for node in result]
+        result = self.filterSelected(data)
         return self.display_template(children=result, level=1, offset=offset+limit)
 
     def getTermByBrain(self, brain):
         # Ask the widget
         return self.context.getTermByBrain(brain)
+    
+    def filterSelected(self, data):
+        result = self.context.filterSelected({'children':data})
+        return result.get('children', [])
    
     def search(self, query='', limit=None, offset=0):
         portal_tool = getToolByName(self.context, "portal_url")
@@ -145,8 +149,9 @@ class MultiContentSearchWidget(MultiContentTreeWidget):
         else:
            result = self.getRelated(limit=20)
            data = self.brainsToTerms(result)
+        result = self.filterSelected(data)
         return self.recurse_template(
-                                    children=data.get('children', []),
+                                    children=result.get('children', []),
                                     level=1,
                                     offset=offset+limit)
 
@@ -163,6 +168,15 @@ class MultiContentSearchWidget(MultiContentTreeWidget):
         results =  source.catalog(**catalog_query)
         return results
     
+    def filterSelected(self, data):
+        result = []
+        selected_ids = [i['id'] for i in self.get_selected()] + [self.context.getId()]
+        for item in data.get('children', []):
+            if 'id' in item.keys() and item['id'] not in selected_ids:
+                result.append(item)
+        return {'children':result}
+        
+    
     def brainsToTerms(self, brains):
         portal_state = getMultiAdapter((self.context, self.request),
                                           name=u'plone_portal_state')
@@ -176,7 +190,7 @@ class MultiContentSearchWidget(MultiContentTreeWidget):
             result.append(term)
         return {'children': result}
 
-    def render_selected(self):
+    def get_selected(self):
         portal_state = getMultiAdapter((self.context, self.request),
                                          name=u'plone_portal_state')
         portal = portal_state.portal()
@@ -190,7 +204,10 @@ class MultiContentSearchWidget(MultiContentTreeWidget):
             if result:
                 brain = result[0]
                 items.append(strategy.decoratorFactory({'item':brain}))
-        
+        return items
+
+    def render_selected(self):
+        items = self.get_selected()
         return self.selected_template(children=items, level=1)
         
     def renderQueryWidget(self):
@@ -263,7 +280,7 @@ class MultiContentSearchWidget(MultiContentTreeWidget):
                     jQuery.ajax({type: 'POST',
                                 url: '%(urlSearch)s',
                                 async : true,
-                                data: {'query':query,
+                                data: {'q':query,
                                         'offset':offset},
                                 success: function(results) {
                                         $("ul#form-widgets-relatedItems-contenttree").append(results);
