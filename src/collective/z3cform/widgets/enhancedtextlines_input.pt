@@ -4,7 +4,7 @@
 <script type="text/javascript" tal:content="structure view/js"></script>
 <textarea
     id="" name="" class="" cols="" rows=""
-    tabindex="" disabled="" readonly="" accesskey="" cosa="cosita"
+    tabindex="" disabled="" readonly="" accesskey=""
     tal:attributes="id view/id;
                     name view/name;
                     class view/klass;
