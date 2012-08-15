@@ -19,6 +19,7 @@ from z3c.form import field
 
 from collective.z3cform.widgets import _
 
+LIMIT = 10
 
 class RelatedSearch(AutocompleteSearch):
     
@@ -29,7 +30,7 @@ class RelatedSearch(AutocompleteSearch):
         # form for this widget. We can only this now, since security isn't
         # applied yet during traversal.
         self.validate_access()
-        limit = 10
+        limit = LIMIT
         query = self.request.get('q', None)
         offset = int(self.request.get('offset', 0))
         if not query:
@@ -67,8 +68,12 @@ class RelatedSearch(AutocompleteSearch):
         catalog_query.update(parse_query(query, self.portal_path))
         catalog_query['sort_on'] = 'created'
         catalog_query['sort_order'] = 'descending'
+        
         if limit and 'sort_limit' not in catalog_query and offset == 0:
             catalog_query['sort_limit'] = limit
+        elif limit and 'sort_limit' not in catalog_query:
+            catalog_query['sort_limit'] = offset + limit
+            
         results =  source.catalog(**catalog_query)
         if offset != 0:
             results = results[offset:(offset+limit)]
@@ -127,7 +132,7 @@ class MultiContentSearchWidget(MultiContentTreeWidget):
 
         self.items = self.checked + self.unchecked
         
-    def render_tree(self, relPath=None, query=None, limit=10, offset=0):
+    def render_tree(self, relPath=None, query=None, limit=LIMIT, offset=0):
         content = self.context
         portal_state = getMultiAdapter((self.context, self.request),
                                           name=u'plone_portal_state')
@@ -147,7 +152,7 @@ class MultiContentSearchWidget(MultiContentTreeWidget):
                                query=source.navigation_tree_query,
                                strategy=strategy)
         else:
-           result = self.getRelated(limit=20)
+           result = self.getRelated(limit=10)
            data = self.brainsToTerms(result)
         result = self.filterSelected(data)
         return self.recurse_template(
@@ -238,6 +243,7 @@ class MultiContentSearchWidget(MultiContentTreeWidget):
                             var parent = $(this).parents("*[id$='-autocomplete']")
                             var window = parent.siblings("*[id$='-contenttree-window']")
                             window.showDialog();
+                            infiniteScrollItems();
                         }).insertAfter($(this));
                 });
                 $('#%(id)s-contenttree-window').find('.contentTreeAdd').unbind('click').click(function () {
@@ -284,7 +290,7 @@ class MultiContentSearchWidget(MultiContentTreeWidget):
                                         'offset':offset},
                                 success: function(results) {
                                         $("ul#form-widgets-relatedItems-contenttree").append(results);
-                                        //infiniteScrollItems();
+                                        infiniteScrollItems();
                                         }
                                     });
                 }

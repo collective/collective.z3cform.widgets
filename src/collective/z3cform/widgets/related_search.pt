@@ -30,10 +30,10 @@
             </tal:level>
         </li>
     </tal:navitem>
-    <div class="show_more" id="show-more-items-results" tal:attributes="data-offset offset" tal:condition="python:offset">
+    <li class="show_more" id="show-more-items-results" tal:attributes="data-offset offset" tal:condition="python:offset">
         <a i18n:translate="">
            Show More
         </a>
-    </div>
+    </li>
 </tal:master>
 </i18n:domain>
