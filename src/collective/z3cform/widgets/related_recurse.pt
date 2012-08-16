@@ -30,8 +30,8 @@
             </tal:level>
         </li>
     </tal:navitem>
-    <li class="show_more" id="show-more-items-results" tal:attributes="data-offset offset">
-        <a href="http://www.google.com" i18n:translate="">
+    <li class="show_more" id="show-more-items-results" tal:attributes="data-offset offset" tal:condition="python:view.show_more">
+        <a i18n:translate="">
            Show More
         </a>
     </li>

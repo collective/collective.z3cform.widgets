@@ -33,6 +33,7 @@ class RelatedSearch(AutocompleteSearch):
         limit = LIMIT
         query = self.request.get('q', None)
         offset = int(self.request.get('offset', 0))
+        self.show_more = True
         if not query:
             query=''
         # Update the widget before accessing the source.
@@ -49,6 +50,8 @@ class RelatedSearch(AutocompleteSearch):
         strategy = getMultiAdapter((portal, self.context), INavtreeStrategy)
 
         data = [strategy.decoratorFactory({'item':node}) for node in result]
+        if len(data) < LIMIT:
+            self.show_more = False
         result = self.filterSelected(data)
         return self.display_template(children=result, level=1, offset=offset+limit)
 
@@ -133,6 +136,7 @@ class MultiContentSearchWidget(MultiContentTreeWidget):
         self.items = self.checked + self.unchecked
         
     def render_tree(self, relPath=None, query=None, limit=LIMIT, offset=0):
+        self.show_more = True
         content = self.context
         portal_state = getMultiAdapter((self.context, self.request),
                                           name=u'plone_portal_state')
@@ -153,6 +157,8 @@ class MultiContentSearchWidget(MultiContentTreeWidget):
                                strategy=strategy)
         else:
            result = self.getRelated(limit=10)
+           if len(result) < LIMIT:
+               self.show_more = False
            data = self.brainsToTerms(result)
         result = self.filterSelected(data)
         return self.recurse_template(
