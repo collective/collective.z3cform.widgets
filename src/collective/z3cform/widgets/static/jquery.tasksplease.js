@@ -26,11 +26,14 @@
                     position = -1;
                 }
                 var task = $('<li/>');
-                task.text(text);
+                task.append($('<span />', { text: text, 'class':'text' }));
 
-                task.append('<a class="remove" href="#"><span>'+tp_i18n.delete_task+'</span></a>');
+                task.append('<a class="edit" href="#"><span>'+tp_i18n.edit_task+'</span></a>')
+                    .append('<a class="remove" href="#"><span>'+tp_i18n.delete_task+'</span></a>');
                 self.delete_event(task.find('.remove'), task);
+                self.edit_event(task.find('.edit'), task);
                 taskmanager.append(task);
+                task.hide().fadeIn();
 
                 return task;
             },
@@ -43,7 +46,7 @@
                 //remove the li element
                 element_to_delete = taskmanager.find('li')[index];
                 if ( element_to_delete !== undefined ) {
-                    $(element_to_delete).remove();
+                    $(element_to_delete).fadeOut(300, function() { $(this).remove(); });
 
                     //create and array and remove the deleted object from the
                     //text area
@@ -54,6 +57,34 @@
                     item.val(text_area_list.join('\n'));
                 }
             },
+            
+            /*
+             * Edit the task in the indicated index
+             * @param index, index of the objective task to edit in the textarea
+             */
+            edit_task: function(index, new_value) {
+                element_to_edit = taskmanager.find('li')[index];
+
+                if ( element_to_edit !== undefined ) {
+                    //create and array and remove the deleted object from the
+                    //text area
+                    var text_area_list = item.val().split('\n');
+                    text_area_list[index] = new_value;
+
+                    //then, recreate the data again.
+                    item.val(text_area_list.join('\n'));
+                }
+            },
+
+            make_sortable: function(){
+                taskmanager.sortable({
+                    placeholder: "ui-state-highlight",
+                    stop: function(event, ui) {
+                        var tasks_content = $.map( taskmanager.find('.text'), function (el) { return $(el).text() });
+                        item.val(tasks_content.join('\n'));                    }
+                });
+            },
+
             /*
              * creates all the basic structure for the tasks, if a textarea has
              * values, is going to recreate those like tasks
@@ -86,10 +117,14 @@
 
                 self.add_new_event(self.container.find('.add_task'));
                 item.hide();
+
+                //sort
+                if (sorteable && jQuery.ui && 'sortable' in jQuery.ui) {
+                    self.make_sortable();
+                }
             },
 
             add_new_event: function(trigger){
-
                 $(trigger).click(function(e){
                     var description = $(this).siblings('.task-description');
                     var value = description.val();
@@ -125,6 +160,20 @@
 
             edit_event: function(trigger, element_to_edit) {
                 $(trigger).click(function(e){
+                    var index = element_to_edit.index();
+                    var edit = element_to_edit.find('.text');
+                    
+                    edit.replaceWith('<input type="text" value="'+edit.text()+'">');
+                    var input = element_to_edit.find('input');
+                    input.select();
+                    //bind the enter key, when pressed just save and restore.
+                    input.keypress(function(e) {
+                        if(e.which == 13) {
+                            $(this).replaceWith($('<span class="text"/>').text(this.value));
+                            self.edit_task(index, this.value);
+                        }
+                    });
+
                     e.preventDefault();
                 });
             }

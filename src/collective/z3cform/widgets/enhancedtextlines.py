@@ -11,7 +11,7 @@ from z3c.form.browser import textarea
 from zope.app.pagetemplate.viewpagetemplatefile import ViewPageTemplateFile
 
 from collective.z3cform.widgets.interfaces import IEnhancedTextLinesWidget
-
+from collective.z3cform.widgets import _
 
 class EnhancedTextLinesWidget(textarea.TextAreaWidget):
     """ Widget for adding new keywords and autocomplete with the ones in the
@@ -27,10 +27,10 @@ class EnhancedTextLinesWidget(textarea.TextAreaWidget):
     (function($) {
         $().ready(function() {
         tp_i18n = {
-            add:'Add',
-            add_task:'Add a task',
-            delete_task:'Delete task',
-            edit_task:'Edit task'
+            add:'%(add)s',
+            add_task:'%(add_task)s',
+            delete_task:'%(delete_task)s',
+            edit_task:'%(edit_task)s'
         }
          $('#%(id)s').tasksplease();
         });
@@ -38,7 +38,12 @@ class EnhancedTextLinesWidget(textarea.TextAreaWidget):
     """
 
     def js(self):
-        return self.js_template % dict(id=self.id)
+        add = _(u"Add")
+        add_option = _(u"Add Option")
+        delete_option = _(u"Delete Option")
+        edit_option = _(u"Edit Option")
+        return self.js_template % dict(id=self.id, add=add, add_task=add_option,
+            delete_task=delete_option, edit_task=edit_option)
 
     def render(self):
         if self.mode == interfaces.DISPLAY_MODE:

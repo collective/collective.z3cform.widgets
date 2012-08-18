@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2012-08-18 17:18+0000\n"
+"POT-Creation-Date: 2012-08-18 19:14+0000\n"
 "PO-Revision-Date: 2012-03-15 18:05-0300\n"
 "Last-Translator: Franco Pellegrini\n"
 "Language-Team: Spanish <>\n"
@@ -17,9 +17,25 @@ msgstr ""
 "Language: es\n"
 "X-Generator: Lokalize 1.2\n"
 
+#: collective/z3cform/widgets/enhancedtextlines.py:41
+msgid "Add"
+msgstr "Agregar"
+
+#: collective/z3cform/widgets/enhancedtextlines.py:42
+msgid "Add Option"
+msgstr "Agregar Opción"
+
 #: collective/z3cform/widgets/related_input.pt:26
 msgid "Content To Relate"
 msgstr "Contenido Relacionado"
+
+#: collective/z3cform/widgets/enhancedtextlines.py:43
+msgid "Delete Option"
+msgstr "Eleminar Opción"
+
+#: collective/z3cform/widgets/enhancedtextlines.py:44
+msgid "Edit Option"
+msgstr "Editar Opción"
 
 #: collective/z3cform/widgets/improved_checkbox_input.pt:58
 msgid "Next"
