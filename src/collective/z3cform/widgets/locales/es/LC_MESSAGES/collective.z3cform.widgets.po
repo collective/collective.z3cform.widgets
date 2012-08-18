@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2012-08-14 22:06+0000\n"
+"POT-Creation-Date: 2012-08-18 17:18+0000\n"
 "PO-Revision-Date: 2012-03-15 18:05-0300\n"
 "Last-Translator: Franco Pellegrini\n"
 "Language-Team: Spanish <>\n"
@@ -24,6 +24,10 @@ msgstr "Contenido Relacionado"
 #: collective/z3cform/widgets/improved_checkbox_input.pt:58
 msgid "Next"
 msgstr "Sig"
+
+#: collective/z3cform/widgets/related_search.pt:38
+msgid "No Results"
+msgstr "Sin Resultados"
 
 #: collective/z3cform/widgets/improved_checkbox_input.pt:54
 msgid "Prev"

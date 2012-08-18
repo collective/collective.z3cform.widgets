@@ -35,5 +35,6 @@
            Show More
         </a>
     </li>
+    <li tal:condition="python: not children and offset != None" i18n:translate="">No Results</li>
 </tal:master>
 </i18n:domain>
