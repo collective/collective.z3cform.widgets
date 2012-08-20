@@ -2,17 +2,17 @@
 <object name="portal_javascripts">
   <javascript id="++resource++collective.z3cform.widgets/related.js"
       cacheable="True" compression="none" cookable="True" enabled="True"
-      expression="" inline="False" />   
-      <javascript id="++resource++collective.z3cform.widgets/waypoints.min.js"
-          cacheable="True" compression="none" cookable="True" enabled="True"
-          expression="" inline="False" />
+      expression="" inline="False" authenticated="True" />   
+  <javascript id="++resource++collective.z3cform.widgets/waypoints.min.js"
+      cacheable="True" compression="none" cookable="True" enabled="True"
+      expression="" inline="False" authenticated="True"/>
   <javascript id="++resource++collective.z3cform.widgets/jquery.tokeninput.min.js"
       cacheable="True" compression="none" cookable="True" enabled="True"
-      expression="" inline="False" />
+      expression="" inline="False" authenticated="True"/>
   <javascript id="++resource++collective.z3cform.widgets/keywords.js"
-          cacheable="True" compression="none" cookable="True" enabled="True"
-          expression="" inline="False" />
-<javascript id="++resource++collective.z3cform.widgets/jquery.tasksplease.js"
-               cacheable="True" compression="none" cookable="True" enabled="True"
-               expression="" inline="False" />
+      cacheable="True" compression="none" cookable="True" enabled="True"
+      expression="" inline="False" authenticated="True"/>
+  <javascript id="++resource++collective.z3cform.widgets/jquery.tasksplease.js"
+      cacheable="True" compression="none" cookable="True" enabled="True"
+      expression="" inline="False" authenticated="True"/>
 </object>
