@@ -37,6 +37,10 @@ collective.z3cform.widgets provides the following widgets:
 
     This widget uses the `jQuery Tokeninput`_ plugin.
 
+.. Warning::
+    Please note that further development of this widget has been deprecated
+    in favor or `eea.tags`_.
+
 **MultiContentSearchFieldWidget**
     A widget to add a dynamic list of objects. This works as a widget for
     related items field so it must be used like this.
@@ -156,4 +160,4 @@ Have an idea? Found a bug? Let us know by `opening a support ticket`_.
 .. _`Chosen`: http://harvesthq.github.com/chosen/
 .. _`Facebook`: http://www.facebook.com/
 .. _`opening a support ticket`: https://github.com/collective/collective.z3cform.widgets/issues
-
+.. _`eea.tags`: https://github.com/collective/eea.tags
