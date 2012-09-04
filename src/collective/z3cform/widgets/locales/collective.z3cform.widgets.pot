@@ -1,10 +1,7 @@
-# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
-# SOME DESCRIPTIVE TITLE.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-08-18 19:14+0000\n"
+"Project-Id-Version: collective.z3cform.widgets 1.0\n"
+"POT-Creation-Date: 2012-09-04 16:50+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +13,10 @@ msgstr ""
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: collective.z3cform.widgets\n"
+
+#: configure.zcml
+msgid "A widget package for Plone 4 projects."
+msgstr ""
 
 #: collective/z3cform/widgets/enhancedtextlines.py:41
 msgid "Add"
@@ -62,12 +63,24 @@ msgstr ""
 msgid "Show More"
 msgstr ""
 
+#: configure.zcml
+msgid "Uninstall profile for the collective.z3cform.widgets package."
+msgstr ""
+
+#: configure.zcml
+msgid "collective.z3cform.widgets"
+msgstr ""
+
+#: configure.zcml
+msgid "collective.z3cform.widgets uninstall"
+msgstr ""
+
 #. Default: "Browse for items"
 #: collective/z3cform/widgets/related_input.pt:11
 msgid "heading_contenttree_browse"
 msgstr ""
 
-#. Default: "Acept"
+#. Default: "Accept"
 #: collective/z3cform/widgets/related_input.pt:43
 msgid "label_contenttree_add"
 msgstr ""
