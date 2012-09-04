@@ -3,7 +3,7 @@ Changelog
 
 Because you have to know where your towel is.
 
-1.0a4 (unreleased)
+1.0a4 (2012-09-04)
 ^^^^^^^^^^^^^^^^^^
 
 - Spanish translation was updated; Brazilian Portuguese translation was
