@@ -1,0 +1,93 @@
+# Héctor Velarde <hector.velarde@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2012-09-04 16:50+0000\n"
+"PO-Revision-Date: 2012-09-04 13:53-0300\n"
+"Last-Translator: Héctor Velarde <hector.velarde@gmail.com>\n"
+"Language-Team: Brazilian Portuguese <>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+
+#: configure.zcml
+msgid "A widget package for Plone 4 projects."
+msgstr "Um pacote de widgets para projetos do Plone 4."
+
+#: collective/z3cform/widgets/enhancedtextlines.py:41
+msgid "Add"
+msgstr "Adicionar"
+
+#: collective/z3cform/widgets/enhancedtextlines.py:42
+msgid "Add Option"
+msgstr "Adicionar opção"
+
+#: collective/z3cform/widgets/related_input.pt:26
+msgid "Content To Relate"
+msgstr "Conteúdo para se relacionar"
+
+#: collective/z3cform/widgets/enhancedtextlines.py:43
+msgid "Delete Option"
+msgstr "Excluir opção"
+
+#: collective/z3cform/widgets/enhancedtextlines.py:44
+msgid "Edit Option"
+msgstr "Editar opção"
+
+#: collective/z3cform/widgets/improved_checkbox_input.pt:58
+msgid "Next"
+msgstr "Próx."
+
+#: collective/z3cform/widgets/related_search.pt:38
+msgid "No Results"
+msgstr "Sem resultados"
+
+#: collective/z3cform/widgets/improved_checkbox_input.pt:54
+msgid "Prev"
+msgstr "Prév."
+
+#: collective/z3cform/widgets/related_input.pt:21
+msgid "Recent Items"
+msgstr "Itens recentes"
+
+#: collective/z3cform/widgets/related_input.pt:14
+msgid "Search"
+msgstr "Busca"
+
+#: collective/z3cform/widgets/related_recurse.pt:34
+#: collective/z3cform/widgets/related_search.pt:34
+msgid "Show More"
+msgstr "Mostrar mais"
+
+#: configure.zcml
+msgid "Uninstall profile for the collective.z3cform.widgets package."
+msgstr "Perfil de desinstalação para o pacote collective.z3cform.widgets."
+
+#: configure.zcml
+msgid "collective.z3cform.widgets"
+msgstr "collective.z3cform.widgets"
+
+#: configure.zcml
+msgid "collective.z3cform.widgets uninstall"
+msgstr "Desintalar o collective.z3cform.widgets"
+
+#. Default: "Browse for items"
+#: collective/z3cform/widgets/related_input.pt:11
+msgid "heading_contenttree_browse"
+msgstr "Procurar por itens"
+
+#. Default: "Accept"
+#: collective/z3cform/widgets/related_input.pt:43
+msgid "label_contenttree_add"
+msgstr "Aceitar"
+
+#. Default: "Cancel"
+#: collective/z3cform/widgets/related_input.pt:43
+msgid "label_contenttree_cancel"
+msgstr "Cancelar"
+
