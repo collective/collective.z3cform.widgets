@@ -1,0 +1,93 @@
+# Franklin Kingma, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2012-09-05 07:29+0000\n"
+"PO-Revision-Date: 2012-09-05 09:25+0100\n"
+"Last-Translator: Franklin Kingma <franklin@fourdigits.nl>\n"
+"Language-Team: Nederlands <>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: nl\n"
+"Language-Name: Nederlands\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+
+#: configure.zcml
+msgid "A widget package for Plone 4 projects."
+msgstr "Een widget package voor Plone 4 projecten."
+
+#: collective/z3cform/widgets/enhancedtextlines.py:41
+msgid "Add"
+msgstr "Toevoegen"
+
+#: collective/z3cform/widgets/enhancedtextlines.py:42
+msgid "Add Option"
+msgstr "Toevoeg optie"
+
+#: collective/z3cform/widgets/related_input.pt:26
+msgid "Content To Relate"
+msgstr "Content gerelateerd aan"
+
+#: collective/z3cform/widgets/enhancedtextlines.py:43
+msgid "Delete Option"
+msgstr "Verwijder optie"
+
+#: collective/z3cform/widgets/enhancedtextlines.py:44
+msgid "Edit Option"
+msgstr "Bewerk optie"
+
+#: collective/z3cform/widgets/improved_checkbox_input.pt:58
+msgid "Next"
+msgstr "Volgende"
+
+#: collective/z3cform/widgets/related_search.pt:38
+msgid "No Results"
+msgstr "Geen resultaat"
+
+#: collective/z3cform/widgets/improved_checkbox_input.pt:54
+msgid "Prev"
+msgstr "Vorige"
+
+#: collective/z3cform/widgets/related_input.pt:21
+msgid "Recent Items"
+msgstr "Recente items"
+
+#: collective/z3cform/widgets/related_input.pt:14
+msgid "Search"
+msgstr "Zoeken"
+
+#: collective/z3cform/widgets/related_recurse.pt:34
+#: collective/z3cform/widgets/related_search.pt:34
+msgid "Show More"
+msgstr "Toon meer"
+
+#: configure.zcml
+msgid "Uninstall profile for the collective.z3cform.widgets package."
+msgstr "Deinstalleer profiel voor het collective.z3cform.widgets packages."
+
+#: configure.zcml
+msgid "collective.z3cform.widgets"
+msgstr "collective.z3cform.widgets"
+
+#: configure.zcml
+msgid "collective.z3cform.widgets uninstall"
+msgstr "Deinstalleer collective.z3cform.widgets"
+
+#. Default: "Browse for items"
+#: collective/z3cform/widgets/related_input.pt:11
+msgid "heading_contenttree_browse"
+msgstr "Blader voor items"
+
+#. Default: "Accept"
+#: collective/z3cform/widgets/related_input.pt:43
+msgid "label_contenttree_add"
+msgstr "Toevoegen"
+
+#. Default: "Cancel"
+#: collective/z3cform/widgets/related_input.pt:43
+msgid "label_contenttree_cancel"
+msgstr "Annuleren"
+

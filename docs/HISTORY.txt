@@ -6,7 +6,7 @@ Because you have to know where your towel is.
 1.0a5 (unreleased)
 ^^^^^^^^^^^^^^^^^^
 
-- Nothing changed yet.
+- Added Dutch translation [kingel]
 
 
 1.0a4 (2012-09-04)
