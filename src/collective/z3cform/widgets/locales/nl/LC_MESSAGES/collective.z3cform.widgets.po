@@ -57,7 +57,7 @@ msgstr "Recente items"
 
 #: collective/z3cform/widgets/related_input.pt:14
 msgid "Search"
-msgstr "Zoek"
+msgstr "Zoeken"
 
 #: collective/z3cform/widgets/related_recurse.pt:34
 #: collective/z3cform/widgets/related_search.pt:34
