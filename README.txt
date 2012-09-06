@@ -37,6 +37,11 @@ collective.z3cform.widgets provides the following widgets:
 
     This widget uses the `jQuery Tokeninput`_ plugin.
 
+.. Warning::
+    Please note that Plone 4.3 will probably include by default a widget with
+    the same functionality based in `eea.tags`_; because of that, further
+    development of this widget will be deprecated.
+
 **MultiContentSearchFieldWidget**
     A widget to add a dynamic list of objects. This works as a widget for
     related items field so it must be used like this.
@@ -51,7 +56,9 @@ collective.z3cform.widgets provides the following widgets:
             )
         form.widget(relatedItems=MultiContentSearchFieldWidget)
 
-    the parameters passed to the ObjPathSourceBinder class are used to filter the search of elements to relate to.. if none parameter are passed, a tree structure is shown in the widget.
+    The parameters passed to the ObjPathSourceBinder class are used to filter
+    the search of elements to relate to. If no parameters are passed, a tree
+    structure is shown in the widget.
 
 Don't Panic
 -----------
@@ -156,4 +163,4 @@ Have an idea? Found a bug? Let us know by `opening a support ticket`_.
 .. _`Chosen`: http://harvesthq.github.com/chosen/
 .. _`Facebook`: http://www.facebook.com/
 .. _`opening a support ticket`: https://github.com/collective/collective.z3cform.widgets/issues
-
+.. _`eea.tags`: https://github.com/collective/eea.tags

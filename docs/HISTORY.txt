@@ -3,10 +3,29 @@ Changelog
 
 Because you have to know where your towel is.
 
-1.0a4 (unreleased)
+1.0a5 (unreleased)
 ^^^^^^^^^^^^^^^^^^
 
+- Added Dutch translation [kingel]
+
+
+1.0a4 (2012-09-04)
+^^^^^^^^^^^^^^^^^^
+
+- Spanish translation was updated; Brazilian Portuguese translation was
+  added. [hvelarde]
+
+- Resources are only loaded for logged in users. [quimera]
+
 - Ordered search catalog in MultiContentSearchFieldWidget. [flecox]
+
+- Infinite Scroll in MultiContentSearchFieldWidget (fixes `#10`_). [flecox]
+
+- Fix bug when searching with no results in MultiContentSearchFieldWidget.
+  [flecox]
+
+- Updating taskplease library in EnhancedTextLinesFieldWidget (fixes `#13`_).
+  [flecox]
 
 
 1.0a3 (2012-06-15)
@@ -41,3 +60,5 @@ Because you have to know where your towel is.
 - Initial release.
 
 .. _`#7`: https://github.com/collective/collective.z3cform.widgets/issues/7
+.. _`#10`: https://github.com/collective/collective.z3cform.widgets/issues/10
+.. _`#13`: https://github.com/collective/collective.z3cform.widgets/issues/13

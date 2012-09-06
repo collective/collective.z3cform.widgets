@@ -17,17 +17,17 @@
 
     <genericsetup:registerProfile
         name="default"
-        title="Install collective.z3cform.widgets"
+        title="collective.z3cform.widgets"
         directory="profiles/default"
-        description="A set of portlets to use with z3c.form."
+        description="A widget package for Plone 4 projects."
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
     <genericsetup:registerProfile
         name="uninstall"
-        title="Uninstall collective.z3cform.widgets"
+        title="collective.z3cform.widgets uninstall"
         directory="profiles/uninstall"
-        description="Remove collective.z3cform.widgets from Plone."
+        description="Uninstall profile for the collective.z3cform.widgets package."
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
