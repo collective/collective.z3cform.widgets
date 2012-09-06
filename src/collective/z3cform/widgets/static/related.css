@@ -132,6 +132,7 @@ input.add_task {
     margin:5px 0;
     list-style:none outside none;
     position:relative;
+    display:block !important;
 }
 .tasksplease li:hover {
     background-color:#E2E2E2;
