@@ -1,4 +1,6 @@
-<i18n:domain i18n:domain="collective.z3cform.widgets">
+<i18n:domain i18n:domain="collective.z3cform.widgets"
+             tal:define="portal_state context/@@plone_portal_state;
+                         portal_url portal_state/portal_url;">
     <script type="text/javascript" tal:content="structure view/js"></script>
     <div tal:attributes="id string:${view/id}-autocomplete">
         <div tal:attributes="id string:${view/id}-input-fields" class="autocompleteInputWidget"
@@ -12,6 +14,11 @@
     <div id="relatedWidget-search">
         <div class="search-container">
             <input id="relatedWidget-search-input" class="text-widget textline-field kssattr-formname-++add++collective.z3cform.widgets kssattr-fieldname-form.widgets.IRelatedItems.relatedItems.widgets.query kssattr-fieldset-0" type="text" /> <input type="button" i18n:attributes="value" value="Search" id="relatedWidget-search-button" />
+
+            <img tal:attributes="src string:${portal_url}/spinner.gif"
+                 alt=""
+                 id="related-search-spinner"
+                 style="display:none"/>
         </div>    
   </div>
     </div>
@@ -33,6 +40,13 @@
         <ul class="navTree navTreeLevel0 recieve">
           <li tal:replace="structure view/render_selected" />
         </ul>
+        
+        <div style="text-align:center;">
+            <img tal:attributes="src string:${portal_url}/spinner.gif"
+                    alt=""
+                    id="related-more-spinner"
+                style="display:none;"/>
+        </div>
     </div>
     <div class="relatedWidgetRecieve">
       <ul class="navTree navTreeLevel0">

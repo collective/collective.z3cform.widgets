@@ -75,22 +75,6 @@ if(jQuery) (function($){
    };
 }(jQuery));
 
-
-function relatedWidgetSearchFilter(url) {
-    
-  $("#form-widgets-relatedItems-contenttree").attr("data-page", "0");
-  var queryVal = $("#relatedWidget-search-input").val();
-  $.ajax({
-    url: url,
-    data: {'q':queryVal},
-    success: function(info){
-      $(".relatedWidget ul.from").html(info);
-      return false;
-    }
-  });
-  return false;
-}
-
 $(function() {
       $("#form-widgets-relatedItems-contenttree-window").draggable();
 	  $( ".relatedWidget ul.from .navTreeItem").liveDraggable({ containment: ".relatedWidget",  scroll: false, helper: "clone"}); 

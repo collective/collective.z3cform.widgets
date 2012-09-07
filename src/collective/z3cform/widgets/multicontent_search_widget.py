@@ -275,14 +275,17 @@ class MultiContentSearchWidget(MultiContentTreeWidget):
                 );
 
                 function infiniteScrollItems() {
-                    var opts = {context:'#form-widgets-relatedItems-contenttree', offset: '%(perc)s'};
-                    var $footer = $("#form-widgets-relatedItems-contenttree #show-more-items-results");
-                    $footer.waypoint(function(event, direction) {
-                        $footer.waypoint('remove');
-                        if(direction == 'down') {
-                            $("#show-more-items-results a").trigger("click");
-                        }
-                    }, opts);
+                    var opts = {context:'#%(id)s-contenttree', offset: '%(perc)s'};
+                    var $footer = $("#%(id)s-contenttree #show-more-items-results");
+                    if ($footer.length) {
+                        $footer.waypoint(function(event, direction) {
+                            $footer.waypoint('remove');
+                            if(direction == 'down') {
+                                $("#show-more-items-results a").trigger("click");
+                            }
+                        }, opts);
+                    }
+                    
                 }
                 
                 function appendMoreItems(offset) {
@@ -295,16 +298,34 @@ class MultiContentSearchWidget(MultiContentTreeWidget):
                                 data: {'q':query,
                                         'offset':offset},
                                 success: function(results) {
-                                        $("ul#form-widgets-relatedItems-contenttree").append(results);
+                                        $("ul#%(id)s-contenttree").append(results);
+                                        hideMoreSpinner();
                                         infiniteScrollItems();
                                         }
                                     });
                 }
    
+                function relatedWidgetSearchFilter(url) {
+                    
+                  $("#form-widgets-relatedItems-contenttree").attr("data-page", "0");
+                  var queryVal = $("#relatedWidget-search-input").val();
+                  $.ajax({
+                    url: url,
+                    data: {'q':queryVal},
+                    success: function(info){
+                      $(".relatedWidget ul.from").html(info);
+                      hideSearchSpinner();
+                      return false;
+                    }
+                  });
+                  return false;
+                }
+
                 $("#show-more-items-results a").unbind("click");
             	$("#show-more-items-results a").live("click", function(event) {
             	    event.preventDefault();
             	    var offset = $("#show-more-items-results").attr("data-offset");
+                    showMoreSpinner();
             	    appendMoreItems(offset);
             	    return false;
             	});
@@ -312,9 +333,26 @@ class MultiContentSearchWidget(MultiContentTreeWidget):
             	$("#relatedWidget-search-button").live("click", function(event) {
             	    event.preventDefault();
             	    var urlSearch = '%(urlSearch)s'
+                    showSearchSpinner();
             	    relatedWidgetSearchFilter(urlSearch);
             	    return false;
             	});
+
+                function showSearchSpinner() {
+                $("#related-search-spinner").css("display", "inline");
+                }
+                
+                function hideSearchSpinner() {
+                $("#related-search-spinner").css("display", "none");
+                }
+
+                function showMoreSpinner() {
+                $("#related-more-spinner").css("display", "inline");
+                }
+
+                function hideMoreSpinner() {
+                $("#related-more-spinner").css("display", "none");
+                }
             	
 
         """ % dict(url=url,
