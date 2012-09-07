@@ -115,14 +115,12 @@
     margin-left: 0;
 }
 
-input.add_task {
+.add_task {
     height: 28px;
-    position: relative;
-    top: -7px;
 }
 
 .tasksplease {
-    width:20em;
+    width:24em;
     margin:0px;
     padding:0px;
 }
@@ -136,6 +134,9 @@ input.add_task {
 }
 .tasksplease li:hover {
     background-color:#E2E2E2;
+}
+.tasksplease-container .tasksplease li input {
+    width: 90%;
 }
 .tasksplease .ui-state-highlight {
     background-color:#ecf4ff;
