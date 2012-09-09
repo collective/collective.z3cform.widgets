@@ -8,6 +8,7 @@ Because you have to know where your towel is.
 
 - Added Dutch translation [kingel]
 - Correction in tasks layout [quimera]
+- Spinners for the related widget so you know is working [frapell]
 
 
 1.0a4 (2012-09-04)
