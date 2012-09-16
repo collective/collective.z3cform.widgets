@@ -3,7 +3,7 @@ Changelog
 
 Because you have to know where your towel is.
 
-1.0a5 (unreleased)
+1.0b1 (2012-09-16)
 ^^^^^^^^^^^^^^^^^^
 
 - Added Dutch translation [kingel]
