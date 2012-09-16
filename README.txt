@@ -37,11 +37,6 @@ collective.z3cform.widgets provides the following widgets:
 
     This widget uses the `jQuery Tokeninput`_ plugin.
 
-.. Warning::
-    Please note that Plone 4.3 will probably include by default a widget with
-    the same functionality based in `eea.tags`_; because of that, further
-    development of this widget will be deprecated.
-
 **MultiContentSearchFieldWidget**
     A widget to add a dynamic list of objects. This works as a widget for
     related items field so it must be used like this.
