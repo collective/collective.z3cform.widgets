@@ -5,11 +5,11 @@ import zope.schema
 from z3c.form import interfaces
 from z3c.form import widget
 from z3c.form.browser import textarea
-from z3c.form.converter import BaseDataConverter
 
 from zope.app.pagetemplate.viewpagetemplatefile import ViewPageTemplateFile
 
 from collective.z3cform.widgets.interfaces import ITokenInputWidget
+
 
 class TokenInputWidget(textarea.TextAreaWidget):
     """Widget for adding new keywords and autocomplete with the ones in the
@@ -18,7 +18,7 @@ class TokenInputWidget(textarea.TextAreaWidget):
     klass = u"token-input-widget"
     display_template = ViewPageTemplateFile('token_input_display.pt')
     input_template = ViewPageTemplateFile('token_input_input.pt')
-    
+
     # JavaScript template
     js_template = """\
     (function($) {
@@ -41,7 +41,7 @@ class TokenInputWidget(textarea.TextAreaWidget):
             tags += "{id: '%s', name: '%s'}" % (value.replace("'", "\\'"), value.replace("'", "\\'"))
             if index < len(values) - 1:
                 tags += ", "
-        old_index = 0
+        old_index = 0  # XXX: this is not used
         #prepopulate
         for index, value in enumerate(old_values):
             old_tags += u"{id: '%s', name: '%s'}" % (value.replace("'", "\\'"), value.replace("'", "\\'"))
@@ -58,6 +58,7 @@ class TokenInputWidget(textarea.TextAreaWidget):
             return self.display_template(self)
         else:
             return self.input_template(self)
+
 
 @zope.interface.implementer(interfaces.IFieldWidget)
 def TokenInputFieldWidget(field, request):

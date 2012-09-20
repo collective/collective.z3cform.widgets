@@ -15,16 +15,14 @@ from Products.CMFCore.utils import getToolByName
 
 import z3c.form.interfaces
 import z3c.form.widget
-from z3c.form import field
-
-from collective.z3cform.widgets import _
 
 LIMIT = 10
 
+
 class RelatedSearch(AutocompleteSearch):
-    
+
     display_template = ViewPageTemplateFile('related_search.pt')
- 
+
     def __call__(self):
         # We want to check that the user was indeed allowed to access the
         # form for this widget. We can only this now, since security isn't
@@ -35,12 +33,12 @@ class RelatedSearch(AutocompleteSearch):
         offset = int(self.request.get('offset', 0))
         self.show_more = True
         if not query:
-            query=''
+            query = ''
         # Update the widget before accessing the source.
         # The source was only bound without security applied
         # during traversal before.
         self.context.update()
-        source = self.context.bound_source
+        source = self.context.bound_source  # XXX: this is not used
         # TODO: use limit?
         result = self.search(query, limit=limit, offset=offset)
         portal_state = getMultiAdapter((self.context, self.request),
@@ -53,16 +51,16 @@ class RelatedSearch(AutocompleteSearch):
         if len(data) < LIMIT:
             self.show_more = False
         result = self.filterSelected(data)
-        return self.display_template(children=result, level=1, offset=offset+limit)
+        return self.display_template(children=result, level=1, offset=offset + limit)
 
     def getTermByBrain(self, brain):
         # Ask the widget
         return self.context.getTermByBrain(brain)
-    
+
     def filterSelected(self, data):
-        result = self.context.filterSelected({'children':data})
+        result = self.context.filterSelected({'children': data})
         return result.get('children', [])
-   
+
     def search(self, query='', limit=None, offset=0):
         portal_tool = getToolByName(self.context, "portal_url")
         self.portal_path = portal_tool.getPortalPath()
@@ -71,21 +69,22 @@ class RelatedSearch(AutocompleteSearch):
         catalog_query.update(parse_query(query, self.portal_path))
         catalog_query['sort_on'] = 'created'
         catalog_query['sort_order'] = 'descending'
-        
+
         if limit and 'sort_limit' not in catalog_query and offset == 0:
             catalog_query['sort_limit'] = limit
         elif limit and 'sort_limit' not in catalog_query:
             catalog_query['sort_limit'] = offset + limit
-            
-        results =  source.catalog(**catalog_query)
+
+        results = source.catalog(**catalog_query)
         if offset != 0:
-            results = results[offset:(offset+limit)]
+            results = results[offset:(offset + limit)]
         return results
-          
+
 
 class FetchRelated(Fetch):
     fragment_template = ViewPageTemplateFile('fragment.pt')
     recurse_template = ViewPageTemplateFile('input_recurse.pt')
+
 
 class MultiContentSearchWidget(MultiContentTreeWidget):
     display_template = ViewPageTemplateFile('related_display.pt')
@@ -121,8 +120,8 @@ class MultiContentSearchWidget(MultiContentTreeWidget):
             else:
                 self.unchecked.append(i)
 
-        lower = (self.related_batch - 1)*batch
-        upper = self.related_batch*batch
+        lower = (self.related_batch - 1) * batch
+        upper = self.related_batch * batch
 
         if len(self.unchecked) >= upper:
             self.show_next = True
@@ -130,14 +129,14 @@ class MultiContentSearchWidget(MultiContentTreeWidget):
         if self.related_batch != 1:
             self.show_prev = True
 
-        self.unchecked.sort(key=lambda x:x['id'])
+        self.unchecked.sort(key=lambda x: x['id'])
         self.unchecked = self.unchecked[lower:upper]
 
         self.items = self.checked + self.unchecked
-        
+
     def render_tree(self, relPath=None, query=None, limit=LIMIT, offset=0):
         self.show_more = True
-        content = self.context
+        content = self.context    # XXX: this is not used
         portal_state = getMultiAdapter((self.context, self.request),
                                           name=u'plone_portal_state')
         portal = portal_state.portal()
@@ -156,15 +155,15 @@ class MultiContentSearchWidget(MultiContentTreeWidget):
                                query=source.navigation_tree_query,
                                strategy=strategy)
         else:
-           result = self.getRelated(limit=10)
-           if len(result) < LIMIT:
-               self.show_more = False
-           data = self.brainsToTerms(result)
+            result = self.getRelated(limit=10)
+            if len(result) < LIMIT:
+                self.show_more = False
+            data = self.brainsToTerms(result)
         result = self.filterSelected(data)
         return self.recurse_template(
                                     children=result.get('children', []),
                                     level=1,
-                                    offset=offset+limit)
+                                    offset=offset + limit)
 
     def getRelated(self, query='', limit=None):
         portal_tool = getToolByName(self.context, "portal_url")
@@ -176,18 +175,17 @@ class MultiContentSearchWidget(MultiContentTreeWidget):
         catalog_query['sort_order'] = 'descending'
         if limit and 'sort_limit' not in catalog_query:
             catalog_query['sort_limit'] = limit
-        results =  source.catalog(**catalog_query)
+        results = source.catalog(**catalog_query)
         return results
-    
+
     def filterSelected(self, data):
         result = []
         selected_ids = [i['id'] for i in self.get_selected()] + [self.context.getId()]
         for item in data.get('children', []):
             if 'id' in item.keys() and item['id'] not in selected_ids:
                 result.append(item)
-        return {'children':result}
-        
-    
+        return {'children': result}
+
     def brainsToTerms(self, brains):
         portal_state = getMultiAdapter((self.context, self.request),
                                           name=u'plone_portal_state')
@@ -196,8 +194,8 @@ class MultiContentSearchWidget(MultiContentTreeWidget):
         strategy = getMultiAdapter((portal, self), INavtreeStrategy)
         result = []
         for node in brains:
-            term = strategy.decoratorFactory({'item':node})
-            term['children'] = [] 
+            term = strategy.decoratorFactory({'item': node})
+            term['children'] = []
             result.append(term)
         return {'children': result}
 
@@ -214,24 +212,25 @@ class MultiContentSearchWidget(MultiContentTreeWidget):
             result = catalog(path={'query': folder_path, 'depth': 0})
             if result:
                 brain = result[0]
-                items.append(strategy.decoratorFactory({'item':brain}))
+                items.append(strategy.decoratorFactory({'item': brain}))
         return items
 
     def render_selected(self):
         items = self.get_selected()
         return self.selected_template(children=items, level=1)
-        
+
     def renderQueryWidget(self):
         return self.checkbox_template()
-    
+
     def related_url(self):
         """Generate the URL that returns autocomplete results for this form
         """
         form_url = self.request.getURL()
 
         return "%s/++widget++%s/@@related-search" % (
-            form_url, self.name )
+            form_url, self.name)
 
+    # XXX: why do we have this bunch of JS code here and not in a template?
     def js_extra(self):
         form_url = self.request.getURL()
         url = "%s/++widget++%s/@@contenttree-related-fetch" % (form_url, self.name)
@@ -285,9 +284,9 @@ class MultiContentSearchWidget(MultiContentTreeWidget):
                             }
                         }, opts);
                     }
-                    
+
                 }
-                
+
                 function appendMoreItems(offset) {
                     $("#show-more-items-results").remove();
                     var query = document.getElementById('relatedWidget-search-input').value;
@@ -304,9 +303,9 @@ class MultiContentSearchWidget(MultiContentTreeWidget):
                                         }
                                     });
                 }
-   
+
                 function relatedWidgetSearchFilter(url) {
-                    
+
                   $("#form-widgets-relatedItems-contenttree").attr("data-page", "0");
                   var queryVal = $("#relatedWidget-search-input").val();
                   $.ajax({
@@ -322,26 +321,26 @@ class MultiContentSearchWidget(MultiContentTreeWidget):
                 }
 
                 $("#show-more-items-results a").unbind("click");
-            	$("#show-more-items-results a").live("click", function(event) {
-            	    event.preventDefault();
-            	    var offset = $("#show-more-items-results").attr("data-offset");
+                $("#show-more-items-results a").live("click", function(event) {
+                    event.preventDefault();
+                    var offset = $("#show-more-items-results").attr("data-offset");
                     showMoreSpinner();
-            	    appendMoreItems(offset);
-            	    return false;
-            	});
+                    appendMoreItems(offset);
+                    return false;
+                });
                 $("#relatedWidget-search-button").unbind("click")
-            	$("#relatedWidget-search-button").live("click", function(event) {
-            	    event.preventDefault();
-            	    var urlSearch = '%(urlSearch)s'
+                $("#relatedWidget-search-button").live("click", function(event) {
+                    event.preventDefault();
+                    var urlSearch = '%(urlSearch)s'
                     showSearchSpinner();
-            	    relatedWidgetSearchFilter(urlSearch);
-            	    return false;
-            	});
+                    relatedWidgetSearchFilter(urlSearch);
+                    return false;
+                });
 
                 function showSearchSpinner() {
                 $("#related-search-spinner").css("display", "inline");
                 }
-                
+
                 function hideSearchSpinner() {
                 $("#related-search-spinner").css("display", "none");
                 }
@@ -353,7 +352,6 @@ class MultiContentSearchWidget(MultiContentTreeWidget):
                 function hideMoreSpinner() {
                 $("#related-more-spinner").css("display", "none");
                 }
-            	
 
         """ % dict(url=url,
                    urlSearch=self.related_url(),

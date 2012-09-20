@@ -13,6 +13,7 @@ from zope.app.pagetemplate.viewpagetemplatefile import ViewPageTemplateFile
 from collective.z3cform.widgets.interfaces import IEnhancedTextLinesWidget
 from collective.z3cform.widgets import _
 
+
 class EnhancedTextLinesWidget(textarea.TextAreaWidget):
     """ Widget for adding new keywords and autocomplete with the ones in the
     system.
