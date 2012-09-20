@@ -6,15 +6,19 @@ Because you have to know where your towel is.
 1.0b2 (unreleased)
 ^^^^^^^^^^^^^^^^^^
 
-- Nothing changed yet.
+- Import ViewPageTemplateFile from zope.browserpage to avoid dependency on
+  zope.app.pagetemplate.
+  [hvelarde]
 
 
 1.0b1 (2012-09-16)
 ^^^^^^^^^^^^^^^^^^
 
-- Added Dutch translation [kingel]
-- Correction in tasks layout [quimera]
-- Spinners for the related widget so you know is working [frapell]
+- Added Dutch translation. [kingel]
+
+- Correction in tasks layout. [quimera]
+
+- Spinners for the related widget so you know is working. [frapell]
 
 
 1.0a4 (2012-09-04)

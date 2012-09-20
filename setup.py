@@ -9,7 +9,6 @@ long_description = open("README.txt").read() + "\n" + \
                    open(os.path.join("docs", "CREDITS.txt")).read() + "\n" + \
                    open(os.path.join("docs", "HISTORY.txt")).read()
 
-
 setup(name='collective.z3cform.widgets',
       version=version,
       description="A widget package for Dexterity projects.",
@@ -20,6 +19,7 @@ setup(name='collective.z3cform.widgets',
         "Framework :: Plone",
         "Framework :: Plone :: 4.1",
         "Framework :: Plone :: 4.2",
+#        "Framework :: Plone :: 4.3",
         "Intended Audience :: Developers",
         "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
         "Operating System :: OS Independent",
