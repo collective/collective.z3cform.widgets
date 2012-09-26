@@ -10,6 +10,8 @@ Because you have to know where your towel is.
   zope.app.pagetemplate.
   [hvelarde]
 
+- New field and widget included which uses the rte-light editor [frapell]
+
 
 1.0b1 (2012-09-16)
 ^^^^^^^^^^^^^^^^^^
