@@ -9,6 +9,8 @@
     <includeDependencies package="." />
 
     <i18n:registerTranslations directory="locales" />
+    
+    <include file="simple_rich_text.zcml" />
 
     <browser:resourceDirectory
         name="collective.z3cform.widgets"
