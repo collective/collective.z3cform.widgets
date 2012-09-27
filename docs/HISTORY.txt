@@ -3,7 +3,7 @@ Changelog
 
 Because you have to know where your towel is.
 
-1.0b2 (unreleased)
+1.0b2 (2012-09-27)
 ^^^^^^^^^^^^^^^^^^
 
 - Import ViewPageTemplateFile from zope.browserpage to avoid dependency on
