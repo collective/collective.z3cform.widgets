@@ -153,6 +153,13 @@ Mostly Harmless
 
 Have an idea? Found a bug? Let us know by `opening a support ticket`_.
 
+See also
+-----------
+
+More widgets you might like
+
+* https://github.com/collective/collective.z3cform.datagridfield/
+
 .. _`jQuery TaskPlease`: https://github.com/Quimera/tasksplease
 .. _`jQuery Tokeninput`: http://loopj.com/jquery-tokeninput/
 .. _`Chosen`: http://harvesthq.github.com/chosen/
