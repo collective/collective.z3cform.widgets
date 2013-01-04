@@ -19,7 +19,7 @@
                  alt=""
                  id="related-search-spinner"
                  style="display:none"/>
-        </div>    
+        </div>
   </div>
     </div>
     <div class="relatedWidgetContainer">
@@ -40,7 +40,7 @@
         <ul class="navTree navTreeLevel0 recieve">
           <li tal:replace="structure view/render_selected" />
         </ul>
-        
+
         <div style="text-align:center;">
             <img tal:attributes="src string:${portal_url}/spinner.gif"
                     alt=""

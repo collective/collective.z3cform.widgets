@@ -233,9 +233,15 @@ class MultiContentSearchWidget(MultiContentTreeWidget):
     # XXX: why do we have this bunch of JS code here and not in a template?
     def js_extra(self):
         form_url = self.request.getURL()
+
+        #check if we should put the js code that loads the tree
+        make_tree = 'false'
+        if not self.bound_source.selectable_filter.criteria:
+            make_tree = 'true'
         url = "%s/++widget++%s/@@contenttree-related-fetch" % (form_url, self.name)
 
         return """\
+                var SHOW_TREE = %(make_tree)s;
                 $('#%(id)s-widgets-query').each(function() {
                     if($(this).siblings('input.searchButton').length > 0) { return; }
                     $(document.createElement('input'))
@@ -258,20 +264,22 @@ class MultiContentSearchWidget(MultiContentTreeWidget):
                     $(this).contentTreeCancel();
                 });
                 $('#%(id)s-widgets-query').after(" ");
-                $('#%(id)s-contenttree').contentTree(
-                    {
-                        script: '%(url)s',
-                        folderEvent: '%(folderEvent)s',
-                        selectEvent: '%(selectEvent)s',
-                        expandSpeed: %(expandSpeed)d,
-                        collapseSpeed: %(collapseSpeed)s,
-                        multiFolder: %(multiFolder)s,
-                        multiSelect: %(multiSelect)s,
-                    },
-                    function(event, selected, data, title) {
-                        // alert(event + ', ' + selected + ', ' + data + ', ' + title);
-                    }
-                );
+                if (SHOW_TREE) {
+                    $('#%(id)s-contenttree').contentTree(
+                        {
+                            script: '%(url)s',
+                            folderEvent: '%(folderEvent)s',
+                            selectEvent: '%(selectEvent)s',
+                            expandSpeed: %(expandSpeed)d,
+                            collapseSpeed: %(collapseSpeed)s,
+                            multiFolder: %(multiFolder)s,
+                            multiSelect: %(multiSelect)s,
+                        },
+                        function(event, selected, data, title) {
+                            // alert(event + ', ' + selected + ', ' + data + ', ' + title);
+                        }
+                    );
+                }
 
                 function infiniteScrollItems() {
                     var opts = {context:'#%(id)s-contenttree', offset: '%(perc)s'};
@@ -366,6 +374,7 @@ class MultiContentSearchWidget(MultiContentTreeWidget):
                    klass=self.klass,
                    title=self.title,
                    perc="100%",
+                   make_tree=make_tree,
                    button_val=translate(
                        u'heading_contenttree_browse',
                        default=u'Browse for items',
