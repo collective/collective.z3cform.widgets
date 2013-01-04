@@ -6,6 +6,8 @@ Because you have to know where your towel is.
 1.0b3 (unreleased)
 ^^^^^^^^^^^^^^^^^^
 
+- Test compatibility with Plone 4.3. [hvelarde]
+
 - Add Pillow as a dependency of the package. [hvelarde]
 
 - Import ViewPageTemplateFile from zope.browserpage to avoid dependency on 
