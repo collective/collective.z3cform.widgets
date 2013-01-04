@@ -6,15 +6,13 @@ Because you have to know where your towel is.
 1.0b3 (unreleased)
 ^^^^^^^^^^^^^^^^^^
 
-- Nothing changed yet.
+- Import ViewPageTemplateFile from zope.browserpage to avoid dependency on 
+  zope.app.pagetemplate.
+  [hvelarde]
 
 
 1.0b2 (2012-09-27)
 ^^^^^^^^^^^^^^^^^^
-
-- Import ViewPageTemplateFile from zope.browserpage to avoid dependency on
-  zope.app.pagetemplate.
-  [hvelarde]
 
 - New field and widget included which uses the rte-light editor [frapell]
 

@@ -13,16 +13,10 @@ from zope.schema.fieldproperty import FieldProperty
 from zope.schema.interfaces import IText
 
 from z3c.form.interfaces import IFieldWidget
-from z3c.form.interfaces import DISPLAY_MODE
-
 from z3c.form.widget import FieldWidget
-
 from z3c.form.browser.textarea import TextAreaWidget
 
-from zope.app.pagetemplate.viewpagetemplatefile import ViewPageTemplateFile
-
 from collective.z3cform.widgets.interfaces import ISimpleRichTextWidget
-
 from collective.z3cform.widgets import _
 
 

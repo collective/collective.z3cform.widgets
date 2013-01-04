@@ -6,7 +6,7 @@ from z3c.form import interfaces
 from z3c.form import widget
 from z3c.form.browser import textarea
 
-from zope.app.pagetemplate.viewpagetemplatefile import ViewPageTemplateFile
+from zope.browserpage.viewpagetemplatefile import ViewPageTemplateFile
 
 from collective.z3cform.widgets.interfaces import ITokenInputWidget
 
