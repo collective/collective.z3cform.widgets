@@ -16,6 +16,9 @@ Because you have to know where your towel is.
   zope.app.pagetemplate.
   [hvelarde]
 
+- Do not mix unicode and strings in TokenInputWiget editing
+  (fixes issue #20) 
+  [jsbueno]
 
 1.0b2 (2012-09-27)
 ^^^^^^^^^^^^^^^^^^
