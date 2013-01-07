@@ -11,12 +11,13 @@ JAVASCRIPTS = [
     "++resource++collective.z3cform.widgets/related.js",
     "++resource++collective.z3cform.widgets/jquery.tokeninput.min.js",
     "++resource++collective.z3cform.widgets/keywords.js"
-    ]
+]
 
 CSS = [
     "++resource++collective.z3cform.widgets/related.css",
     "++resource++collective.z3cform.widgets/token-input-facebook.css"
-    ]
+]
+
 
 class InstallTest(unittest.TestCase):
 
@@ -65,7 +66,7 @@ class UninstallTest(unittest.TestCase):
         portal_css = self.portal.portal_css
         for css in CSS:
             self.assertFalse(css in portal_css.getResourceIds(),
-                            '%s not removed' % css)
+                             '%s not removed' % css)
 
 
 def test_suite():

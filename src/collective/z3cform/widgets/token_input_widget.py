@@ -41,16 +41,18 @@ class TokenInputWidget(textarea.TextAreaWidget):
             tags += "{id: '%s', name: '%s'}" % (value.replace("'", "\\'"), value.replace("'", "\\'"))
             if index < len(values) - 1:
                 tags += ", "
-        old_index = 0  # XXX: this is not used
+
         #prepopulate
         for index, value in enumerate(old_values):
             old_tags += u"{id: '%s', name: '%s'}" % (value.replace("'", "\\'"), value.replace("'", "\\'"))
             if index < len(old_values) - 1:
                 old_tags += ", "
-        result = self.js_template % dict(id=self.id,
+        result = self.js_template % dict(
+            id=self.id,
             klass=self.klass,
             newtags=unicode(tags, errors='ignore'),
-            oldtags=old_tags)
+            oldtags=old_tags
+        )
         return result
 
     def render(self):

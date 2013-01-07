@@ -38,16 +38,15 @@ class RelatedSearch(AutocompleteSearch):
         # The source was only bound without security applied
         # during traversal before.
         self.context.update()
-        source = self.context.bound_source  # XXX: this is not used
         # TODO: use limit?
         result = self.search(query, limit=limit, offset=offset)
         portal_state = getMultiAdapter((self.context, self.request),
-                                          name=u'plone_portal_state')
+                                       name=u'plone_portal_state')
         portal = portal_state.portal()
 
         strategy = getMultiAdapter((portal, self.context), INavtreeStrategy)
 
-        data = [strategy.decoratorFactory({'item':node}) for node in result]
+        data = [strategy.decoratorFactory({'item': node}) for node in result]
         if len(data) < LIMIT:
             self.show_more = False
         result = self.filterSelected(data)
@@ -136,9 +135,8 @@ class MultiContentSearchWidget(MultiContentTreeWidget):
 
     def render_tree(self, relPath=None, query=None, limit=LIMIT, offset=0):
         self.show_more = True
-        content = self.context    # XXX: this is not used
         portal_state = getMultiAdapter((self.context, self.request),
-                                          name=u'plone_portal_state')
+                                       name=u'plone_portal_state')
         portal = portal_state.portal()
         source = self.bound_source
 
@@ -150,20 +148,18 @@ class MultiContentSearchWidget(MultiContentTreeWidget):
             rel_path = root_path + '/' + relPath
             strategy.rootPath = rel_path
         if not source.selectable_filter.criteria:
-            data = buildFolderTree(portal,
-                               obj=portal,
-                               query=source.navigation_tree_query,
-                               strategy=strategy)
+            data = buildFolderTree(portal, obj=portal,
+                                   query=source.navigation_tree_query,
+                                   strategy=strategy)
         else:
             result = self.getRelated(limit=10)
             if len(result) < LIMIT:
                 self.show_more = False
             data = self.brainsToTerms(result)
         result = self.filterSelected(data)
-        return self.recurse_template(
-                                    children=result.get('children', []),
-                                    level=1,
-                                    offset=offset + limit)
+        return self.recurse_template(children=result.get('children', []),
+                                     level=1,
+                                     offset=offset + limit)
 
     def getRelated(self, query='', limit=None):
         portal_tool = getToolByName(self.context, "portal_url")
@@ -188,7 +184,7 @@ class MultiContentSearchWidget(MultiContentTreeWidget):
 
     def brainsToTerms(self, brains):
         portal_state = getMultiAdapter((self.context, self.request),
-                                          name=u'plone_portal_state')
+                                       name=u'plone_portal_state')
         portal = portal_state.portal()
 
         strategy = getMultiAdapter((portal, self), INavtreeStrategy)
@@ -201,7 +197,7 @@ class MultiContentSearchWidget(MultiContentTreeWidget):
 
     def get_selected(self):
         portal_state = getMultiAdapter((self.context, self.request),
-                                         name=u'plone_portal_state')
+                                       name=u'plone_portal_state')
         portal = portal_state.portal()
         strategy = getMultiAdapter((portal, self), INavtreeStrategy)
 
@@ -227,8 +223,7 @@ class MultiContentSearchWidget(MultiContentTreeWidget):
         """
         form_url = self.request.getURL()
 
-        return "%s/++widget++%s/@@related-search" % (
-            form_url, self.name)
+        return "%s/++widget++%s/@@related-search" % (form_url, self.name)
 
     # XXX: why do we have this bunch of JS code here and not in a template?
     def js_extra(self):
@@ -386,4 +381,4 @@ class MultiContentSearchWidget(MultiContentTreeWidget):
 @implementer(z3c.form.interfaces.IFieldWidget)
 def MultiContentSearchFieldWidget(field, request):
     return z3c.form.widget.FieldWidget(field,
-                                      MultiContentSearchWidget(request))
+                                       MultiContentSearchWidget(request))

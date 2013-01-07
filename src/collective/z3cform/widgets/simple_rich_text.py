@@ -29,22 +29,14 @@ class SimpleRichTextWidget(TextAreaWidget):
     implementsOnly(ISimpleRichTextWidget)
 
     klass = u"simple-rich-text-widget"
-    # display_template = ViewPageTemplateFile('simple_rich_text_display.pt')
-    # input_template = ViewPageTemplateFile('simple_rich_text_input.pt')
 
-    # def render(self):
-    #     if self.mode == DISPLAY_MODE:
-    #         return self.display_template(self)
-    #     else:
-    #         return self.input_template(self)
-    
     def rte_js(self):
 
         rte_js_init = """\
         $("#%(id)s").rte({
             content_css_url: "++resource++collective.z3cform.widgets/rte.css",
             media_url: "++resource++collective.z3cform.widgets/rte/",
-            iframe_height: %(iframe_height)s, 
+            iframe_height: %(iframe_height)s,
             format_block: %(format_block)s,
             bold: %(bold)s,
             italic: %(italic)s,
@@ -94,7 +86,7 @@ class SimpleRichTextWidget(TextAreaWidget):
             allow_disable = "false"
 
         result = rte_js_init % dict(id=self.id,
-                                    iframe_height=iframe_height, 
+                                    iframe_height=iframe_height,
                                     format_block=format_block,
                                     bold=bold,
                                     italic=italic,
@@ -120,52 +112,44 @@ class ISimpleRichText(IText):
 
     iframe_height = Int(
         title=_("Iframe height"),
-        description=(
-        _("Allow to specify the height of the iframe")),
+        description=(_("Allow to specify the height of the iframe")),
         required=False,
         default=100,
-        )
+    )
 
     format_block = Bool(
         title=_("Format block"),
-        description=(
-        _('Show the "format block" drop down.')),
+        description=(_('Show the "format block" drop down.')),
         default=True)
 
     bold = Bool(
         title=_("Bold"),
-        description=(
-        _('Show the bold button.')),
+        description=(_('Show the bold button.')),
         default=True)
 
     italic = Bool(
         title=_("Italic"),
-        description=(
-        _('Show the italic button.')),
+        description=(_('Show the italic button.')),
         default=True)
 
     unordered_list = Bool(
         title=_("Unordered list"),
-        description=(
-        _('Show the unordered list button.')),
+        description=(_('Show the unordered list button.')),
         default=True)
 
     link = Bool(
         title=_("Link"),
-        description=(
-        _('Show the link button.')),
+        description=(_('Show the link button.')),
         default=True)
 
     image = Bool(
         title=_("Image"),
-        description=(
-        _('Show the image button.')),
+        description=(_('Show the image button.')),
         default=True)
 
     allow_disable = Bool(
         title=_("Allow to disable"),
-        description=(
-        _('Allow to disable the editor.')),
+        description=(_('Allow to disable the editor.')),
         default=True)
 
 
@@ -181,10 +165,10 @@ class SimpleRichText(Text):
     image = FieldProperty(ISimpleRichText['image'])
     allow_disable = FieldProperty(ISimpleRichText['allow_disable'])
 
-    def __init__(self, 
+    def __init__(self,
                  iframe_height=100,
-                 format_block=True, 
-                 bold=True, 
+                 format_block=True,
+                 bold=True,
                  italic=True,
                  unordered_list=True,
                  link=True,

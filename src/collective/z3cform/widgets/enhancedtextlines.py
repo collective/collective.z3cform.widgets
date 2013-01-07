@@ -44,7 +44,8 @@ class EnhancedTextLinesWidget(textarea.TextAreaWidget):
         delete_option = _(u"Delete Option")
         edit_option = _(u"Edit Option")
         return self.js_template % dict(id=self.id, add=add, add_task=add_option,
-            delete_task=delete_option, edit_task=edit_option)
+                                       delete_task=delete_option,
+                                       edit_task=edit_option)
 
     def render(self):
         if self.mode == interfaces.DISPLAY_MODE:
