@@ -8,7 +8,8 @@ contribution of the following people:
 - Gonzalo Almeida
 - Silvestre Huens
 - Héctor Velarde
-- Cleber J Santos
+- Cleber J. Santos
+- João S. O. Bueno
 
 Development sponsored by Open Multimedia.
 

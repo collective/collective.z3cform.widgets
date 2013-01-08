@@ -20,7 +20,7 @@ class TokenInputWidget(textarea.TextAreaWidget):
     input_template = ViewPageTemplateFile('token_input_input.pt')
 
     # JavaScript template
-    js_template = """\
+    js_template = u"""\
     (function($) {
         $().ready(function() {
             var newValues = [%(newtags)s];
@@ -34,23 +34,29 @@ class TokenInputWidget(textarea.TextAreaWidget):
     def js(self):
         values = self.context.portal_catalog.uniqueValuesFor('Subject')
         old_values = self.context.Subject()
-        tags = ""
-        old_tags = ""
+        tags = u""
+        old_tags = u""
         index = 0
         for index, value in enumerate(values):
-            tags += "{id: '%s', name: '%s'}" % (value.replace("'", "\\'"), value.replace("'", "\\'"))
+            if isinstance(value, str):
+                value = value.decode("utf-8")
+            tags += u"{id: '%s', name: '%s'}" % (
+                value.replace(u"'", u"\\'"), value.replace(u"'", u"\\'"))
             if index < len(values) - 1:
                 tags += ", "
 
         #prepopulate
         for index, value in enumerate(old_values):
-            old_tags += u"{id: '%s', name: '%s'}" % (value.replace("'", "\\'"), value.replace("'", "\\'"))
+            if isinstance(value, str):
+                value = value.decode("utf-8")
+            old_tags += u"{id: '%s', name: '%s'}" % (value.replace(
+                u"'", u"\\'"), value.replace(u"'", u"\\'"))
             if index < len(old_values) - 1:
                 old_tags += ", "
         result = self.js_template % dict(
             id=self.id,
             klass=self.klass,
-            newtags=unicode(tags, errors='ignore'),
+            newtags=tags,
             oldtags=old_tags
         )
         return result
