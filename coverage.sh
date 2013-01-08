@@ -23,5 +23,6 @@ if [ $COVERAGE -lt $MINIMUM ]; then
     echo "Insufficient test coverage: $COVERAGE% (minimum acceptable is $MINIMUM%)"
     exit 1
 else
+    echo "Current test coverage: $COVERAGE%"
     exit 0
 fi
