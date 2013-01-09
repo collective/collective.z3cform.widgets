@@ -58,7 +58,7 @@ class InstallTest(unittest.TestCase):
         class MockCatalog(object):
             def uniqueValuesFor(self, *args):
                 return ["maçã"]
-        
+
         def mock_subject():
             return ["resumé"]
         obj.portal_catalog = MockCatalog()

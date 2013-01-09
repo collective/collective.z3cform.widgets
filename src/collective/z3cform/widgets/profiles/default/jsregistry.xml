@@ -15,4 +15,14 @@
   <javascript id="++resource++collective.z3cform.widgets/jquery.tasksplease.js"
       cacheable="True" compression="none" cookable="True" enabled="True"
       expression="" inline="False" authenticated="True"/>
+
+  <javascript id="++resource++plone.formwidget.autocomplete/jquery.autocomplete.min.js" 
+      cacheable="True" compression="none" cookable="True" enabled="True"
+      expression="" inline="False"
+      insert-after="collective.js.jqueryui.custom.min.js" />
+  <javascript id="++resource++plone.formwidget.autocomplete/formwidget-autocomplete.js" 
+      cacheable="True" compression="safe" cookable="True" enabled="True"
+      expression="" inline="False"
+      insert-after="++resource++plone.formwidget.autocomplete/jquery.autocomplete.min.js" />
+  
 </object>
