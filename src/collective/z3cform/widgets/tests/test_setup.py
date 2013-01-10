@@ -74,6 +74,36 @@ class InstallTest(unittest.TestCase):
         self.assertTrue(u"maçã" in result)
         self.assertTrue(u"resumé" in result)
 
+    def test_token_input_widget_subjects(self):
+        from collective.z3cform.widgets.token_input_widget import\
+            TokenInputWidget
+        portal = self.portal
+        ttool = getToolByName(self.portal, 'portal_types')
+        setRoles(self.portal, TEST_USER_ID, ['Manager'])
+        fti = ttool.getTypeInfo("Document")
+        obj = fti.constructInstance(portal, "test1")
+
+        class MockCatalog(object):
+            def uniqueValuesFor(self, *args):
+                return ["maçã", "foo"]
+
+        def mock_subject():
+            return ["resumé", "bar"]
+        obj.portal_catalog = MockCatalog()
+        obj.Subject = mock_subject
+
+        mock_request = object()
+        widget = TokenInputWidget(mock_request)
+        widget.context = obj
+
+        result = widget.js()
+
+        self.assertTrue(isinstance(result, unicode))
+        self.assertTrue(u"maçã" in result)
+        self.assertTrue(u"resumé" in result)
+        self.assertTrue(u"foo" in result)
+        self.assertTrue(u"bar" in result)
+
 
 class UninstallTest(unittest.TestCase):
 

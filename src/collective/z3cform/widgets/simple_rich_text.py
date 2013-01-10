@@ -49,41 +49,13 @@ class SimpleRichTextWidget(TextAreaWidget):
 
         iframe_height = getattr(self.field, 'iframe_height', 100)
 
-        format_block = getattr(self.field, 'format_block', True)
-        if format_block:
-            format_block = "true"
-        else:
-            format_block = "false"
-        bold = getattr(self.field, 'bold', True)
-        if bold:
-            bold = "true"
-        else:
-            bold = "false"
-        italic = getattr(self.field, 'italic', True)
-        if italic:
-            italic = "true"
-        else:
-            italic = "false"
-        unordered_list = getattr(self.field, 'unordered_list', True)
-        if unordered_list:
-            unordered_list = "true"
-        else:
-            unordered_list = "false"
-        link = getattr(self.field, 'link', True)
-        if link:
-            link = "true"
-        else:
-            link = "false"
-        image = getattr(self.field, 'image', True)
-        if image:
-            image = "true"
-        else:
-            image = "false"
-        allow_disable = getattr(self.field, 'allow_disable', True)
-        if allow_disable:
-            allow_disable = "true"
-        else:
-            allow_disable = "false"
+        format_block = str(getattr(self.field, 'format_block', True)).lower()
+        bold = str(getattr(self.field, 'bold', True)).lower()
+        italic = str(getattr(self.field, 'italic', True)).lower()
+        unordered_list = str(getattr(self.field, 'unordered_list', True)).lower()
+        link = str(getattr(self.field, 'link', True)).lower()
+        image = str(getattr(self.field, 'image', True)).lower()
+        allow_disable = str(getattr(self.field, 'allow_disable', True)).lower()
 
         result = rte_js_init % dict(id=self.id,
                                     iframe_height=iframe_height,

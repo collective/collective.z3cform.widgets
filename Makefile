@@ -11,7 +11,7 @@ SHELL = /bin/sh
 
 options = -N -q -t 3
 src = src/collective/z3cform/widgets/
-minimum_coverage = 46
+minimum_coverage = 82
 pep8_ignores = E501
 max_complexity = 12
 css_ignores = ! -name jquery\*
