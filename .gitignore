@@ -13,3 +13,6 @@ parts/
 var/
 include/
 lib/
+.project
+.pyproject
+local.cfg

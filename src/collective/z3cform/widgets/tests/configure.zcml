@@ -1,0 +1,18 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
+    i18n_domain="collective.z3cform.widgets">
+
+    <include package="plone.z3cform" file="testing.zcml" />
+
+    <!-- Demo -->
+    <browser:page
+        for="*"
+        name="test-collective-z3cform-widgets"
+        class=".demo.TestView"
+        permission="cmf.ManagePortal"
+        />
+    <adapter factory=".demo.TestAdapter" />
+
+</configure>

@@ -14,6 +14,7 @@ class Fixture(PloneSandboxLayer):
         # Load ZCML
         import collective.z3cform.widgets
         self.loadZCML(package=collective.z3cform.widgets)
+        self.loadZCML(package=collective.z3cform.widgets.tests)
 
     def setUpPloneSite(self, portal):
         # Install into Plone site using portal_setup
