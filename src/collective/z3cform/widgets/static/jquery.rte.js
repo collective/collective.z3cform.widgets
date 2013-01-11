@@ -324,3 +324,25 @@ if(typeof $.fn.rte === "undefined") {
 } // if
 
 })(jQuery);
+
+function init_rte() {
+    $.each($(".rte-widget"), function(){
+        var $this = $(this);
+        $(this).rte({
+            content_css_url: "++resource++collective.z3cform.widgets/rte.css",
+            media_url: "++resource++collective.z3cform.widgets/rte/",
+            iframe_height: $this.data('iframe_height'),
+            format_block: $this.data('format_block'),
+            bold: $this.data('bold'),
+            italic: $this.data('italic'),
+            unordered_list: $this.data('unordered_list'),
+            link: $this.data('link'),
+            image: $this.data('image'),
+            allow_disable: $this.data('allow_disable')
+        });
+    });
+}
+
+$(document).ready(function(){
+    init_rte();
+});

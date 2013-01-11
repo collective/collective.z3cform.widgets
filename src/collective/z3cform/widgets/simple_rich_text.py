@@ -30,44 +30,18 @@ class SimpleRichTextWidget(TextAreaWidget):
 
     klass = u"simple-rich-text-widget"
 
-    def rte_js(self):
+    def rte_conf(self):
+        conf = {}
+        conf['iframe_height'] = getattr(self.field, 'iframe_height', 100)
+        conf['format_block'] = str(getattr(self.field, 'format_block', True)).lower()
+        conf['bold'] = str(getattr(self.field, 'bold', True)).lower()
+        conf['italic'] = str(getattr(self.field, 'italic', True)).lower()
+        conf['unordered_list'] = str(getattr(self.field, 'unordered_list', True)).lower()
+        conf['link'] = str(getattr(self.field, 'link', True)).lower()
+        conf['image'] = str(getattr(self.field, 'image', True)).lower()
+        conf['allow_disable'] = str(getattr(self.field, 'allow_disable', True)).lower()
 
-        rte_js_init = """\
-        $("#%(id)s").rte({
-            content_css_url: "++resource++collective.z3cform.widgets/rte.css",
-            media_url: "++resource++collective.z3cform.widgets/rte/",
-            iframe_height: %(iframe_height)s,
-            format_block: %(format_block)s,
-            bold: %(bold)s,
-            italic: %(italic)s,
-            unordered_list: %(unordered_list)s,
-            link: %(link)s,
-            image: %(image)s,
-            allow_disable: %(allow_disable)s
-        });
-        """
-
-        iframe_height = getattr(self.field, 'iframe_height', 100)
-
-        format_block = str(getattr(self.field, 'format_block', True)).lower()
-        bold = str(getattr(self.field, 'bold', True)).lower()
-        italic = str(getattr(self.field, 'italic', True)).lower()
-        unordered_list = str(getattr(self.field, 'unordered_list', True)).lower()
-        link = str(getattr(self.field, 'link', True)).lower()
-        image = str(getattr(self.field, 'image', True)).lower()
-        allow_disable = str(getattr(self.field, 'allow_disable', True)).lower()
-
-        result = rte_js_init % dict(id=self.id,
-                                    iframe_height=iframe_height,
-                                    format_block=format_block,
-                                    bold=bold,
-                                    italic=italic,
-                                    unordered_list=unordered_list,
-                                    link=link,
-                                    image=image,
-                                    allow_disable=allow_disable)
-
-        return result
+        return conf
 
 
 @implementer(IFieldWidget)

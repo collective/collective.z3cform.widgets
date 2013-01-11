@@ -25,4 +25,7 @@
       expression="" inline="False"
       insert-after="++resource++plone.formwidget.autocomplete/jquery.autocomplete.min.js" />
   
+  <javascript id="++resource++collective.z3cform.widgets/jquery.rte.js"
+      cacheable="True" compression="none" cookable="True" enabled="True"
+      expression="" inline="False" authenticated="True"/>
 </object>
