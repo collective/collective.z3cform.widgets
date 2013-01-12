@@ -55,6 +55,22 @@ collective.z3cform.widgets provides the following widgets:
     the search of elements to relate to. If no parameters are passed, a tree
     structure is shown in the widget.
 
+**SimpleRichTextWidget**
+    A lightweight and unbloated Rich Text Editor (RTE / WYSIWYG).
+    These parameters can be configured.
+    ::
+        'iframe_height': height in pixels,
+        'format_block': 'true' or 'false',
+        'bold': 'true' or 'false',
+        'italic': 'true' or 'false',
+        'unordered_list': 'true' or 'false',
+        'link': 'true' or 'false',
+        'image': 'true' or 'false',
+        'allow_disable': 'true' or 'false'
+
+    This widget uses the `jQuery RTE`_ plugin.
+
+
 Don't Panic
 -----------
 
@@ -101,6 +117,9 @@ New fields
             value_type=RelationChoice(title=u"Related",
                 source=ObjPathSourceBinder(portal_type='Document')),
             )
+
+**SimpleRichTextInputFieldWidget**
+    TBA
 
 Override existing fields
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -166,3 +185,4 @@ More widgets you might like
 .. _`Facebook`: http://www.facebook.com/
 .. _`opening a support ticket`: https://github.com/collective/collective.z3cform.widgets/issues
 .. _`eea.tags`: https://github.com/collective/eea.tags
+.. _`jQuery RTE`: http://code.google.com/p/rte-light

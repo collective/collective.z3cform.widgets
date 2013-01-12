@@ -20,6 +20,9 @@ Because you have to know where your towel is.
   (fixes issue #20) 
   [jsbueno]
 
+- Refactoring of the simple rich text widget in order to make it work
+  in an ajax call [quimera]
+
 1.0b2 (2012-09-27)
 ^^^^^^^^^^^^^^^^^^
 
