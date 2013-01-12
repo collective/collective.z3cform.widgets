@@ -17,7 +17,7 @@ class WidgetTest(unittest.TestCase):
     def setUp(self):
         self.portal = self.layer['portal']
 
-    def test_js(self):
+    def test_configuration(self):
         from collective.z3cform.widgets.simple_rich_text import \
             SimpleRichTextWidget, SimpleRichText
         portal = self.portal
@@ -32,32 +32,19 @@ class WidgetTest(unittest.TestCase):
         widget.id = 'test'
         widget.field = SimpleRichText()
 
-        result = widget.rte_js()
+        result = widget.rte_conf()
+        conf = {
+            'iframe_height': 100,
+            'format_block': 'true',
+            'bold': 'true',
+            'italic': 'true',
+            'unordered_list': 'true',
+            'link': 'true',
+            'image': 'true',
+            'allow_disable': 'true'
+        }
 
-        rte_js_init = """\
-        $("#%(id)s").rte({
-            content_css_url: "++resource++collective.z3cform.widgets/rte.css",
-            media_url: "++resource++collective.z3cform.widgets/rte/",
-            iframe_height: %(iframe_height)s,
-            format_block: %(format_block)s,
-            bold: %(bold)s,
-            italic: %(italic)s,
-            unordered_list: %(unordered_list)s,
-            link: %(link)s,
-            image: %(image)s,
-            allow_disable: %(allow_disable)s
-        });
-        """
-
-        self.assertEqual(result, rte_js_init % dict(id='test',
-                                                    iframe_height=100,
-                                                    format_block='true',
-                                                    bold='true',
-                                                    italic='true',
-                                                    unordered_list='true',
-                                                    link='true',
-                                                    image='true',
-                                                    allow_disable='true'))
+        self.assertEqual(result, conf)
 
 
 def test_suite():
