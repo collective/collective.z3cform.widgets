@@ -11,8 +11,9 @@ To enable this product in a buildout-based installation:
     eggs =
         collective.z3cform.widgets
 
-2. You may need to extend a Dexterity known good set (KGS) to make sure that
-   you get the right versions of the packages that make up Dexterity::
+2. If you are using Plone 4.1 you may need to extend a Dexterity known good
+   set (KGS) to make sure that you get the right versions of the packages that
+   make up Dexterity::
 
     [buildout]
     ...
@@ -21,4 +22,3 @@ To enable this product in a buildout-based installation:
 
 After updating the configuration you need to run ''bin/buildout'', which will
 take care of updating your system.
-

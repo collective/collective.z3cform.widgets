@@ -6,6 +6,12 @@ Because you have to know where your towel is.
 1.0b3 (unreleased)
 ^^^^^^^^^^^^^^^^^^
 
+- Refactoring of the SimpleRichTextWidget to make it work in an AJAX call.
+  [quimera]
+
+- Do not mix unicode and strings in TokenInputWiget editing (fixes `#20`_).
+  [jsbueno]
+
 - Checking if contenttree js code should be run or not. [Flecox]
 
 - Test compatibility with Plone 4.3. [hvelarde]
@@ -15,13 +21,6 @@ Because you have to know where your towel is.
 - Import ViewPageTemplateFile from zope.browserpage to avoid dependency on
   zope.app.pagetemplate.
   [hvelarde]
-
-- Do not mix unicode and strings in TokenInputWiget editing
-  (fixes issue #20) 
-  [jsbueno]
-
-- Refactoring of the simple rich text widget in order to make it work
-  in an ajax call [quimera]
 
 1.0b2 (2012-09-27)
 ^^^^^^^^^^^^^^^^^^
@@ -92,3 +91,4 @@ Because you have to know where your towel is.
 .. _`#7`: https://github.com/collective/collective.z3cform.widgets/issues/7
 .. _`#10`: https://github.com/collective/collective.z3cform.widgets/issues/10
 .. _`#13`: https://github.com/collective/collective.z3cform.widgets/issues/13
+.. _`#20`: https://github.com/collective/collective.z3cform.widgets/issues/20

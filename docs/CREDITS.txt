@@ -1,7 +1,7 @@
 Share and Enjoy
 ---------------
 
-collective.z3cform.widgets would not have been possible without the
+``collective.z3cform.widgets`` would not have been possible without the
 contribution of the following people:
 
 - Franco Pellegrini
@@ -11,5 +11,4 @@ contribution of the following people:
 - Cleber J. Santos
 - João S. O. Bueno
 
-Development sponsored by Open Multimedia.
-
+Development sponsored by OpenMultimedia.

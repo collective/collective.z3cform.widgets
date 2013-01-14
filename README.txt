@@ -39,8 +39,7 @@ collective.z3cform.widgets provides the following widgets:
 
 **MultiContentSearchFieldWidget**
     A widget to add a dynamic list of objects. This works as a widget for
-    related items field so it must be used like this.
-    ::
+    related items field so it must be used like this::
 
         relatedItems = RelationList(
             title=_(u'label_related_items', default=u'Related Items'),
@@ -57,8 +56,8 @@ collective.z3cform.widgets provides the following widgets:
 
 **SimpleRichTextWidget**
     A lightweight and unbloated Rich Text Editor (RTE / WYSIWYG).
-    These parameters can be configured.
-    ::
+    These parameters can be configured::
+
         'iframe_height': height in pixels,
         'format_block': 'true' or 'false',
         'bold': 'true' or 'false',
@@ -69,7 +68,6 @@ collective.z3cform.widgets provides the following widgets:
         'allow_disable': 'true' or 'false'
 
     This widget uses the `jQuery RTE`_ plugin.
-
 
 Don't Panic
 -----------
@@ -118,7 +116,7 @@ New fields
                 source=ObjPathSourceBinder(portal_type='Document')),
             )
 
-**SimpleRichTextInputFieldWidget**
+**SimpleRichTextWidget**
     TBA
 
 Override existing fields
@@ -143,6 +141,9 @@ Override existing fields
         _schema.getFields(ICategorization)['subjects'].index_name = 'Categories'
 
 **MultiContentSearchFieldWidget**
+    TBA
+
+**SimpleRichTextWidget**
     TBA
 
 Future widgets
@@ -170,14 +171,15 @@ Mostly Harmless
 .. image:: https://secure.travis-ci.org/collective/collective.z3cform.widgets.png
     :target: http://travis-ci.org/collective/collective.z3cform.widgets
 
-Have an idea? Found a bug? Let us know by `opening a support ticket`_.
+Got an idea? Found a bug? Let us know by `opening a support ticket`_.
 
 See also
 -----------
 
-More widgets you might like
+More widgets you might like:
 
-* https://github.com/collective/collective.z3cform.datagridfield/
+* `collective.z3cform.datagridfield`_: Version of DataGridField for use with
+  Dexterity / z3c.form
 
 .. _`jQuery TaskPlease`: https://github.com/Quimera/tasksplease
 .. _`jQuery Tokeninput`: http://loopj.com/jquery-tokeninput/
@@ -186,3 +188,4 @@ More widgets you might like
 .. _`opening a support ticket`: https://github.com/collective/collective.z3cform.widgets/issues
 .. _`eea.tags`: https://github.com/collective/eea.tags
 .. _`jQuery RTE`: http://code.google.com/p/rte-light
+.. _`collective.z3cform.datagridfield`: http://pypi.python.org/pypi/collective.z3cform.datagridfield
