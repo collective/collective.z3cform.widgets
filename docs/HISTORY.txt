@@ -6,7 +6,9 @@ Because you have to know where your towel is.
 1.0b4 (unreleased)
 ^^^^^^^^^^^^^^^^^^
 
-- Nothing changed yet.
+- Fix the rendered URLs of related items in the MultiContentSearchWidget in
+  display_mode to be actual URLs, not the physical path inside Zope.
+  [leorochael]
 
 
 1.0b3 (2013-01-14)
