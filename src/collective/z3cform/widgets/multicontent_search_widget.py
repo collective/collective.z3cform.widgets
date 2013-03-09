@@ -86,7 +86,6 @@ class FetchRelated(Fetch):
 
 
 class MultiContentSearchWidget(MultiContentTreeWidget):
-    display_template = ViewPageTemplateFile('related_display.pt')
     input_template = ViewPageTemplateFile('related_input.pt')
     recurse_template = ViewPageTemplateFile('related_recurse.pt')
     checkbox_template = ViewPageTemplateFile('improved_checkbox_input.pt')
