@@ -6,6 +6,8 @@ Because you have to know where your towel is.
 1.0b4 (unreleased)
 ^^^^^^^^^^^^^^^^^^
 
+- Fix package dependencies to be Plone 4.3 compatible. [hvelarde]
+
 - Fix the rendered URLs of related items in the MultiContentSearchWidget in
   display_mode to be actual URLs, not the physical path inside Zope.
   [leorochael]
@@ -29,6 +31,7 @@ Because you have to know where your towel is.
 - Import ViewPageTemplateFile from zope.browserpage to avoid dependency on
   zope.app.pagetemplate.
   [hvelarde]
+
 
 1.0b2 (2012-09-27)
 ^^^^^^^^^^^^^^^^^^
