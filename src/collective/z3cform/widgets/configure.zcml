@@ -6,7 +6,7 @@
     xmlns:z3c="http://namespaces.zope.org/z3c"
     i18n_domain="collective.z3cform.widgets">
 
-    <includeDependencies package="." />
+    <includePlugins package="plone" />
 
     <i18n:registerTranslations directory="locales" />
     
