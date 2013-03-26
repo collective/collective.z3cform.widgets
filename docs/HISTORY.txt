@@ -6,7 +6,9 @@ Because you have to know where your towel is.
 1.0b5 (unreleased)
 ^^^^^^^^^^^^^^^^^^
 
-- Nothing changed yet.
+- Remove dependency on zope.i18n as it is causing ConfigurationConflictError
+  (issue `#28`_).
+  [hvelarde]
 
 
 1.0b4 (2013-03-23)
@@ -109,3 +111,4 @@ Because you have to know where your towel is.
 .. _`#10`: https://github.com/collective/collective.z3cform.widgets/issues/10
 .. _`#13`: https://github.com/collective/collective.z3cform.widgets/issues/13
 .. _`#20`: https://github.com/collective/collective.z3cform.widgets/issues/20
+.. _`#28`: https://github.com/collective/collective.z3cform.widgets/issues/28
