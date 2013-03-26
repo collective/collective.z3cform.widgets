@@ -3,7 +3,7 @@ Changelog
 
 Because you have to know where your towel is.
 
-1.0b5 (unreleased)
+1.0b5 (2013-03-25)
 ^^^^^^^^^^^^^^^^^^
 
 - Remove dependency on zope.i18n as it is causing ConfigurationConflictError
