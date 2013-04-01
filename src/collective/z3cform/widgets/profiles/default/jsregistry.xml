@@ -1,20 +1,5 @@
 <?xml version="1.0"?>
 <object name="portal_javascripts">
-  <javascript id="++resource++collective.z3cform.widgets/related.js"
-      cacheable="True" compression="none" cookable="True" enabled="True"
-      expression="" inline="False" authenticated="True" />   
-  <javascript id="++resource++collective.z3cform.widgets/waypoints.min.js"
-      cacheable="True" compression="none" cookable="True" enabled="True"
-      expression="" inline="False" authenticated="True"/>
-  <javascript id="++resource++collective.z3cform.widgets/jquery.tokeninput.min.js"
-      cacheable="True" compression="none" cookable="True" enabled="True"
-      expression="" inline="False" authenticated="True"/>
-  <javascript id="++resource++collective.z3cform.widgets/keywords.js"
-      cacheable="True" compression="none" cookable="True" enabled="True"
-      expression="" inline="False" authenticated="True"/>
-  <javascript id="++resource++collective.z3cform.widgets/jquery.tasksplease.js"
-      cacheable="True" compression="none" cookable="True" enabled="True"
-      expression="" inline="False" authenticated="True"/>
 
   <javascript id="++resource++plone.formwidget.autocomplete/jquery.autocomplete.min.js" 
       cacheable="True" compression="none" cookable="True" enabled="True"
@@ -24,8 +9,30 @@
       cacheable="True" compression="safe" cookable="True" enabled="True"
       expression="" inline="False"
       insert-after="++resource++plone.formwidget.autocomplete/jquery.autocomplete.min.js" />
-  
+
+  <javascript id="++resource++collective.z3cform.widgets/related.js"
+      cacheable="True" compression="none" cookable="True" enabled="True"
+      expression="" inline="False" authenticated="True"
+      insert-after="++resource++plone.formwidget.autocomplete/formwidget-autocomplete.js" />
+  <javascript id="++resource++collective.z3cform.widgets/waypoints.min.js"
+      cacheable="True" compression="none" cookable="True" enabled="True"
+      expression="" inline="False" authenticated="True"
+      insert-after="++resource++collective.z3cform.widgets/related.js" />
+  <javascript id="++resource++collective.z3cform.widgets/jquery.tokeninput.min.js"
+      cacheable="True" compression="none" cookable="True" enabled="True"
+      expression="" inline="False" authenticated="True"
+      insert-after="++resource++collective.z3cform.widgets/waypoints.min.js" />
+  <javascript id="++resource++collective.z3cform.widgets/keywords.js"
+      cacheable="True" compression="none" cookable="True" enabled="True"
+      expression="" inline="False" authenticated="True"
+      insert-after="++resource++collective.z3cform.widgets/jquery.tokeninput.min.js" />
+  <javascript id="++resource++collective.z3cform.widgets/jquery.tasksplease.js"
+      cacheable="True" compression="none" cookable="True" enabled="True"
+      expression="" inline="False" authenticated="True"
+      insert-after="++resource++collective.z3cform.widgets/keywords.js" />  
   <javascript id="++resource++collective.z3cform.widgets/jquery.rte.js"
       cacheable="True" compression="none" cookable="True" enabled="True"
-      expression="" inline="False" authenticated="True"/>
+      expression="" inline="False" authenticated="True"
+      insert-after="++resource++collective.z3cform.widgets/jquery.tasksplease.js" />
+
 </object>
