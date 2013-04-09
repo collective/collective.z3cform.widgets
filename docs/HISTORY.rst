@@ -6,6 +6,8 @@ Because you have to know where your towel is.
 1.0b6 (unreleased)
 ^^^^^^^^^^^^^^^^^^
 
+- Update package documentation. [hvelarde, jpgimenez]
+
 - TokenInputFieldWidget now replaces subjects widget for any Dexterity-based
   content types on the site, but only if the package is installed. [jpgimenez]
 
