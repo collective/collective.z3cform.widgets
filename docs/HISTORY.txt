@@ -10,6 +10,7 @@ Because you have to know where your towel is.
 
 - Plone 4.1 is no longer supported. [hvelarde]
 
+- collective.z3cform.widgets.token_input_widget.TokenInputFieldWidget replace subjects widget for every dexterity content, only if the product is installed. [jpgimenez]
 
 1.0b5 (2013-03-25)
 ^^^^^^^^^^^^^^^^^^
