@@ -1,4 +1,4 @@
-
+import zope.interface
 from z3c.form import interfaces
 
 
@@ -12,3 +12,7 @@ class IEnhancedTextLinesWidget(interfaces.ITextLinesWidget):
 
 class ISimpleRichTextWidget(interfaces.ITextAreaWidget):
     """Simple RichText widget."""
+
+
+class ILayer(zope.interface.Interface):
+    """ A layer specific for collective.z3cform.widgets product."""

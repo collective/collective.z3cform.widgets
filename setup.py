@@ -45,6 +45,8 @@ setup(name='collective.z3cform.widgets',
       install_requires=[
           'collective.js.jqueryui',
           'Pillow',
+          'plone.autoform',
+          'plone.directives.form',
           'plone.app.dexterity>=1.2.1',
           'plone.app.layout',
           'plone.app.vocabularies',

@@ -9,6 +9,7 @@ from z3c.form.browser import textarea
 from zope.browserpage.viewpagetemplatefile import ViewPageTemplateFile
 
 from collective.z3cform.widgets.interfaces import ITokenInputWidget
+from collective.z3cform.widgets.interfaces import ILayer
 
 
 class TokenInputWidget(textarea.TextAreaWidget):
@@ -32,6 +33,8 @@ class TokenInputWidget(textarea.TextAreaWidget):
     """
 
     def js(self):
+        if not ILayer.providedBy(self.request):
+            return ""
         values = self.context.portal_catalog.uniqueValuesFor('Subject')
         old_values = self.context.Subject()
         tags = u""
