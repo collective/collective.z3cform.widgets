@@ -36,7 +36,10 @@ collective.z3cform.widgets provides the following widgets:
         :width: 600px
 
     This widget uses the `jQuery Tokeninput`_ plugin.
-    If you install collective.z3cform.widgets in a Plone site it will replace every ICategorization subjects field's widget with this one.
+
+    If you install collective.z3cform.widgets in a Plone site it will replace
+    every ICategorization subjects field's widget of any Dexterity-based
+    content type with this one.
 
 **MultiContentSearchFieldWidget**
     A widget to add a dynamic list of objects. This works as a widget for
@@ -123,29 +126,7 @@ New fields
 Override existing fields
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-**EnhancedTextLinesFieldWidget**
-    TBA
-
-**TokenInputFieldWidget**
-    To override an existing field put the following code in the __init__.py of
-    your package::
-
-        from plone.autoform.interfaces import WIDGETS_KEY
-        from plone.directives.form.schema import TEMP_KEY
-        from plone.app.dexterity.behaviors.metadata import ICategorization
-        from zope import schema as _schema
-
-        _directives_values = ICategorization.queryTaggedValue(TEMP_KEY)
-        _directives_values.setdefault(WIDGETS_KEY, {})
-        widget = 'collective.z3cform.widgets.token_input_widget.TokenInputFieldWidget'
-        _directives_values[WIDGETS_KEY]['subjects'] = widget
-        _schema.getFields(ICategorization)['subjects'].index_name = 'Categories'
-
-**MultiContentSearchFieldWidget**
-    TBA
-
-**SimpleRichTextWidget**
-    TBA
+TBA
 
 Future widgets
 --------------
