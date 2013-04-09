@@ -3,7 +3,7 @@ Changelog
 
 Because you have to know where your towel is.
 
-1.0b6 (unreleased)
+1.0b6 (2013-04-09)
 ^^^^^^^^^^^^^^^^^^
 
 - Update package documentation. [hvelarde, jpgimenez]
