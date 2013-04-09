@@ -36,6 +36,7 @@ collective.z3cform.widgets provides the following widgets:
         :width: 600px
 
     This widget uses the `jQuery Tokeninput`_ plugin.
+    If you install collective.z3cform.widgets in a Plone site it will replace every ICategorization subjects field's widget with this one.
 
 **MultiContentSearchFieldWidget**
     A widget to add a dynamic list of objects. This works as a widget for
