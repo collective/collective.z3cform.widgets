@@ -33,6 +33,23 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
+    <genericsetup:registerProfile
+        name="1_to_2"
+        title="collective.z3cform.widgets upgrade from 1 to 2"
+        directory="profiles/1_to_2"
+        description="Upgrade collective.z3cform.widgets package to version 2."
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
+  	<genericsetup:upgradeStep
+        title="collective.z3cform.widgets upgrade from 1 to 2"
+      	source="1"
+      	destination="2"
+        description="Upgrade collective.z3cform.widgets package to version 2."
+      	handler="collective.z3cform.widgets.upgrades.upgrade_1_to_2"
+      	profile="collective.z3cform.widgets:default"
+      	/>
+
     <browser:page
         name="contenttree-related-fetch"
         for="plone.formwidget.contenttree.interfaces.IContentTreeWidget"

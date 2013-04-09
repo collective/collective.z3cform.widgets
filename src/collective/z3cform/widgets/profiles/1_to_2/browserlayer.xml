@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<layers>
+    <layer
+        name="collective.z3cform.widgets"
+         interface="collective.z3cform.widgets.interfaces.ILayer"
+         />
+</layers>
