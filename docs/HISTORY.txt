@@ -6,11 +6,12 @@ Because you have to know where your towel is.
 1.0b6 (unreleased)
 ^^^^^^^^^^^^^^^^^^
 
-- Tested for compatibility with Plone 4.3. [hvelarde]
+- TokenInputFieldWidget now replaces subjects widget for any Dexterity-based
+  content types on the site, but only if the package is installed. [jpgimenez]
 
-- Plone 4.1 is no longer supported. [hvelarde]
+- Tested for compatibility with Dexterity 2.0 and Plone 4.3. [hvelarde]
 
-- collective.z3cform.widgets.token_input_widget.TokenInputFieldWidget replace subjects widget for every dexterity content, only if the product is installed. [jpgimenez]
+- Plone 4.1 is no longer supported (closes `#25`_). [hvelarde]
 
 1.0b5 (2013-03-25)
 ^^^^^^^^^^^^^^^^^^
@@ -120,4 +121,5 @@ Because you have to know where your towel is.
 .. _`#10`: https://github.com/collective/collective.z3cform.widgets/issues/10
 .. _`#13`: https://github.com/collective/collective.z3cform.widgets/issues/13
 .. _`#20`: https://github.com/collective/collective.z3cform.widgets/issues/20
+.. _`#25`: https://github.com/collective/collective.z3cform.widgets/issues/25
 .. _`#28`: https://github.com/collective/collective.z3cform.widgets/issues/28
