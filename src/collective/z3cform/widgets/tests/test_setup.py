@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import unittest2 as unittest
+from zope.interface import alsoProvides
 
 from plone.app.testing import TEST_USER_ID
 from plone.app.testing import setRoles
@@ -8,6 +9,8 @@ from Products.CMFCore.utils import getToolByName
 
 
 from collective.z3cform.widgets.testing import INTEGRATION_TESTING
+from collective.z3cform.widgets.interfaces import ILayer
+
 
 JAVASCRIPTS = [
     "++resource++collective.z3cform.widgets/related.js",
@@ -27,6 +30,7 @@ class InstallTest(unittest.TestCase):
 
     def setUp(self):
         self.portal = self.layer['portal']
+        alsoProvides(self.portal.REQUEST, ILayer)
 
     def test_installed(self):
         qi = getattr(self.portal, 'portal_quickinstaller')
@@ -64,8 +68,7 @@ class InstallTest(unittest.TestCase):
         obj.portal_catalog = MockCatalog()
         obj.Subject = mock_subject
 
-        mock_request = object()
-        widget = TokenInputWidget(mock_request)
+        widget = TokenInputWidget(self.portal.REQUEST)
         widget.context = obj
 
         result = widget.js()
@@ -92,8 +95,7 @@ class InstallTest(unittest.TestCase):
         obj.portal_catalog = MockCatalog()
         obj.Subject = mock_subject
 
-        mock_request = object()
-        widget = TokenInputWidget(mock_request)
+        widget = TokenInputWidget(self.portal.REQUEST)
         widget.context = obj
 
         result = widget.js()
