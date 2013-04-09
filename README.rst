@@ -156,12 +156,14 @@ Mostly Harmless
 Got an idea? Found a bug? Let us know by `opening a support ticket`_.
 
 See also
------------
+--------
 
 More widgets you might like:
 
 * `collective.z3cform.datagridfield`_: Version of DataGridField for use with
   Dexterity / z3c.form
+* `plone.app.widgets`_: A revamp of Plone widgets, it does this by overriding
+  the widgets of some of the fields in Plone.
 
 .. _`jQuery TaskPlease`: https://github.com/Quimera/tasksplease
 .. _`jQuery Tokeninput`: http://loopj.com/jquery-tokeninput/
@@ -171,3 +173,4 @@ More widgets you might like:
 .. _`eea.tags`: https://github.com/collective/eea.tags
 .. _`jQuery RTE`: http://code.google.com/p/rte-light
 .. _`collective.z3cform.datagridfield`: http://pypi.python.org/pypi/collective.z3cform.datagridfield
+.. _`plone.app.widgets`: https://github.com/plone/plone.app.widgets
