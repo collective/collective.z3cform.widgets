@@ -10,6 +10,8 @@ Because you have to know where your towel is.
 - Trim Subjects in TokenInputFieldWidge. [flecox]
 - Upgrade step for trimming all subjects from all Dexterity content types. [flecox]
 
+- TokenInputFieldWidget now use ajax to bring the subjects. [flecox]
+
 
 1.0b6 (2013-04-09)
 ^^^^^^^^^^^^^^^^^^
