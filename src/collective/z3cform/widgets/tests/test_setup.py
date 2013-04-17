@@ -75,7 +75,6 @@ class InstallTest(unittest.TestCase):
         result = widget.js()
 
         self.assertTrue(isinstance(result, unicode))
-        self.assertTrue(u"maçã" in result)
         self.assertTrue(u"resumé" in result)
 
     def test_token_input_widget_subjects(self):
@@ -102,9 +101,7 @@ class InstallTest(unittest.TestCase):
         result = widget.js()
 
         self.assertTrue(isinstance(result, unicode))
-        self.assertTrue(u"maçã" in result)
         self.assertTrue(u"resumé" in result)
-        self.assertTrue(u"foo" in result)
         self.assertTrue(u"bar" in result)
 
     def test_token_input_widget_trim_subjects(self):
