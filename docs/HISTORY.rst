@@ -6,7 +6,7 @@ Because you have to know where your towel is.
 1.0b7 (unreleased)
 ^^^^^^^^^^^^^^^^^^
 
-- Nothing changed yet.
+- Fixed IE8 problem with 2 simultantious checked radio buttons. [Kosi81]
 
 
 1.0b6 (2013-04-09)

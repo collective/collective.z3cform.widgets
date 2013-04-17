@@ -30,6 +30,9 @@ function formwidget_autocomplete_new_value(input_box,value,label) {
         // Also, setting the type after adding a input to the DOM is also not allowed.
         // Last but not least, the checked attribute doesn't always behave in a way you'd expect
         // so we generate this one as text as well.
+        if (type="radio"){
+	        $("input[name*="+base_name+"]:checked").removeAttr("checked");
+        }
         span.append($("<label/>").attr("for",base_id+"-"+idx)
                                  .append($('<input type="' + type + '"' +
                                                 ' name="' + base_name + ':list"' +
