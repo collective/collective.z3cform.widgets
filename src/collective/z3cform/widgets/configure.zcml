@@ -82,6 +82,13 @@
         class=".multicontent_search_widget.RelatedSearch"
         />
 
+    <browser:page
+          for="*"
+          name="json-subjects"
+          permission="zope2.Public"
+          class=".token_input_widget.ExportSubjectAsJSON"
+          />
+
     <class class=".token_input_widget.TokenInputWidget">
         <require
             permission="zope.Public"
