@@ -8,6 +8,8 @@ Because you have to know where your towel is.
 
 - Fixed IE8 problem with 2 simultantious checked radio buttons. [Kosi81]
 
+- TokenInputFieldWidget now use ajax to bring the subjects. [flecox]
+
 
 1.0b6 (2013-04-09)
 ^^^^^^^^^^^^^^^^^^
