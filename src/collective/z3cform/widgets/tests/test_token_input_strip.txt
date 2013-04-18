@@ -1,0 +1,24 @@
+*** Settings ***
+
+Library  Selenium2Library  timeout=5 seconds  implicit_wait=3 seconds
+Resource  keywords.txt
+Variables  plone/app/testing/interfaces.py
+
+Suite Setup  Start Browser and Log In
+Suite Teardown  Close Browser
+
+*** Test cases ***
+
+Test Strip
+    # XXX: should we create the cover object programmatically?
+    Open Add New Menu
+    Click Link  css=a#dexteritytest
+    Page Should Contain  Add dexterityTest
+    Click Link  css=a#fieldsetlegend-0
+    Add Subject  \ testing this \ \
+    Focus  css=a#fieldsetlegend-0
+    Press Key  css=a#fieldsetlegend-0  \13
+    Set Selenium Timeout  3s
+    ${subject}  Get Text  css=li.token-input-token-facebook:first-child p
+    Should Be True  '${subject}' != ' testing this '
+

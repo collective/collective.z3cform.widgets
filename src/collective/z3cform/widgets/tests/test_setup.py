@@ -11,6 +11,7 @@ from Products.CMFCore.utils import getToolByName
 from collective.z3cform.widgets.testing import INTEGRATION_TESTING
 from collective.z3cform.widgets.interfaces import ILayer
 
+from collective.z3cform.widgets.upgrades import trim_subjects
 
 JAVASCRIPTS = [
     "++resource++collective.z3cform.widgets/related.js",
@@ -105,6 +106,21 @@ class InstallTest(unittest.TestCase):
         self.assertTrue(u"resumé" in result)
         self.assertTrue(u"foo" in result)
         self.assertTrue(u"bar" in result)
+
+    def test_token_input_widget_trim_subjects(self):
+        portal = self.portal
+        ttool = getToolByName(self.portal, 'portal_types')
+        setRoles(self.portal, TEST_USER_ID, ['Manager'])
+
+        fti = ttool.getTypeInfo("dexteritytest")
+        obj = fti.constructInstance(portal, "test1")
+
+        obj.subject = ("   resume  ", "  bar")
+        obj.reindexObject()
+
+        trim_subjects(portal)
+
+        self.assertEqual(obj.subject, ("resume", "bar"))
 
 
 class UninstallTest(unittest.TestCase):

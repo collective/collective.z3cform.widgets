@@ -9,7 +9,7 @@
     <includeDependencies package="." />
 
     <i18n:registerTranslations directory="locales" />
-    
+
     <include file="simple_rich_text.zcml" />
 
     <browser:resourceDirectory
@@ -41,14 +41,32 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
-  	<genericsetup:upgradeStep
-        title="collective.z3cform.widgets upgrade from 1 to 2"
+    <genericsetup:registerProfile
+        name="test"
+        title="Test"
+        directory="profiles/test"
+        description="register a dexterity content type for testing"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
+  	<genericsetup:upgradeSteps
       	source="1"
       	destination="2"
-        description="Upgrade collective.z3cform.widgets package to version 2."
-      	handler="collective.z3cform.widgets.upgrades.upgrade_1_to_2"
-      	profile="collective.z3cform.widgets:default"
-      	/>
+        profile="collective.z3cform.widgets:default">
+
+        <genericsetup:upgradeStep
+                title="collective.z3cform.widgets upgrade from 1 to 2"
+                description="Upgrade collective.z3cform.widgets package to version 2."
+                handler="collective.z3cform.widgets.upgrades.upgrade_1_to_2"
+                />
+
+        <genericsetup:upgradeStep
+                title="Trim subjects"
+                description="Old version of tokeninputfieldwidget did not trim the tags. this upgrade step will trim all saved subjects"
+                handler="collective.z3cform.widgets.upgrades.trim_subjects"
+                />
+
+    </genericsetup:upgradeSteps>
 
     <browser:page
         name="contenttree-related-fetch"

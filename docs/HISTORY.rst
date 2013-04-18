@@ -7,6 +7,8 @@ Because you have to know where your towel is.
 ^^^^^^^^^^^^^^^^^^
 
 - Fixed IE8 problem with 2 simultantious checked radio buttons. [Kosi81]
+- Trim Subjects in TokenInputFieldWidge. [flecox]
+- Upgrade step for trimming all subjects from all Dexterity content types. [flecox]
 
 
 1.0b6 (2013-04-09)
