@@ -17,6 +17,9 @@ import json
 
 
 class ExportSubjectAsJSON(BrowserView):
+    """Return JSON search results for jQuery Tokeninput
+    for more information, see: http://loopj.com/jquery-tokeninput/#installation--setup
+    """
 
     def __init__(self, context, request):
         self.context = context
