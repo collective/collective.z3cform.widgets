@@ -24,14 +24,10 @@ class ExportSubjectAsJSON(BrowserView):
 
     def __call__(self):
         self.request.response.setHeader("Content-type", "application/json")
-        values = self.context.portal_catalog.uniqueValuesFor('Subject')
+        keys = self.context.portal_catalog.uniqueValuesFor('Subject')
         if 'q' in self.request.keys():
-            search_values = []
             query = self.request['q']
-            for value in values:
-                if query in value:
-                    search_values.append(value)
-            values = search_values
+            keys = [k for k in keys if query in k]
 
         tags = []
         for index, value in enumerate(values):
