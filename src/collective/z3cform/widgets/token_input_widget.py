@@ -33,7 +33,7 @@ class ExportSubjectAsJSON(BrowserView):
             keys = [k for k in keys if query in k]
 
         tags = []
-        for index, value in enumerate(values):
+        for index, value in enumerate(keys):
             if isinstance(value, str):
                 value = value.decode("utf-8")
             tags.append({'id': '%s' % value.replace(u"'", u"\\'"), 'name': '%s' % value.replace(u"'", u"\\'")})
