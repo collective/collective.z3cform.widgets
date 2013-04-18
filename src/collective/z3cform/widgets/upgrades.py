@@ -18,19 +18,17 @@ def upgrade_1_to_2(context, logger=None):
 
 
 def trim_subjects(context, logger=None):
+    """Grab all Dexterity content types and trim their related Sujects field.
     """
-        Grab all dexterity content types and trim their related sujects
-    """
-
     if context is not None:
-        pc = getToolByName(context, 'portal_catalog')
-        querySet = pc(**{'path': '/',
-                         'object_provides': IDexterityContent.__identifier__})
-        for item in querySet:
-            obj = item.getObject()
-            old_subject = obj.subject
-            subjects = old_subject
-            if old_subject:
-                subjects = tuple([subject.strip() for subject in old_subject])
-            obj.subject = subjects
-            obj.reindexObject()
+        catalog = getToolByName(context, 'portal_catalog')
+        results = catalog(object_provides=IDexterityContent.__identifier__)
+        for item in results:
+            keywords = item.Subject  # a brain has all the information we need
+            if keywords:  # our object has keywords; let's trim them
+                trimmed_keywords = tuple([k.strip() for k in keywords])
+                if trimmed_keywords != keywords:
+                    # we reindex only if at least one keyword was changed
+                    obj = item.getObject()
+                    obj.subject = trimmed_keywords
+                    obj.reindexObject(idxs=['Subjects'])
