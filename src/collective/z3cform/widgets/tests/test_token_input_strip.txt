@@ -1,0 +1,36 @@
+*** Settings ***
+
+Library  Selenium2Library  timeout=5 seconds  implicit_wait=3 seconds
+Resource  keywords.txt
+Variables  plone/app/testing/interfaces.py
+
+Suite Setup  Start Browser and Log In
+Suite Teardown  Close Browser
+
+*** Variables ***
+
+${basic_tile_location}  /html/body/div/div[2]/div/div[2]/div[2]/div[3]/div
+${basic_uuid}  12345
+${document_selector}  .ui-draggable .contenttype-document
+${file_selector}  .ui-draggable .contenttype-file
+${image_selector}  .ui-draggable .contenttype-image
+${link_selector}  .ui-draggable .contenttype-link
+${tile_selector}  div.tile-container div.tile
+${news_item_selector}  .ui-draggable .contenttype-news-item
+${news_item_title}  Test news item
+${news_item_description}  This news item was created for testing purposes
+
+*** Test cases ***
+
+Test Strip
+    # XXX: should we create the cover object programmatically?
+    Open Add New Menu
+    Click Link  css=a#dexteritytest
+    Page Should Contain  Add dexterityTest
+    Click Link  css=a#fieldsetlegend-0
+    Add Subject  \ testing this \ \
+    Focus  css=a#fieldsetlegend-0
+    Press Key  css=a#fieldsetlegend-0  \13
+    ${subject}  Get Text  css=li.token-input-token-facebook:first-child p
+    Should Be True  '${subject}' != ' testing this '
+

@@ -41,6 +41,14 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
+    <genericsetup:registerProfile
+        name="test"
+        title="Test"
+        directory="profiles/test"
+        description="register a dexterity content type for testing"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
   	<genericsetup:upgradeSteps
       	source="1"
       	destination="2"

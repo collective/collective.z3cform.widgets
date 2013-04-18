@@ -72,7 +72,11 @@ setup(name='collective.z3cform.widgets',
               'plone.i18n',
               'plone.testing',
               'plone.z3cform>=0.7.4',
+              'robotsuite',
+              'robotframework-selenium2library',
               'unittest2',
+              #we need a dexterity content type for testing
+              'collective.nitf'
           ],
       },
       entry_points="""

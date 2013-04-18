@@ -31,6 +31,6 @@ def trim_subjects(context, logger=None):
             old_subject = obj.subject
             subjects = old_subject
             if old_subject:
-                subjects = [subject.strip() for subject in old_subject]
+                subjects = tuple([subject.strip() for subject in old_subject])
             obj.subject = subjects
             obj.reindexObject()

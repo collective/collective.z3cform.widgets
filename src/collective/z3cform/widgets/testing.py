@@ -5,6 +5,8 @@ from plone.app.testing import PLONE_FIXTURE
 from plone.app.testing import IntegrationTesting
 from plone.app.testing import FunctionalTesting
 
+from plone.testing.z2 import ZSERVER_FIXTURE
+
 
 class Fixture(PloneSandboxLayer):
 
@@ -19,6 +21,7 @@ class Fixture(PloneSandboxLayer):
     def setUpPloneSite(self, portal):
         # Install into Plone site using portal_setup
         self.applyProfile(portal, 'collective.z3cform.widgets:default')
+        self.applyProfile(portal, 'collective.z3cform.widgets:test')
 
 
 FIXTURE = Fixture()
@@ -27,6 +30,6 @@ INTEGRATION_TESTING = IntegrationTesting(
     name='collective.z3cform.widgets:Integration',
 )
 FUNCTIONAL_TESTING = FunctionalTesting(
-    bases=(FIXTURE,),
+    bases=(FIXTURE, ZSERVER_FIXTURE),
     name='collective.z3cform.widgets:Functional',
 )
