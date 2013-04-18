@@ -1,9 +1,4 @@
-try:
-    import json
-except ImportError:
-    # Python 2.54 / Plone 3.3 use simplejson
-    # version > 2.3 < 3.0
-    import simplejson as json
+# -*- coding: utf-8 -*-
 
 import zope.component
 import zope.interface
@@ -17,6 +12,8 @@ from zope.browserpage.viewpagetemplatefile import ViewPageTemplateFile
 
 from collective.z3cform.widgets.interfaces import ITokenInputWidget
 from collective.z3cform.widgets.interfaces import ILayer
+
+import json
 
 
 class ExportSubjectAsJSON(BrowserView):
