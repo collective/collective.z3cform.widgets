@@ -38,7 +38,9 @@ class ExportSubjectAsJSON(BrowserView):
                 value = value.decode("utf-8")
             tags.append({'id': '%s' % value.replace(u"'", u"\\'"), 'name': '%s' % value.replace(u"'", u"\\'")})
         result = json.dumps(tags)
-        return result
+
+        # return up to 10 tags only
+        return result[:10]
 
 
 class TokenInputWidget(textarea.TextAreaWidget):
