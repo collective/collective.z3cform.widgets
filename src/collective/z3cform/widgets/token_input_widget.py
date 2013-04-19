@@ -32,16 +32,19 @@ class ExportSubjectAsJSON(BrowserView):
             query = self.request['q']
             keys = [k for k in keys if query in k]
         else:
-            keys =[]
+            keys = []
         tags = []
-        for index, value in enumerate(keys[:10]):
-            if isinstance(value, str):
-                value = value.decode("utf-8")
-            tags.append({'id': '%s' % value.replace(u"'", u"\\'"), 'name': '%s' % value.replace(u"'", u"\\'")})
+        tags = [self._to_dict(value) for value in keys[:10]]
         result = json.dumps(tags)
 
         # return up to 10 tags only
         return result
+
+    def _to_dict(self, value):
+        if isinstance(value, str):
+                value = value.decode("utf-8")
+        return {'id': '%s' % value.replace(u"'", u"\\'"),
+                'name': '%s' % value.replace(u"'", u"\\'")}
 
 
 class TokenInputWidget(textarea.TextAreaWidget):
