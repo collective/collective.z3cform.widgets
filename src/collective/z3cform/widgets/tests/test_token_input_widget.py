@@ -34,11 +34,8 @@ class TokenInputWidgetTestCase(unittest.TestCase):
             def uniqueValuesFor(self, *args):
                 return ["maçã"]
 
-        def mock_subject():
-            return ["resumé"]
-
         self.obj.portal_catalog = MockCatalog()
-        self.obj.subject = mock_subject
+        self.obj.Subject = lambda: ["resumé"]
 
         widget = TokenInputWidget(self.request)
         widget.context = self.obj
@@ -54,11 +51,8 @@ class TokenInputWidgetTestCase(unittest.TestCase):
             def uniqueValuesFor(self, *args):
                 return ["maçã", "foo"]
 
-        def mock_subject():
-            return ["resumé", "bar"]
-
         self.obj.portal_catalog = MockCatalog()
-        self.obj.subject = mock_subject
+        self.obj.Subject = lambda: ["resumé", "bar"]
 
         widget = TokenInputWidget(self.request)
         widget.context = self.obj
