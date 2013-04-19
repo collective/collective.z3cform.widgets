@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 
-import unittest2 as unittest
-
-from plone.app.testing import TEST_USER_ID
+from collective.z3cform.widgets.simple_rich_text import SimpleRichText
+from collective.z3cform.widgets.simple_rich_text import SimpleRichTextWidget
+from collective.z3cform.widgets.testing import INTEGRATION_TESTING
 from plone.app.testing import setRoles
+from plone.app.testing import TEST_USER_ID
 from Products.CMFCore.utils import getToolByName
 
-
-from collective.z3cform.widgets.testing import INTEGRATION_TESTING
+import unittest
 
 
 class WidgetTest(unittest.TestCase):
@@ -16,19 +16,18 @@ class WidgetTest(unittest.TestCase):
 
     def setUp(self):
         self.portal = self.layer['portal']
+        self.request = self.layer['request']
+
+        setRoles(self.portal, TEST_USER_ID, ['Manager'])
+
+        types = self.portal['portal_types']
+        fti = types.getTypeInfo('Document')
+        self.obj = fti.constructInstance(self.portal, 'test1')
 
     def test_configuration(self):
-        from collective.z3cform.widgets.simple_rich_text import \
-            SimpleRichTextWidget, SimpleRichText
-        portal = self.portal
-        ttool = getToolByName(self.portal, 'portal_types')
-        setRoles(self.portal, TEST_USER_ID, ['Manager'])
-        fti = ttool.getTypeInfo("Document")
-        obj = fti.constructInstance(portal, "test1")
-
         mock_request = object()
         widget = SimpleRichTextWidget(mock_request)
-        widget.context = obj
+        widget.context = self.obj
         widget.id = 'test'
         widget.field = SimpleRichText()
 
@@ -45,7 +44,3 @@ class WidgetTest(unittest.TestCase):
         }
 
         self.assertEqual(result, conf)
-
-
-def test_suite():
-    return unittest.defaultTestLoader.loadTestsFromName(__name__)

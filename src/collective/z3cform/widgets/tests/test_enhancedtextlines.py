@@ -1,16 +1,12 @@
 # -*- coding: utf-8 -*-
 
-import unittest2 as unittest
-
-from z3c.form.interfaces import DISPLAY_MODE
-from plone.app.testing import TEST_USER_ID
-from plone.app.testing import setRoles
-from Products.CMFCore.utils import getToolByName
-
-from collective.z3cform.widgets.enhancedtextlines import \
-    EnhancedTextLinesWidget
-
+from collective.z3cform.widgets.enhancedtextlines import EnhancedTextLinesWidget
 from collective.z3cform.widgets.testing import INTEGRATION_TESTING
+from plone.app.testing import setRoles
+from plone.app.testing import TEST_USER_ID
+from z3c.form.interfaces import DISPLAY_MODE
+
+import unittest
 
 
 class WidgetTest(unittest.TestCase):
@@ -19,16 +15,17 @@ class WidgetTest(unittest.TestCase):
 
     def setUp(self):
         self.portal = self.layer['portal']
+        self.request = self.layer['request']
+
+        setRoles(self.portal, TEST_USER_ID, ['Manager'])
+
+        types = self.portal['portal_types']
+        fti = types.getTypeInfo('Document')
+        self.obj = fti.constructInstance(self.portal, 'test1')
 
     def test_js(self):
-        portal = self.portal
-        ttool = getToolByName(self.portal, 'portal_types')
-        setRoles(self.portal, TEST_USER_ID, ['Manager'])
-        fti = ttool.getTypeInfo("Document")
-        obj = fti.constructInstance(portal, "test1")
-
-        widget = EnhancedTextLinesWidget(self.portal.REQUEST)
-        widget.context = obj
+        widget = EnhancedTextLinesWidget(self.request)
+        widget.context = self.obj
         widget.id = 'test'
 
         result = widget.js()
@@ -81,7 +78,3 @@ class WidgetTest(unittest.TestCase):
         widget.mode = DISPLAY_MODE
         result = widget.render()
         self.assertEqual(result, u'\n<span id="test" class="keyword-widget"></span>\n\n')
-
-
-def test_suite():
-    return unittest.defaultTestLoader.loadTestsFromName(__name__)
