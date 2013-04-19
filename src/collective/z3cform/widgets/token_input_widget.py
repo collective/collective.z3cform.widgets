@@ -27,9 +27,9 @@ class ExportSubjectAsJSON(BrowserView):
 
     def __call__(self):
         self.request.response.setHeader("Content-type", "application/json")
-        keys = self.context.portal_catalog.uniqueValuesFor('Subject')
         if 'q' in self.request.keys():
             query = self.request['q']
+            keys = self.context.portal_catalog.uniqueValuesFor('Subject')
             keys = [k for k in keys if query in k]
         else:
             keys = []
