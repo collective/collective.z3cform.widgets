@@ -12,6 +12,8 @@ Because you have to know where your towel is.
 
 - TokenInputFieldWidget now use ajax to bring the subjects. [flecox]
 
+- TokenInputFieldWidget now use ajax to bring the subjects. [flecox]
+
 
 1.0b6 (2013-04-09)
 ^^^^^^^^^^^^^^^^^^
