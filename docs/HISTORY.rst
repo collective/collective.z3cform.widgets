@@ -1,18 +1,22 @@
-Changelog
----------
-
-Because you have to know where your towel is.
+There's a frood who really knows where his towel is
+---------------------------------------------------
 
 1.0b7 (unreleased)
 ^^^^^^^^^^^^^^^^^^
 
+- Refactor JSON view to access the catalog only when there's a query and limit
+  the number of tokens returned to 10 (fixes `#32`_). [hvelarde]
+
+- TokenInputFieldWidget now use ajax to bring the subjects. [flecox]
+
+- Refactor method used in upgrade step to increase its performance: we
+  recatalog only offending objects and update only the Subjects index.
+  [hvelarde]
+
+- Trim Subjects in TokenInputFieldWidget; an upgrade step for updating all
+  offending objects in the catalog is included (fixes `#33`_). [flecox]
+
 - Fixed IE8 problem with 2 simultantious checked radio buttons. [Kosi81]
-- Trim Subjects in TokenInputFieldWidge. [flecox]
-- Upgrade step for trimming all subjects from all Dexterity content types. [flecox]
-
-- TokenInputFieldWidget now use ajax to bring the subjects. [flecox]
-
-- TokenInputFieldWidget now use ajax to bring the subjects. [flecox]
 
 
 1.0b6 (2013-04-09)
@@ -137,3 +141,5 @@ Because you have to know where your towel is.
 .. _`#20`: https://github.com/collective/collective.z3cform.widgets/issues/20
 .. _`#25`: https://github.com/collective/collective.z3cform.widgets/issues/25
 .. _`#28`: https://github.com/collective/collective.z3cform.widgets/issues/28
+.. _`#32`: https://github.com/collective/collective.z3cform.widgets/issues/32
+.. _`#33`: https://github.com/collective/collective.z3cform.widgets/issues/33
