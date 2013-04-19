@@ -1,18 +1,15 @@
 # -*- coding: utf-8 -*-
 
-import unittest2 as unittest
-
-from zope.component import getMultiAdapter
-from plone.app.testing import TEST_USER_ID
-from plone.app.testing import setRoles
-from Products.CMFCore.utils import getToolByName
-
-from collective.z3cform.widgets.multicontent_search_widget import \
-    MultiContentSearchWidget
-from zope.schema import List, Choice
-from plone.formwidget.contenttree import PathSourceBinder
-
+from collective.z3cform.widgets.multicontent_search_widget import MultiContentSearchWidget
 from collective.z3cform.widgets.testing import INTEGRATION_TESTING
+from plone.app.testing import setRoles
+from plone.app.testing import TEST_USER_ID
+from plone.formwidget.contenttree import PathSourceBinder
+from zope.component import getMultiAdapter
+from zope.schema import Choice
+from zope.schema import List
+
+import unittest
 
 
 class WidgetTest(unittest.TestCase):
@@ -23,15 +20,15 @@ class WidgetTest(unittest.TestCase):
         self.portal = self.layer['portal']
         self.request = self.layer['request']
 
-    def test_js(self):
-        portal = self.portal
-        ttool = getToolByName(self.portal, 'portal_types')
         setRoles(self.portal, TEST_USER_ID, ['Manager'])
-        fti = ttool.getTypeInfo("Document")
-        obj = fti.constructInstance(portal, "test1")
 
+        types = self.portal['portal_types']
+        fti = types.getTypeInfo('Document')
+        self.obj = fti.constructInstance(self.portal, 'test1')
+
+    def test_js(self):
         widget = MultiContentSearchWidget(self.request)
-        widget.context = obj
+        widget.context = self.obj
         widget.name = 'test'
         widget.field = List(value_type=Choice(title=u"Selection",
                                               source=PathSourceBinder(portal_type='Document')))
@@ -44,7 +41,3 @@ class WidgetTest(unittest.TestCase):
 
         result = view()
         self.assertIn('++widget++form.widgets.friends/@@autocomplete-search', result)
-
-
-def test_suite():
-    return unittest.defaultTestLoader.loadTestsFromName(__name__)
