@@ -33,14 +33,12 @@ class ExportSubjectAsJSON(BrowserView):
             keys = [k for k in keys if query in k]
         else:
             keys = []
-        tags = []
-        tags = [self._to_dict(value) for value in keys[:10]]
-        result = json.dumps(tags)
 
-        # return up to 10 tags only
-        return result
+        # we will return up to 10 tokens only
+        tokens = map(self._tokenize, keys[:10])
+        return json.dumps(tokens)
 
-    def _to_dict(self, value):
+    def _tokenize(self, value):
         if isinstance(value, str):
             value = value.decode('utf-8')
 
