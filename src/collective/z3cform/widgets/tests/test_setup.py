@@ -2,6 +2,7 @@
 
 import unittest2 as unittest
 from zope.interface import alsoProvides
+from zope.component import getMultiAdapter
 
 from plone.app.testing import TEST_USER_ID
 from plone.app.testing import setRoles
@@ -118,6 +119,35 @@ class InstallTest(unittest.TestCase):
         trim_subjects(portal)
 
         self.assertEqual(obj.subject, ("resume", "bar"))
+
+    def test_expoert_subject_json_view(self):
+        portal = self.portal
+        ttool = getToolByName(self.portal, 'portal_types')
+        setRoles(self.portal, TEST_USER_ID, ['Manager'])
+
+        fti = ttool.getTypeInfo("dexteritytest")
+        obj = fti.constructInstance(portal, "test1")
+
+        obj.subject = ("resume", "bar")
+        obj.reindexObject()
+
+        view = getMultiAdapter((portal, portal.REQUEST),
+                               name="json-subjects")
+
+        self.assertEqual(
+            view(),
+            '[{"id": "bar", "name": "bar"}, {"id": "resume", "name": "resume"}]'
+        )
+
+        request = portal.REQUEST
+        request['q'] = 'bar'
+        view = getMultiAdapter((portal, request),
+                               name="json-subjects")
+
+        self.assertEqual(
+            view(),
+            '[{"id": "bar", "name": "bar"}]'
+        )
 
 
 class UninstallTest(unittest.TestCase):
