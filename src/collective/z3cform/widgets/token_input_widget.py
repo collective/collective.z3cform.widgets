@@ -42,7 +42,8 @@ class ExportSubjectAsJSON(BrowserView):
 
     def _to_dict(self, value):
         if isinstance(value, str):
-                value = value.decode("utf-8")
+            value = value.decode('utf-8')
+
         return {'id': '%s' % value.replace(u"'", u"\\'"),
                 'name': '%s' % value.replace(u"'", u"\\'")}
 
