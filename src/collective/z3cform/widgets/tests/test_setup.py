@@ -134,10 +134,7 @@ class InstallTest(unittest.TestCase):
         view = getMultiAdapter((portal, portal.REQUEST),
                                name="json-subjects")
 
-        self.assertEqual(
-            view(),
-            '[{"id": "bar", "name": "bar"}, {"id": "resume", "name": "resume"}]'
-        )
+        self.assertEqual(view(), '[]')
 
         request = portal.REQUEST
         request['q'] = 'bar'

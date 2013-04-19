@@ -31,7 +31,8 @@ class ExportSubjectAsJSON(BrowserView):
         if 'q' in self.request.keys():
             query = self.request['q']
             keys = [k for k in keys if query in k]
-
+        else:
+            keys =[]
         tags = []
         for index, value in enumerate(keys[:10]):
             if isinstance(value, str):
