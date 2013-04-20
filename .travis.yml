@@ -18,6 +18,7 @@ matrix:
 install:
   - sed -ie "s#travis-4.x.cfg#travis-$PLONE_VERSION.x.cfg#" travis.cfg
   - test "$PLONE_VERSION" = "4.1" && cat travis-4.1.x.cfg > travis.cfg || true
+  - cat travis.cfg
   - mkdir -p buildout-cache/downloads
   - python bootstrap.py -c travis.cfg
   - bin/buildout -c travis.cfg -N -q -t 3
