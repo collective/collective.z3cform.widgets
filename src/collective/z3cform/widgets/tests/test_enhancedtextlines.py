@@ -6,7 +6,7 @@ from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
 from z3c.form.interfaces import DISPLAY_MODE
 
-import unittest
+import unittest2 as unittest
 
 
 class WidgetTest(unittest.TestCase):

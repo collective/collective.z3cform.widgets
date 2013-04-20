@@ -5,9 +5,8 @@ from collective.z3cform.widgets.simple_rich_text import SimpleRichTextWidget
 from collective.z3cform.widgets.testing import INTEGRATION_TESTING
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
-from Products.CMFCore.utils import getToolByName
 
-import unittest
+import unittest2 as unittest
 
 
 class WidgetTest(unittest.TestCase):

@@ -73,6 +73,7 @@ setup(name='collective.z3cform.widgets',
               'plone.testing',
               'robotframework-selenium2library',
               'robotsuite',
+              'unittest2',
           ],
       },
       entry_points="""
