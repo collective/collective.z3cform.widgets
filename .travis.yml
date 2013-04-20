@@ -1,8 +1,8 @@
 language: python
 python: 2.7
 env:
-  - PLONE_VERSION=4.2
-  - PLONE_VERSION=4.3 QA=true
+#  - PLONE_VERSION=4.2
+#  - PLONE_VERSION=4.3 QA=true
 matrix:
   include:
     - python: 2.6
@@ -21,5 +21,6 @@ before_script:
   - sh -e /etc/init.d/xvfb start
 script: bin/test
 after_success: test -v QA && make basic-validation coverage-validation || true
+after_failure: bin/buildout annotate
 notifications:
   irc: irc.freenode.org#simplesconsultoria
