@@ -1,7 +1,7 @@
 There's a frood who really knows where his towel is
 ---------------------------------------------------
 
-1.0b7 (unreleased)
+1.0b7 (2013-04-19)
 ^^^^^^^^^^^^^^^^^^
 
 - Refactor JSON view to access the catalog only when there's a query and limit
