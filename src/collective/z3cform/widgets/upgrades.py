@@ -6,10 +6,10 @@ from Products.CMFCore.utils import getToolByName
 import logging
 
 
-def upgrade_1_to_2(context, logger=None):
+def to2(context, logger=None):
     """
     """
-    profile = 'profile-collective.z3cform.widgets:1_to_2'
+    profile = 'profile-collective.z3cform.widgets:upgrade_1_to_2'
     setup = getToolByName(context, 'portal_setup')
     setup.runAllImportStepsFromProfile(profile)
 

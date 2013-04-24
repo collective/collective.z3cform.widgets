@@ -34,9 +34,9 @@
         />
 
     <genericsetup:registerProfile
-        name="1_to_2"
-        title="collective.z3cform.widgets upgrade from 1 to 2"
-        directory="profiles/1_to_2"
+        name="upgrade_1_to_2"
+        title="Upgrade profile for collective.z3cform.widgets from 1 to 2"
+        directory="profiles/upgrade_1_to_2"
         description="Upgrade collective.z3cform.widgets package to version 2."
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
@@ -55,15 +55,15 @@
         profile="collective.z3cform.widgets:default">
 
         <genericsetup:upgradeStep
-                title="collective.z3cform.widgets upgrade from 1 to 2"
-                description="Upgrade collective.z3cform.widgets package to version 2."
-                handler="collective.z3cform.widgets.upgrades.upgrade_1_to_2"
+                title="Install Browser Layer"
+                description="Install browser layer required by TokeninputFieldWidget"
+                handler=".upgrades.to2"
                 />
 
         <genericsetup:upgradeStep
                 title="Trim subjects"
                 description="Old version of tokeninputfieldwidget did not trim the tags. this upgrade step will trim all saved subjects"
-                handler="collective.z3cform.widgets.upgrades.trim_subjects"
+                handler=".upgrades.trim_subjects"
                 />
 
     </genericsetup:upgradeSteps>

@@ -4,7 +4,8 @@ There's a frood who really knows where his towel is
 1.0b8 (unreleased)
 ^^^^^^^^^^^^^^^^^^
 
-- Nothing changed yet.
+- Rename upgrade step profile. Never, ever name a profile with a number as
+  first character and never, ever work for 3 weeks in a row. [hvelarde]
 
 
 1.0b7 (2013-04-19)
