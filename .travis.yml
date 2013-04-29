@@ -11,7 +11,7 @@ matrix:
     - python: 2.6
       env: PLONE_VERSION=4.1
 install:
-  - sed -ie "s#travis-4.x.cfg#travis-$PLONE_VERSION.x.cfg#plone.app.jquery>1.6" travis.cfg
+  - sed -ie "s#travis-4.x.cfg#travis-$PLONE_VERSION.x.cfg#plone.app.jquery>1.6#" travis.cfg
   - test "$PLONE_VERSION" = "4.1" && cat travis-4.1.x.cfg > travis.cfg || true
   - mkdir -p buildout-cache/downloads
   - python bootstrap.py -c travis.cfg
