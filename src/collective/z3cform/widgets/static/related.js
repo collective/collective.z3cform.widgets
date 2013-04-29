@@ -31,7 +31,8 @@ function formwidget_autocomplete_new_value(input_box,value,label) {
         // Last but not least, the checked attribute doesn't always behave in a way you'd expect
         // so we generate this one as text as well.
         if (type=="radio"){
-	        $("input[name*="+base_name+"]:checked").removeAttr("checked");
+	    var exact_name = base_name.split('.');
+            $("input[id*="+exact_name[exact_name.lenght]+"]:checked").removeAttr("checked");
         }
         span.append($("<label/>").attr("for",base_id+"-"+idx)
                                  .append($('<input type="' + type + '"' +
