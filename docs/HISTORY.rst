@@ -4,7 +4,8 @@ There's a frood who really knows where his towel is
 1.0b10 (unreleased)
 ^^^^^^^^^^^^^^^^^^^
 
-- Nothing changed yet.
+- Make TokenInputFieldWidget be case-insensitive when suggesting Keywords
+  [pbauer]
 
 
 1.0b9 (2013-05-02)

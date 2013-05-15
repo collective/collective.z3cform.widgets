@@ -30,7 +30,7 @@ class ExportSubjectAsJSON(BrowserView):
         if 'q' in self.request.keys():
             query = self.request['q']
             keys = self.context.portal_catalog.uniqueValuesFor('Subject')
-            keys = [k for k in keys if query in k]
+            keys = [k for k in keys if query.lower() in k.lower()]
         else:
             keys = []
 
