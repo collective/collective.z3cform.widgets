@@ -76,7 +76,7 @@ collective.z3cform.widgets provides the following widgets:
 Mostly Harmless
 ---------------
 
-.. image:: https://secure.travis-ci.org/collective/collective.z3cform.widgets.png
+.. image:: https://secure.travis-ci.org/collective/collective.z3cform.widgets.png?branch=master
     :target: http://travis-ci.org/collective/collective.z3cform.widgets
 
 .. image:: https://coveralls.io/repos/collective/collective.z3cform.widgets/badge.png?branch=master
