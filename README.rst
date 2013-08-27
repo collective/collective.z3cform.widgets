@@ -73,8 +73,43 @@ collective.z3cform.widgets provides the following widgets:
 
     This widget uses the `jQuery RTE`_ plugin.
 
+Mostly Harmless
+---------------
+
+.. image:: https://secure.travis-ci.org/collective/collective.z3cform.widgets.png
+    :target: http://travis-ci.org/collective/collective.z3cform.widgets
+
+.. image:: https://coveralls.io/repos/collective/collective.z3cform.widgets/badge.png?branch=master
+    :target: https://coveralls.io/r/collective/collective.z3cform.widgets
+
+Got an idea? Found a bug? Let us know by `opening a support ticket`_.
+
 Don't Panic
 -----------
+
+Installation
+^^^^^^^^^^^^
+
+To enable this product in a buildout-based installation:
+
+1. Edit your buildout.cfg and add ``collective.z3cform.widgets`` to the list
+   of eggs to install::
+
+    [buildout]
+    ...
+    eggs =
+        collective.z3cform.widgets
+
+After updating the configuration you need to run ''bin/buildout'', which will
+take care of updating your system.
+
+Go to the 'Site Setup' page in a Plone site and click on the 'Add-ons' link.
+
+Check the box next to ``collective.z3cform.widgets`` and click the 'Activate'
+button.
+
+Note: You may have to empty your browser cache and save your resource
+registries in order to see the effects of the product installation.
 
 New fields
 ^^^^^^^^^^
@@ -146,14 +181,6 @@ Browsers supported
 
 All modern browsers should be supported (Mozilla Firefox 3.0+, Google Chrome
 7.0+, Apple Safari 4.0+, Opera 10.0+ and Microsoft Internet Explorer 9.0+).
-
-Mostly Harmless
----------------
-
-.. image:: https://secure.travis-ci.org/collective/collective.z3cform.widgets.png
-    :target: http://travis-ci.org/collective/collective.z3cform.widgets
-
-Got an idea? Found a bug? Let us know by `opening a support ticket`_.
 
 See also
 --------
