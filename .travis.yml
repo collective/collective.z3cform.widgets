@@ -22,7 +22,7 @@ before_script:
 script: bin/test
 after_success:
   - bin/coverage.sh
-  - pip install coveralls
+  - pip install -q coveralls
   - coveralls
 after_failure: bin/buildout annotate
 notifications:
