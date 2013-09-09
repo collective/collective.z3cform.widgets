@@ -18,12 +18,14 @@ class Upgrade2to3TestCase(unittest.TestCase):
         """
         portal_js = self.portal.portal_javascripts
         portal_css = self.portal.portal_css
+        qi = self.portal.portal_quickinstaller
         js = '++resource++plone.formwidget.contenttree/contenttree.js'
         css = '++resource++plone.formwidget.contenttree/contenttree.css'
+        dependency = 'plone.formwidget.contenttree'
 
         # manually unistall resources to simulate previous profile
-        portal_js.unregisterResource(js)
-        portal_css.unregisterResource(css)
+        qi.uninstallProducts([dependency])
+        self.assertFalse(qi.isProductInstalled(dependency))
         self.assertNotIn(js, portal_js.getResourceIds())
         self.assertNotIn(css, portal_css.getResourceIds())
 
