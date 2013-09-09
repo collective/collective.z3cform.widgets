@@ -10,6 +10,7 @@ contribution of the following people:
 - Héctor Velarde
 - Cleber J. Santos
 - João S. O. Bueno
+- Juan Pablo Giménez
 
 You can find an updated list of package contributors on `GitHub`_.
 

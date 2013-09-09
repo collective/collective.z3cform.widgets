@@ -4,6 +4,8 @@ There's a frood who really knows where his towel is
 1.0b10 (unreleased)
 ^^^^^^^^^^^^^^^^^^^
 
+- Install plone.formwidget.contenttree as dependency, MultiContentSearchFieldWidget needs ++resource++plone.formwidget.contenttree/contenttree.js and ++resource++plone.formwidget.contenttree/contenttree.css. This fix an issue reported into collective.nitf, https://github.com/collective/collective.nitf/issues/69 [jpgimenez]
+
 - Make TokenInputFieldWidget be case-insensitive when suggesting Keywords
   [pbauer]
 
