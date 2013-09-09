@@ -68,6 +68,19 @@
 
     </genericsetup:upgradeSteps>
 
+    <genericsetup:upgradeSteps
+        source=""
+        destination="3"
+        profile="collective.z3cform.widgets:default">
+
+        <genericsetup:upgradeStep
+                title="Install plone.formwidget.contenttree"
+                description="Install plone.formwidget.contenttree:default to fix MultiContentSearchFieldWidget"
+                handler=".upgrades.to3"
+                />
+
+    </genericsetup:upgradeSteps>
+
     <browser:page
         name="contenttree-related-fetch"
         for="plone.formwidget.contenttree.interfaces.IContentTreeWidget"

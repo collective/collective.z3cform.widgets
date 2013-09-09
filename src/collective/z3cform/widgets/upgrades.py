@@ -14,6 +14,14 @@ def to2(context, logger=None):
     setup.runAllImportStepsFromProfile(profile)
 
 
+def to3(context, logger=None):
+    """
+    """
+    profile = 'profile-plone.formwidget.contenttree:default'
+    setup = getToolByName(context, 'portal_setup')
+    setup.runAllImportStepsFromProfile(profile)
+
+
 def trim_subjects(context, logger=None):
     """Grab all Dexterity content types and trim their related Sujects field.
     """
