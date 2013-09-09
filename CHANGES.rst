@@ -4,7 +4,8 @@ There's a frood who really knows where his towel is
 1.0b10 (unreleased)
 ^^^^^^^^^^^^^^^^^^^
 
-- Install plone.formwidget.contenttree as dependency, MultiContentSearchFieldWidget needs ++resource++plone.formwidget.contenttree/contenttree.js and ++resource++plone.formwidget.contenttree/contenttree.css. This fix an issue reported into collective.nitf, https://github.com/collective/collective.nitf/issues/69 [jpgimenez]
+- Install plone.formwidget.contenttree resources to avoid duplication of
+  related items field (fixes `#69 in collective.nitf`_). [jpgimenez]
 
 - Make TokenInputFieldWidget be case-insensitive when suggesting Keywords
   [pbauer]
@@ -165,3 +166,4 @@ There's a frood who really knows where his towel is
 .. _`#28`: https://github.com/collective/collective.z3cform.widgets/issues/28
 .. _`#32`: https://github.com/collective/collective.z3cform.widgets/issues/32
 .. _`#33`: https://github.com/collective/collective.z3cform.widgets/issues/33
+.. _`#69 in collective.nitf`: https://github.com/collective/collective.nitf/issues/69

@@ -11,19 +11,13 @@ JAVASCRIPTS = [
     '++resource++collective.z3cform.widgets/related.js',
     '++resource++collective.z3cform.widgets/jquery.tokeninput.min.js',
     '++resource++collective.z3cform.widgets/keywords.js',
-]
-
-JAVASCRIPTS_DEPS = [
-    '++resource++plone.formwidget.contenttree/contenttree.js'
+    '++resource++plone.formwidget.contenttree/contenttree.js',
 ]
 
 CSS = [
     '++resource++collective.z3cform.widgets/related.css',
     '++resource++collective.z3cform.widgets/token-input-facebook.css',
-]
-
-CSS_DEPS = [
-    '++resource++plone.formwidget.contenttree/contenttree.css'
+    '++resource++plone.formwidget.contenttree/contenttree.css',
 ]
 
 
@@ -44,23 +38,11 @@ class InstallTestCase(unittest.TestCase):
             self.assertIn(js, portal_javascripts.getResourceIds(),
                           '%s not installed' % js)
 
-    def test_jsregistry_dependencies(self):
-        portal_javascripts = self.portal.portal_javascripts
-        for js in JAVASCRIPTS_DEPS:
-            self.assertIn(js, portal_javascripts.getResourceIds(),
-                          '%s not installed' % js)
-
     def test_cssregistry(self):
         portal_css = self.portal.portal_css
         for css in CSS:
-            self.assertIn(css, portal_css.getResourceIds(),
-                          '%s not installed' % css)
-
-    def test_cssregistry_dependencies(self):
-        portal_css = self.portal.portal_css
-        for css in CSS_DEPS:
-            self.assertIn(css, portal_css.getResourceIds(),
-                          '%s not installed' % css)
+            self.assertIn(
+                css, portal_css.getResourceIds(), '%s not installed' % css)
 
 
 class UninstallTestCase(unittest.TestCase):
@@ -85,5 +67,5 @@ class UninstallTestCase(unittest.TestCase):
     def test_cssregistry_removed(self):
         portal_css = self.portal.portal_css
         for css in CSS:
-            self.assertNotIn(css, portal_css.getResourceIds(),
-                             '%s not removed' % css)
+            self.assertNotIn(
+                css, portal_css.getResourceIds(), '%s not removed' % css)
