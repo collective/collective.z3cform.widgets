@@ -23,8 +23,9 @@ class Upgrade2to3TestCase(unittest.TestCase):
         css = '++resource++plone.formwidget.contenttree/contenttree.css'
         dependency = 'plone.formwidget.contenttree'
 
-        # manually unistall resources to simulate previous profile
-        qi.uninstallProducts([dependency])
+        # manually uninstall resources to simulate previous profile
+        if qi.isProductInstalled(dependency):
+            qi.uninstallProducts([dependency])
         self.assertFalse(qi.isProductInstalled(dependency))
         self.assertNotIn(js, portal_js.getResourceIds())
         self.assertNotIn(css, portal_css.getResourceIds())
