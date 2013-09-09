@@ -33,10 +33,10 @@ class InstallTestCase(unittest.TestCase):
         self.assertTrue(qi.isProductInstalled(PROJECTNAME))
 
     def test_jsregistry(self):
-        portal_javascripts = self.portal.portal_javascripts
+        portal_js = self.portal.portal_javascripts
         for js in JAVASCRIPTS:
-            self.assertIn(js, portal_javascripts.getResourceIds(),
-                          '%s not installed' % js)
+            self.assertIn(
+                js, portal_js.getResourceIds(), '%s not installed' % js)
 
     def test_cssregistry(self):
         portal_css = self.portal.portal_css
@@ -59,13 +59,15 @@ class UninstallTestCase(unittest.TestCase):
         self.assertFalse(self.qi.isProductInstalled(PROJECTNAME))
 
     def test_jsregistry_removed(self):
-        portal_javascripts = self.portal.portal_javascripts
+        portal_js = self.portal.portal_javascripts
         for js in JAVASCRIPTS:
-            self.assertNotIn(js, portal_javascripts.getResourceIds(),
-                             '%s not removed' % js)
+            if 'plone.formwidget.contenttree' not in js:
+                self.assertNotIn(
+                    js, portal_js.getResourceIds(), '%s not removed' % js)
 
     def test_cssregistry_removed(self):
         portal_css = self.portal.portal_css
         for css in CSS:
-            self.assertNotIn(
-                css, portal_css.getResourceIds(), '%s not removed' % css)
+            if 'plone.formwidget.contenttree' not in css:
+                self.assertNotIn(
+                    css, portal_css.getResourceIds(), '%s not removed' % css)
