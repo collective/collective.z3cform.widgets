@@ -16,8 +16,8 @@
     overflow-y: auto;
     width: 50%;
     float: left;
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
 }
 
 .relatedWidget ul.recieve {
@@ -26,8 +26,8 @@
     overflow-y: auto;
     width: 49%;
     float: right;
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
 }
 
 .relatedWidget ul.recieve li{
@@ -121,8 +121,8 @@
 
 .tasksplease {
     width:24em;
-    margin:0px;
-    padding:0px;
+    margin:0;
+    padding:0;
 }
 .tasksplease li {
     background-color:#EEE;
