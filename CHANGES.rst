@@ -4,6 +4,9 @@ There's a frood who really knows where his towel is
 1.0b10 (unreleased)
 ^^^^^^^^^^^^^^^^^^^
 
+- Remove Pillow as a dependency to avoid issues in case someone wants to use
+  PIL. [hvelarde]
+
 - Drop support for Plone 4.1. [hvelarde]
 
 - Install plone.formwidget.contenttree resources to avoid duplication of

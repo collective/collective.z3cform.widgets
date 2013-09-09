@@ -43,7 +43,6 @@ setup(name='collective.z3cform.widgets',
       zip_safe=False,
       install_requires=[
           'collective.js.jqueryui',
-          'Pillow',
           'plone.app.dexterity>=1.2.1',
           'plone.app.layout',
           'plone.app.vocabularies',
