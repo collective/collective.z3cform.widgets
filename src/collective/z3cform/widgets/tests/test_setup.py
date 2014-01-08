@@ -3,22 +3,25 @@
 from collective.z3cform.widgets.testing import INTEGRATION_TESTING
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
+from plone.browserlayer.utils import registered_layers
 
 import unittest
 
 PROJECTNAME = 'collective.z3cform.widgets'
-JAVASCRIPTS = [
+EXPECTED_JS = (
     '++resource++collective.z3cform.widgets/related.js',
+    '++resource++collective.z3cform.widgets/waypoints.min.js',
     '++resource++collective.z3cform.widgets/jquery.tokeninput.min.js',
     '++resource++collective.z3cform.widgets/keywords.js',
-    '++resource++plone.formwidget.contenttree/contenttree.js',
-]
+    '++resource++collective.z3cform.widgets/jquery.tasksplease.js',
+    '++resource++collective.z3cform.widgets/jquery.rte.js',
+)
 
-CSS = [
+EXPECTED_CSS = (
     '++resource++collective.z3cform.widgets/related.css',
     '++resource++collective.z3cform.widgets/token-input-facebook.css',
-    '++resource++plone.formwidget.contenttree/contenttree.css',
-]
+    '++resource++collective.z3cform.widgets/rte.css',
+)
 
 
 class InstallTestCase(unittest.TestCase):
@@ -32,17 +35,19 @@ class InstallTestCase(unittest.TestCase):
         qi = getattr(self.portal, 'portal_quickinstaller')
         self.assertTrue(qi.isProductInstalled(PROJECTNAME))
 
-    def test_jsregistry(self):
-        portal_js = self.portal.portal_javascripts
-        for js in JAVASCRIPTS:
-            self.assertIn(
-                js, portal_js.getResourceIds(), '%s not installed' % js)
+    def test_addon_layer_is_registered(self):
+        layers = [l.getName() for l in registered_layers()]
+        self.assertIn('ILayer', layers)
 
-    def test_cssregistry(self):
-        portal_css = self.portal.portal_css
-        for css in CSS:
-            self.assertIn(
-                css, portal_css.getResourceIds(), '%s not installed' % css)
+    def test_js_are_registered(self):
+        actual_js = self.portal.portal_javascripts.getResourceIds()
+        for id in EXPECTED_JS:
+            self.assertIn(id, actual_js)
+
+    def test_css_are_registered(self):
+        actual_css = self.portal.portal_css.getResourceIds()
+        for id in EXPECTED_CSS:
+            self.assertIn(id, actual_css)
 
 
 class UninstallTestCase(unittest.TestCase):
@@ -58,16 +63,16 @@ class UninstallTestCase(unittest.TestCase):
     def test_uninstalled(self):
         self.assertFalse(self.qi.isProductInstalled(PROJECTNAME))
 
-    def test_jsregistry_removed(self):
-        portal_js = self.portal.portal_javascripts
-        for js in JAVASCRIPTS:
-            if 'plone.formwidget.contenttree' not in js:
-                self.assertNotIn(
-                    js, portal_js.getResourceIds(), '%s not removed' % js)
+    def test_addon_layer_is_unregistered(self):
+        layers = [l.getName() for l in registered_layers()]
+        self.assertNotIn('ILayer', layers)
 
-    def test_cssregistry_removed(self):
-        portal_css = self.portal.portal_css
-        for css in CSS:
-            if 'plone.formwidget.contenttree' not in css:
-                self.assertNotIn(
-                    css, portal_css.getResourceIds(), '%s not removed' % css)
+    def test_js_are_unregistered(self):
+        actual_js = self.portal.portal_javascripts.getResourceIds()
+        for id in EXPECTED_JS:
+            self.assertNotIn(id, actual_js)
+
+    def test_css_are_unregistered(self):
+        actual_css = self.portal.portal_css.getResourceIds()
+        for id in EXPECTED_CSS:
+            self.assertNotIn(id, actual_css)

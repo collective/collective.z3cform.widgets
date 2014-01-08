@@ -1,7 +1,0 @@
-<?xml version="1.0"?>
-<object name="portal_javascripts">
-<!--
-  <javascript id="++resource++collective.formwidget.relationfield/jquery-ui.js"
-     remove="True" />
-         -->
-</object>
