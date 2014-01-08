@@ -24,11 +24,11 @@ collective.z3cform.widgets provides the following widgets:
     This widget uses the `jQuery TaskPlease`_ plugin.
 
 **TokenInputFieldWidget**
-    TokenInputFieldWidget allows your users to select multiple items from portal
-    Subjects list , using autocompletion as they type to find each item. You
-    may have seen a similar type of text entry when filling in the recipients
-    field sending messages on `Facebook`_. This widget will degrade to
-    <textarea> if JavaScript is not enabled.
+    TokenInputFieldWidget allows your users to select multiple items from
+    portal Subjects list , using autocompletion as they type to find each
+    item. You may have seen a similar type of text entry when filling in the
+    recipients field sending messages on `Facebook`_. This widget will degrade
+    to <textarea> if JavaScript is not enabled.
 
     .. image:: https://github.com/collective/collective.z3cform.widgets/raw/master/tokeninput.png
         :align: center
@@ -59,8 +59,8 @@ collective.z3cform.widgets provides the following widgets:
     structure is shown in the widget.
 
 **SimpleRichTextWidget**
-    A lightweight and unbloated Rich Text Editor (RTE / WYSIWYG).
-    These parameters can be configured::
+    A lightweight and unbloated Rich Text Editor (RTE / WYSIWYG). These
+    parameters can be configured::
 
         'iframe_height': height in pixels,
         'format_block': 'true' or 'false',
@@ -185,12 +185,15 @@ All modern browsers should be supported (Mozilla Firefox 3.0+, Google Chrome
 See also
 --------
 
-More widgets you might like:
+Not entirely unlike
+-------------------
 
-* `collective.z3cform.datagridfield`_: Version of DataGridField for use with
-  Dexterity / z3c.form
-* `plone.app.widgets`_: A revamp of Plone widgets, it does this by overriding
-  the widgets of some of the fields in Plone.
+`collective.z3cform.datagridfield`_
+    Version of DataGridField for use with Dexterity / z3c.form.
+
+`plone.app.widgets`_
+    A revamp of Plone widgets, it does this by overriding the widgets of some
+    of the fields in Plone.
 
 .. _`jQuery TaskPlease`: https://github.com/Quimera/tasksplease
 .. _`jQuery Tokeninput`: http://loopj.com/jquery-tokeninput/
