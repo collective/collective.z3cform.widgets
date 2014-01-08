@@ -1,13 +1,15 @@
-from zope.component import adapts
-from zope.interface import Interface, implements
-from zope import schema
-
-from plone.z3cform import layout
-
-from z3c.form import form, button, field
+# -*- coding: utf-8 -*-
 
 from collective.z3cform.widgets.multicontent_search_widget import MultiContentSearchFieldWidget
 from plone.formwidget.contenttree import PathSourceBinder
+from plone.z3cform import layout
+from z3c.form import button
+from z3c.form import field
+from z3c.form import form
+from zope import schema
+from zope.component import adapts
+from zope.interface import implements
+from zope.interface import Interface
 
 
 class ITestForm(Interface):
