@@ -6,7 +6,7 @@ from collective.z3cform.widgets.testing import INTEGRATION_TESTING
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
 
-import unittest2 as unittest
+import unittest
 
 
 class WidgetTest(unittest.TestCase):

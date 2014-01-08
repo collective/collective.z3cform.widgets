@@ -5,7 +5,7 @@ from plone.testing import layered
 
 import os
 import robotsuite
-import unittest2 as unittest
+import unittest
 
 dirname = os.path.dirname(__file__)
 files = os.listdir(dirname)

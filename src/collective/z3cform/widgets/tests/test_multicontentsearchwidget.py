@@ -9,7 +9,7 @@ from zope.component import getMultiAdapter
 from zope.schema import Choice
 from zope.schema import List
 
-import unittest2 as unittest
+import unittest
 
 
 class WidgetTest(unittest.TestCase):

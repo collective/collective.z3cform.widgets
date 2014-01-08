@@ -4,8 +4,10 @@ There's a frood who really knows where his towel is
 1.0b10 (unreleased)
 ^^^^^^^^^^^^^^^^^^^
 
-- Remove Pillow as a dependency to avoid issues in case someone wants to use
-  PIL. [hvelarde]
+- Remove dependency on unittest2 (test run under Python 2.7 only).
+  [hvelarde]
+
+- Remove dependency on Pillow. [hvelarde]
 
 - Drop support for Plone 4.1. [hvelarde]
 
