@@ -1,7 +1,7 @@
 There's a frood who really knows where his towel is
 ---------------------------------------------------
 
-1.0b10 (unreleased)
+1.0b10 (2014-10-08)
 ^^^^^^^^^^^^^^^^^^^
 
 - Remove dependency on unittest2 (test run under Python 2.7 only).
