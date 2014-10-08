@@ -9,6 +9,10 @@ Life, the Universe, and Everything
 
 A widget package for Dexterity projects.
 
+.. Warning::
+    This package is no longer being actively maintained.
+    Take a look at `plone.app.widgets`_ for an alternative set of widgets.
+
 collective.z3cform.widgets provides the following widgets:
 
 **EnhancedTextLinesFieldWidget**
@@ -77,10 +81,16 @@ Mostly Harmless
 ---------------
 
 .. image:: https://secure.travis-ci.org/collective/collective.z3cform.widgets.png?branch=master
+    :alt: Travis CI badge
     :target: http://travis-ci.org/collective/collective.z3cform.widgets
 
 .. image:: https://coveralls.io/repos/collective/collective.z3cform.widgets/badge.png?branch=master
+    :alt: Coveralls badge
     :target: https://coveralls.io/r/collective/collective.z3cform.widgets
+
+.. image:: https://pypip.in/d/collective.z3cform.widgets/badge.png
+    :alt: Downloads
+    :target: https://pypi.python.org/pypi/collective.z3cform.widgets
 
 Got an idea? Found a bug? Let us know by `opening a support ticket`_.
 
