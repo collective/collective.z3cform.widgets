@@ -4,7 +4,8 @@ There's a frood who really knows where his towel is
 1.0b11 (unreleased)
 ^^^^^^^^^^^^^^^^^^^
 
-- Nothing changed yet.
+- Fix package dependencies.
+  [hvelarde]
 
 
 1.0b10 (2014-10-08)
