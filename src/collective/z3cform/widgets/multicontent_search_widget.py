@@ -228,7 +228,7 @@ class MultiContentSearchWidget(MultiContentTreeWidget):
     def js_extra(self):
         form_url = self.request.getURL()
 
-        #check if we should put the js code that loads the tree
+        # check if we should put the js code that loads the tree
         make_tree = 'false'
         if not self.bound_source.selectable_filter.criteria:
             make_tree = 'true'

@@ -73,7 +73,7 @@ class TokenInputWidget(textarea.TextAreaWidget):
         old_tags = u""
         index = 0
         newtags = self.context.absolute_url() + "/json-subjects"
-        #prepopulate
+        # prepopulate
         for index, value in enumerate(old_values):
             if isinstance(value, str):
                 value = value.decode("utf-8")
