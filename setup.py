@@ -58,7 +58,7 @@ setup(name='collective.z3cform.widgets',
           'z3c.form',
           'zope.browserpage',
           'zope.component',
-          'zope.i18n',
+          #'zope.i18n', # dont include it, otherwise conflicts in zcml load
           'zope.i18nmessageid',
           'zope.interface',
           'zope.schema',

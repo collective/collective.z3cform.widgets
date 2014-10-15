@@ -4,6 +4,11 @@ There's a frood who really knows where his towel is
 1.0b11 (unreleased)
 ^^^^^^^^^^^^^^^^^^^
 
+- remove zope.i18n from package dependencies in order to avoid 
+  conflicting zcml with between zope.i18n and Zope2 Publihser 
+  i18n.zcml
+  [jensens]
+
 - Fix package dependencies.
   [hvelarde]
 
