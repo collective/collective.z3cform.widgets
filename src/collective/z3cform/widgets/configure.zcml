@@ -1,14 +1,18 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser"
-    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:five="http://namespaces.zope.org/five"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
     xmlns:z3c="http://namespaces.zope.org/z3c"
     i18n_domain="collective.z3cform.widgets">
 
-    <includeDependencies package="." />
-
     <i18n:registerTranslations directory="locales" />
+    <five:registerPackage package="." />
+    <include package="collective.js.jqueryui" />
+    <include package="plone.app.dexterity" />
+    <include package="plone.formwidget.autocomplete" />
+    <include package="plone.formwidget.contenttree" />
 
     <include file="simple_rich_text.zcml" />
 
