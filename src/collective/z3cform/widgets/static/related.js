@@ -1,6 +1,6 @@
 // This is based on jQueryFileTree by   Cory S.N. LaViska
 
-function formwidget_autocomplete_new_value(input_box,value,label) {
+function related_widget_new_value(input_box,value,label) {
     (function($) {
         var base_id = input_box[0].id.replace(/-widgets-query$/,"");
         var base_name = input_box[0].name.replace(/\.widgets\.query$/,"");
@@ -10,7 +10,7 @@ function formwidget_autocomplete_new_value(input_box,value,label) {
 
         // Clear query box and uncheck any radio boxes
         input_box.val("");
-        widget_base.find('input:radio').attr('checked', '');
+        widget_base.find('input:radio').attr('checked', false);
 
         // If a radio/check box for this value already exists, check it.
         var selected_field = widget_base.find('input[value="' + value + '"]');
@@ -61,9 +61,8 @@ if(jQuery) (function($){
                     var all_fields = widget_base.find('span');
                     all_fields.remove()
                     contenttree_window.find('.relatedWidget ul.recieve .navTreeItem > a').each(function () {
-                        formwidget_autocomplete_new_value(input_box,$(this).attr('href'),$.trim($(this).text()));
+                        related_widget_new_value(input_box,$(this).attr('href'),$.trim($(this).text()));
                     });
-
                     $(this).contentTreeCancel();
                 }});
 })(jQuery);
