@@ -3,6 +3,7 @@
 import zope.component
 import zope.interface
 import zope.schema
+from zope.i18n import translate
 
 from z3c.form import interfaces
 from z3c.form import widget
@@ -39,10 +40,10 @@ class EnhancedTextLinesWidget(textarea.TextAreaWidget):
     """
 
     def js(self):
-        add = _(u"Add")
-        add_option = _(u"Add Option")
-        delete_option = _(u"Delete Option")
-        edit_option = _(u"Edit Option")
+        add = translate(_(u"Add"), context=self.request)
+        add_option = translate(_(u"Add Option"), context=self.request)
+        delete_option = translate(_(u"Delete Option"), context=self.request)
+        edit_option = translate(_(u"Edit Option"), context=self.request)
         return self.js_template % dict(id=self.id, add=add, add_task=add_option,
                                        delete_task=delete_option,
                                        edit_task=edit_option)

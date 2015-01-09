@@ -4,7 +4,8 @@ There's a frood who really knows where his towel is
 1.0b12 (unreleased)
 ^^^^^^^^^^^^^^^^^^^
 
-- Nothing changed yet.
+- Fix i18n.
+  [vincentfretin]
 
 
 1.0b11 (2014-11-27)
