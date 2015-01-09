@@ -1,0 +1,41 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: collective.z3cform.widgets 1.0\n"
+"POT-Creation-Date: 2015-01-09 09:04+0000\n"
+"PO-Revision-Date: 2015-01-08 15:16+0100\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: collective.z3cform.widgets\n"
+"X-Generator: Poedit 1.5.4\n"
+
+#: configure.zcml
+msgid "A widget package for Plone 4 projects."
+msgstr "Un package de widgets pour les projets Plone 4."
+
+#: ../profiles/test/types/dexteritytest.xml
+msgid "None"
+msgstr ""
+
+#: configure.zcml
+msgid "Uninstall profile for the collective.z3cform.widgets package."
+msgstr "Désinstaller le profile pour le package collective.z3cform.widgets."
+
+#: configure.zcml
+msgid "collective.z3cform.widgets"
+msgstr ""
+
+#: configure.zcml
+msgid "collective.z3cform.widgets uninstall"
+msgstr "Désinstaller collective.z3cform.widgets"
+
+#: ../profiles/test/types/dexteritytest.xml
+msgid "dexterityTest"
+msgstr ""
+

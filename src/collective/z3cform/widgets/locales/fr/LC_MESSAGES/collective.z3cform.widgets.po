@@ -1,0 +1,141 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2015-01-09 09:04+0000\n"
+"PO-Revision-Date: 2015-01-08 15:10+0100\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: French\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: fr\n"
+"Language-Name: French\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: collective.z3cform.widgets\n"
+"X-Generator: Poedit 1.5.4\n"
+
+#: ../enhancedtextlines.py:42
+msgid "Add"
+msgstr "Ajouter"
+
+#: ../enhancedtextlines.py:43
+msgid "Add Option"
+msgstr "Ajouter option"
+
+#: ../simple_rich_text.py:97
+msgid "Allow to disable"
+msgstr "Permet de désactiver"
+
+#: ../simple_rich_text.py:98
+msgid "Allow to disable the editor."
+msgstr "Permet de désactiver l'éditeur"
+
+#: ../simple_rich_text.py:61
+msgid "Allow to specify the height of the iframe"
+msgstr "Permet de spécifier la hauteur de l'iframe"
+
+#: ../simple_rich_text.py:72
+msgid "Bold"
+msgstr "Gras"
+
+#: ../related_input.pt:33
+msgid "Content To Relate"
+msgstr "Contenu de référence"
+
+#: ../enhancedtextlines.py:44
+msgid "Delete Option"
+msgstr "Supprimer option"
+
+#: ../enhancedtextlines.py:45
+msgid "Edit Option"
+msgstr "Editer option"
+
+#: ../simple_rich_text.py:67
+msgid "Format block"
+msgstr "Format bloc"
+
+#: ../simple_rich_text.py:60
+msgid "Iframe height"
+msgstr "Hauteur iframe"
+
+#: ../simple_rich_text.py:92
+msgid "Image"
+msgstr "Image"
+
+#: ../simple_rich_text.py:77
+msgid "Italic"
+msgstr "Italique"
+
+#: ../simple_rich_text.py:87
+msgid "Link"
+msgstr "Lien"
+
+#: ../improved_checkbox_input.pt:58
+msgid "Next"
+msgstr "Suivant"
+
+#: ../related_search.pt:38
+msgid "No Results"
+msgstr "Sans résultat"
+
+#: ../improved_checkbox_input.pt:54
+msgid "Prev"
+msgstr "Précédent"
+
+#: ../related_input.pt:28
+msgid "Recent Items"
+msgstr "Éléments récents"
+
+#: ../related_input.pt:16
+msgid "Search"
+msgstr "Recherche"
+
+#: ../related_recurse.pt:34
+#: ../related_search.pt:34
+msgid "Show More"
+msgstr "Plus d'info"
+
+#: ../simple_rich_text.py:68
+msgid "Show the \"format block\" drop down."
+msgstr "Affiche le menu déroulant de \"format bloc\"."
+
+#: ../simple_rich_text.py:73
+msgid "Show the bold button."
+msgstr "Affiche le bouton gras."
+
+#: ../simple_rich_text.py:93
+msgid "Show the image button."
+msgstr "Affiche le bouton image."
+
+#: ../simple_rich_text.py:78
+msgid "Show the italic button."
+msgstr "Affiche le bouton italique."
+
+#: ../simple_rich_text.py:88
+msgid "Show the link button."
+msgstr "Affiche le bouton lien."
+
+#: ../simple_rich_text.py:83
+msgid "Show the unordered list button."
+msgstr "Affiche le bouton liste non ordonnée."
+
+#: ../simple_rich_text.py:82
+msgid "Unordered list"
+msgstr "Liste non ordonnée"
+
+#. Default: "Browse for items"
+#: ../related_input.pt:13
+msgid "heading_contenttree_browse"
+msgstr ""
+
+#. Default: "Accept"
+#: ../related_input.pt:57
+msgid "label_contenttree_add"
+msgstr ""
+
+#. Default: "Cancel"
+#: ../related_input.pt:57
+msgid "label_contenttree_cancel"
+msgstr ""
+
