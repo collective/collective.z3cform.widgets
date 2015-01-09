@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-09-04 16:34+0000\n"
+"POT-Creation-Date: 2015-01-09 09:04+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -13,4 +13,28 @@ msgstr ""
 "Language-Name: Nederlands\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
+
+#: configure.zcml
+msgid "A widget package for Plone 4 projects."
+msgstr ""
+
+#: ../profiles/test/types/dexteritytest.xml
+msgid "None"
+msgstr ""
+
+#: configure.zcml
+msgid "Uninstall profile for the collective.z3cform.widgets package."
+msgstr ""
+
+#: configure.zcml
+msgid "collective.z3cform.widgets"
+msgstr ""
+
+#: configure.zcml
+msgid "collective.z3cform.widgets uninstall"
+msgstr ""
+
+#: ../profiles/test/types/dexteritytest.xml
+msgid "dexterityTest"
+msgstr ""
 

@@ -4,6 +4,9 @@ There's a frood who really knows where his towel is
 1.0b12 (unreleased)
 ^^^^^^^^^^^^^^^^^^^
 
+- Add update.sh script to generate translations.
+  [sophiejazwiecki]
+
 - Fix i18n.
   [vincentfretin]
 

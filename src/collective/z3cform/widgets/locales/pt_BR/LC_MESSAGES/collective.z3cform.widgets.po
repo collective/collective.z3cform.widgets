@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2012-09-04 16:50+0000\n"
+"POT-Creation-Date: 2015-01-09 09:04+0000\n"
 "PO-Revision-Date: 2012-09-04 13:53-0300\n"
 "Last-Translator: Héctor Velarde <hector.velarde@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <>\n"
@@ -15,79 +15,127 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#: configure.zcml
-msgid "A widget package for Plone 4 projects."
-msgstr "Um pacote de widgets para projetos do Plone 4."
-
-#: collective/z3cform/widgets/enhancedtextlines.py:41
+#: ../enhancedtextlines.py:42
 msgid "Add"
 msgstr "Adicionar"
 
-#: collective/z3cform/widgets/enhancedtextlines.py:42
+#: ../enhancedtextlines.py:43
 msgid "Add Option"
 msgstr "Adicionar opção"
 
-#: collective/z3cform/widgets/related_input.pt:26
+#: ../simple_rich_text.py:97
+msgid "Allow to disable"
+msgstr ""
+
+#: ../simple_rich_text.py:98
+msgid "Allow to disable the editor."
+msgstr ""
+
+#: ../simple_rich_text.py:61
+msgid "Allow to specify the height of the iframe"
+msgstr ""
+
+#: ../simple_rich_text.py:72
+msgid "Bold"
+msgstr ""
+
+#: ../related_input.pt:33
 msgid "Content To Relate"
 msgstr "Conteúdo para se relacionar"
 
-#: collective/z3cform/widgets/enhancedtextlines.py:43
+#: ../enhancedtextlines.py:44
 msgid "Delete Option"
 msgstr "Excluir opção"
 
-#: collective/z3cform/widgets/enhancedtextlines.py:44
+#: ../enhancedtextlines.py:45
 msgid "Edit Option"
 msgstr "Editar opção"
 
-#: collective/z3cform/widgets/improved_checkbox_input.pt:58
+#: ../simple_rich_text.py:67
+msgid "Format block"
+msgstr ""
+
+#: ../simple_rich_text.py:60
+msgid "Iframe height"
+msgstr ""
+
+#: ../simple_rich_text.py:92
+msgid "Image"
+msgstr ""
+
+#: ../simple_rich_text.py:77
+msgid "Italic"
+msgstr ""
+
+#: ../simple_rich_text.py:87
+msgid "Link"
+msgstr ""
+
+#: ../improved_checkbox_input.pt:58
 msgid "Next"
 msgstr "Próx."
 
-#: collective/z3cform/widgets/related_search.pt:38
+#: ../related_search.pt:38
 msgid "No Results"
 msgstr "Sem resultados"
 
-#: collective/z3cform/widgets/improved_checkbox_input.pt:54
+#: ../improved_checkbox_input.pt:54
 msgid "Prev"
 msgstr "Prév."
 
-#: collective/z3cform/widgets/related_input.pt:21
+#: ../related_input.pt:28
 msgid "Recent Items"
 msgstr "Itens recentes"
 
-#: collective/z3cform/widgets/related_input.pt:14
+#: ../related_input.pt:16
 msgid "Search"
 msgstr "Busca"
 
-#: collective/z3cform/widgets/related_recurse.pt:34
-#: collective/z3cform/widgets/related_search.pt:34
+#: ../related_recurse.pt:34
+#: ../related_search.pt:34
 msgid "Show More"
 msgstr "Mostrar mais"
 
-#: configure.zcml
-msgid "Uninstall profile for the collective.z3cform.widgets package."
-msgstr "Perfil de desinstalação para o pacote collective.z3cform.widgets."
+#: ../simple_rich_text.py:68
+msgid "Show the \"format block\" drop down."
+msgstr ""
 
-#: configure.zcml
-msgid "collective.z3cform.widgets"
-msgstr "collective.z3cform.widgets"
+#: ../simple_rich_text.py:73
+msgid "Show the bold button."
+msgstr ""
 
-#: configure.zcml
-msgid "collective.z3cform.widgets uninstall"
-msgstr "Desintalar o collective.z3cform.widgets"
+#: ../simple_rich_text.py:93
+msgid "Show the image button."
+msgstr ""
+
+#: ../simple_rich_text.py:78
+msgid "Show the italic button."
+msgstr ""
+
+#: ../simple_rich_text.py:88
+msgid "Show the link button."
+msgstr ""
+
+#: ../simple_rich_text.py:83
+msgid "Show the unordered list button."
+msgstr ""
+
+#: ../simple_rich_text.py:82
+msgid "Unordered list"
+msgstr ""
 
 #. Default: "Browse for items"
-#: collective/z3cform/widgets/related_input.pt:11
+#: ../related_input.pt:13
 msgid "heading_contenttree_browse"
 msgstr "Procurar por itens"
 
 #. Default: "Accept"
-#: collective/z3cform/widgets/related_input.pt:43
+#: ../related_input.pt:57
 msgid "label_contenttree_add"
 msgstr "Aceitar"
 
 #. Default: "Cancel"
-#: collective/z3cform/widgets/related_input.pt:43
+#: ../related_input.pt:57
 msgid "label_contenttree_cancel"
 msgstr "Cancelar"
 
