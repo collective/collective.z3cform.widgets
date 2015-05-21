@@ -69,7 +69,7 @@ if(jQuery) (function($){
 
 (function ($) {
    $.fn.liveDraggable = function (opts) {
-      this.live("mouseover", function() {
+      $('body').on('mouseover', $(this), function() {
          if (!$(this).data("init")) {
             $(this).data("init", true).draggable(opts);
          }
@@ -80,11 +80,11 @@ if(jQuery) (function($){
 
 $(function() {
       $("#form-widgets-relatedItems-contenttree-window").draggable();
-	  $( ".relatedWidget ul.from .navTreeItem").liveDraggable({ containment: ".relatedWidget",  scroll: false, helper: "clone"}); 
+	  $( ".relatedWidget ul.from .navTreeItem").liveDraggable({ containment: ".relatedWidget",  scroll: false, helper: "clone"});
 	  $(".relatedWidget ul.recieve").droppable({
         			activeClass: "ui-state-default",
         			hoverClass: "ui-state-hover",
-        			drop: function(event, ui) {        			  
+        			drop: function(event, ui) {
         			  var children = $(this).children();
         			  var i = 0;
         			  var exists = false;
@@ -103,15 +103,15 @@ $(function() {
         			    }
         			    clon.append("<div class='related-item-close'>X</div>");
         			    clon.appendTo( this );
-        			  }	
+        			  }
         			}
         		}).sortable();
     $(".relatedWidget ul.recieve li").append("<div class='related-item-close'>X</div>");
-    $(".relatedWidget ul.recieve li a").live("click", function(e) {
+    $('body').on('click', '.relatedWidget ul.recieve li a', function(){
       e.preventDefault();
       return false;
     });
-    $(".related-item-close").live("click", function() {
+    $('body').on('click', '.related-item-close', function(){
         $(this).parent().remove();
     });
 
