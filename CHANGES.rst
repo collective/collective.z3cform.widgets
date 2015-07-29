@@ -11,9 +11,6 @@ There's a frood who really knows where his towel is
 - Add French translations.
   [sophiejazwiecki]
 
-- Add update.sh script to generate translations.
-  [sophiejazwiecki]
-
 - Fix i18n.
   [vincentfretin]
 
