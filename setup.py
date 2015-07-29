@@ -15,7 +15,7 @@ setup(name='collective.z3cform.widgets',
       description="A widget package for Dexterity projects.",
       long_description=long_description,
       classifiers=[
-          "Development Status :: 4 - Beta",
+          "Development Status :: 5 - Production/Stable",
           "Environment :: Web Environment",
           "Framework :: Plone",
           "Framework :: Plone :: 4.2",
