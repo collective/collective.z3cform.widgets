@@ -104,7 +104,7 @@ class MultiContentSearchWidget(MultiContentTreeWidget):
 
         try:
             self.related_batch = int(self.request.get("related_batch", 1))
-        except:
+        except:  # FIXME
             self.related_batch = 1
 
         if prev:
