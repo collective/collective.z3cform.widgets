@@ -3,7 +3,7 @@ Changelog
 
 There's a frood who really knows where his towel is.
 
-1.0b12 (unreleased)
+1.0rc1 (2015-07-29)
 ^^^^^^^^^^^^^^^^^^^
 
 - Fix JS to be jQuery 1.9 compat
