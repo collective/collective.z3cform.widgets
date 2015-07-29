@@ -2,140 +2,157 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2015-01-09 09:04+0000\n"
-"PO-Revision-Date: 2012-09-04 13:53-0300\n"
+"POT-Creation-Date: 2015-07-29 22:13+0000\n"
+"PO-Revision-Date: 2015-07-29 19:15-0300\n"
 "Last-Translator: Héctor Velarde <hector.velarde@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "Language-Code: en\n"
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
+"Language: pt_BR\n"
+"X-Generator: Poedit 1.7.5\n"
 
-#: ../enhancedtextlines.py:42
+#: configure.zcml
+msgid "A widget package for Plone 4 projects."
+msgstr "Um pacote de widgets para projetos com Plone 4."
+
+#: collective/z3cform/widgets/enhancedtextlines.py:43
 msgid "Add"
 msgstr "Adicionar"
 
-#: ../enhancedtextlines.py:43
+#: collective/z3cform/widgets/enhancedtextlines.py:44
 msgid "Add Option"
 msgstr "Adicionar opção"
 
-#: ../simple_rich_text.py:97
+#: collective/z3cform/widgets/simple_rich_text.py:98
 msgid "Allow to disable"
 msgstr ""
 
-#: ../simple_rich_text.py:98
+#: collective/z3cform/widgets/simple_rich_text.py:99
 msgid "Allow to disable the editor."
 msgstr ""
 
-#: ../simple_rich_text.py:61
+#: collective/z3cform/widgets/simple_rich_text.py:62
 msgid "Allow to specify the height of the iframe"
 msgstr ""
 
-#: ../simple_rich_text.py:72
+#: collective/z3cform/widgets/simple_rich_text.py:73
 msgid "Bold"
 msgstr ""
 
-#: ../related_input.pt:33
+#: collective/z3cform/widgets/related_input.pt:33
 msgid "Content To Relate"
 msgstr "Conteúdo para se relacionar"
 
-#: ../enhancedtextlines.py:44
+#: collective/z3cform/widgets/enhancedtextlines.py:45
 msgid "Delete Option"
 msgstr "Excluir opção"
 
-#: ../enhancedtextlines.py:45
+#: collective/z3cform/widgets/enhancedtextlines.py:46
 msgid "Edit Option"
 msgstr "Editar opção"
 
-#: ../simple_rich_text.py:67
+#: collective/z3cform/widgets/simple_rich_text.py:68
 msgid "Format block"
 msgstr ""
 
-#: ../simple_rich_text.py:60
+#: collective/z3cform/widgets/simple_rich_text.py:61
 msgid "Iframe height"
 msgstr ""
 
-#: ../simple_rich_text.py:92
+#: collective/z3cform/widgets/simple_rich_text.py:93
 msgid "Image"
 msgstr ""
 
-#: ../simple_rich_text.py:77
+#: collective/z3cform/widgets/simple_rich_text.py:78
 msgid "Italic"
 msgstr ""
 
-#: ../simple_rich_text.py:87
+#: collective/z3cform/widgets/simple_rich_text.py:88
 msgid "Link"
 msgstr ""
 
-#: ../improved_checkbox_input.pt:58
+#: collective/z3cform/widgets/improved_checkbox_input.pt:58
 msgid "Next"
 msgstr "Próx."
 
-#: ../related_search.pt:38
+#: collective/z3cform/widgets/related_search.pt:38
 msgid "No Results"
 msgstr "Sem resultados"
 
-#: ../improved_checkbox_input.pt:54
+#: collective/z3cform/widgets/improved_checkbox_input.pt:54
 msgid "Prev"
 msgstr "Prév."
 
-#: ../related_input.pt:28
+#: collective/z3cform/widgets/related_input.pt:28
 msgid "Recent Items"
 msgstr "Itens recentes"
 
-#: ../related_input.pt:16
+#: collective/z3cform/widgets/related_input.pt:16
 msgid "Search"
 msgstr "Busca"
 
-#: ../related_recurse.pt:34
-#: ../related_search.pt:34
+#: collective/z3cform/widgets/related_recurse.pt:34
+#: collective/z3cform/widgets/related_search.pt:34
 msgid "Show More"
 msgstr "Mostrar mais"
 
-#: ../simple_rich_text.py:68
+#: collective/z3cform/widgets/simple_rich_text.py:69
 msgid "Show the \"format block\" drop down."
 msgstr ""
 
-#: ../simple_rich_text.py:73
+#: collective/z3cform/widgets/simple_rich_text.py:74
 msgid "Show the bold button."
 msgstr ""
 
-#: ../simple_rich_text.py:93
+#: collective/z3cform/widgets/simple_rich_text.py:94
 msgid "Show the image button."
 msgstr ""
 
-#: ../simple_rich_text.py:78
+#: collective/z3cform/widgets/simple_rich_text.py:79
 msgid "Show the italic button."
 msgstr ""
 
-#: ../simple_rich_text.py:88
+#: collective/z3cform/widgets/simple_rich_text.py:89
 msgid "Show the link button."
 msgstr ""
 
-#: ../simple_rich_text.py:83
+#: collective/z3cform/widgets/simple_rich_text.py:84
 msgid "Show the unordered list button."
 msgstr ""
 
-#: ../simple_rich_text.py:82
+#: configure.zcml
+msgid "Uninstall profile for the collective.z3cform.widgets package."
+msgstr ""
+
+#: collective/z3cform/widgets/simple_rich_text.py:83
 msgid "Unordered list"
 msgstr ""
 
+#: configure.zcml
+msgid "collective.z3cform.widgets"
+msgstr ""
+
+#: configure.zcml
+msgid "collective.z3cform.widgets uninstall"
+msgstr ""
+
 #. Default: "Browse for items"
-#: ../related_input.pt:13
+#: collective/z3cform/widgets/related_input.pt:13
 msgid "heading_contenttree_browse"
 msgstr "Procurar por itens"
 
 #. Default: "Accept"
-#: ../related_input.pt:57
+#: collective/z3cform/widgets/related_input.pt:57
 msgid "label_contenttree_add"
 msgstr "Aceitar"
 
 #. Default: "Cancel"
-#: ../related_input.pt:57
+#: collective/z3cform/widgets/related_input.pt:57
 msgid "label_contenttree_cancel"
 msgstr "Cancelar"
-
