@@ -53,9 +53,9 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
-  	<genericsetup:upgradeSteps
-      	source="1"
-      	destination="2"
+    <genericsetup:upgradeSteps
+        source="1"
+        destination="2"
         profile="collective.z3cform.widgets:default">
 
         <genericsetup:upgradeStep

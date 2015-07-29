@@ -4,7 +4,7 @@
             <tal:level>
               <tal:block>
                 <a tal:attributes="href item_url;">
-                    
+
                     <span tal:content="python: node['label']" i18n:translate="">Selected Item Title</span>
                 </a>
               </tal:block>
