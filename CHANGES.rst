@@ -1,10 +1,14 @@
-There's a frood who really knows where his towel is
----------------------------------------------------
+Changelog
+---------
+
+There's a frood who really knows where his towel is.
 
 1.0b12 (unreleased)
 ^^^^^^^^^^^^^^^^^^^
 
 - Fix JS to be jQuery 1.9 compat
+  [simahawk]
+
 - Make CSS resources render as <link />
   [simahawk]
 
@@ -23,8 +27,8 @@ There's a frood who really knows where his towel is
   ``plone.formwidget.autocomplete``.
   [rnixx]
 
-- remove zope.i18n from package dependencies in order to avoid 
-  conflicting zcml with between zope.i18n and Zope2 Publihser 
+- remove zope.i18n from package dependencies in order to avoid
+  conflicting zcml with between zope.i18n and Zope2 Publihser
   i18n.zcml
   [jensens]
 

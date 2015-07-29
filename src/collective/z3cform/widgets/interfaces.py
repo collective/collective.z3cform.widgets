@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import zope.interface
 from z3c.form import interfaces
 
