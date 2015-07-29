@@ -10,7 +10,7 @@ Life, the Universe, and Everything
 A widget package for Dexterity projects.
 
 .. Warning::
-    This package is no longer being actively maintained.
+    This package will no longer be actively maintained.
     Take a look at `plone.app.widgets`_ for an alternative set of widgets.
 
 collective.z3cform.widgets provides the following widgets:
@@ -47,7 +47,9 @@ collective.z3cform.widgets provides the following widgets:
 
 **MultiContentSearchFieldWidget**
     A widget to add a dynamic list of objects. This works as a widget for
-    related items field so it must be used like this::
+    related items field so it must be used like this:
+
+.. code-block::
 
         relatedItems = RelationList(
             title=_(u'label_related_items', default=u'Related Items'),
@@ -80,17 +82,14 @@ collective.z3cform.widgets provides the following widgets:
 Mostly Harmless
 ---------------
 
-.. image:: https://secure.travis-ci.org/collective/collective.z3cform.widgets.png?branch=master
-    :alt: Travis CI badge
+.. image:: http://img.shields.io/pypi/v/collective.z3cform.widgets.svg
+    :target: https://pypi.python.org/pypi/collective.z3cform.widgets
+
+.. image:: https://img.shields.io/travis/collective/collective.z3cform.widgets/master.svg
     :target: http://travis-ci.org/collective/collective.z3cform.widgets
 
-.. image:: https://coveralls.io/repos/collective/collective.z3cform.widgets/badge.png?branch=master
-    :alt: Coveralls badge
+.. image:: https://img.shields.io/coveralls/collective/collective.z3cform.widgets/master.svg
     :target: https://coveralls.io/r/collective/collective.z3cform.widgets
-
-.. image:: https://pypip.in/d/collective.z3cform.widgets/badge.png
-    :alt: Downloads
-    :target: https://pypi.python.org/pypi/collective.z3cform.widgets
 
 Got an idea? Found a bug? Let us know by `opening a support ticket`_.
 
@@ -128,6 +127,8 @@ New fields
     To use this widget we must use a List field or a Tuple field with the
     value_type as an schema.TextLine() like this::
 
+.. code-block::
+
         from collective.z3cform.widgets.enhancedtextlines import EnhancedTextLinesFieldWidget
 
         form.widget(options = EnhancedTextLinesFieldWidget)
@@ -140,6 +141,8 @@ New fields
 **TokenInputFieldWidget**
     To use this Widget we must use a List field or a Tuple field with the
     value_type as a schema.TextLine() like this::
+
+.. code-block::
 
         from collective.z3cform.widgets.token_input_widget import TokenInputFieldWidget
 
@@ -154,6 +157,8 @@ New fields
     The parameters passed to the ObjPathSourceBinder class are used to filter
     the search of elements to relate to.. if none parameter are passed, a tree
     structure is shown in the widget::
+
+.. code-block::
 
         from collective.z3cform.widgets.multicontent_search_widget import MultiContentSearchFieldWidget
 
