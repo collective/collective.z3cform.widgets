@@ -6,7 +6,8 @@ There's a frood who really knows where his towel is.
 1.0rc2 (unreleased)
 ^^^^^^^^^^^^^^^^^^^
 
-- Nothing changed yet.
+- Explicitly remove browser layer using an uninstall profile.
+  [agitator]
 
 
 1.0rc1 (2015-07-29)
